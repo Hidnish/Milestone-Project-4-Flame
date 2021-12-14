@@ -18,19 +18,37 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+        .navbar-brand {
+            font-family: "Berkshire Swash", sans-serif;
+            font-size: 25px;
+        }
+        .nav-link  {
+            color: white !important;
+        }
+
+        .box-account {
+            background-color: rgb(22, 21, 21)!important; 
+            border-radius: 10px!important;
+        }
+        
         @media (max-width: 992px) {
+
             .mobileMenuOpen {
-                right: 0 !important;
+                left: 0 !important;
                 transition: all ease 0.5s;
                 -webkit-transition: all ease 0.5s;
             }
 
             .mobileMenu {
+                box-shadow: 0 0 3px 1px;
+                border-radius: 0 20px 20px 0;
                 position: fixed;
                 top: 0;
                 bottom: 0;
                 margin: auto;
-                right: -150%;
+                left: -100%;
                 -webkit-transition: all ease 0.7s;
                 transition: all ease 0.7s;
             }
@@ -107,49 +125,109 @@
 <body>
 
     <header class="container-fluid fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-sm-start fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Flame</a>
-                <button class="navbar-toggler align-self-start ml-auto" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse bg-dark p-3 p-lg-0 mt-lg-0 d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end mobileMenu"
-                    id="navbarSupportedContent">
-                    <ul class="navbar-nav align-self-stretch">
-                        <li class="nav-item active">
-                            <a class="nav-link m-2" href="{% url 'home' %}">Home</a>
-                        </li>
-                        <li class="nav-item dropdown m-2">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Products
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Pellet Stoves</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Wooden Stoves</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Gas Stoves</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <form method="GET" action="#">
-                        <div class="input-group w-100 m-1">
-                            <input class="form-control border" type="text" name="q" placeholder="Search our site">
-                            <div class="input-group-append">
-                                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                                    <span class="icon">
-                                        <i class="fas fa-search text-white"></i>
-                                    </span>
-                                </button>
-                            </div>
+        <nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
+
+            <a class="navbar-brand d-none d-lg-block" href="#">Flame.com</a>
+            <button class="navbar-toggler mr-auto" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse bg-dark p-3 p-lg-0 mt-lg-0 d-flex flex-column flex-lg-row mr-2 justify-content-lg-center mobileMenu"
+                id="navbarSupportedContent">
+                <form method="GET" action="#">
+                    <div class="input-group w-100 px-3 py-2 py-lg-0">
+                        <input class="form-control border" type="text" name="q" placeholder="Search our site">
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search text-white"></i>
+                                </span>
+                            </button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
+                <ul class="navbar-nav align-self-stretch">
+                    <li class="nav-item active d-md-block d-lg-none">
+                        <a class="nav-link px-3 py-2 py-lg-0" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown px-3 py-2 py-lg-0">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Pellet Stoves</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Wooden Stoves</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Gas Stoves</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown px-3 py-2 py-lg-0">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Brands
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Pellet Stoves</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Wooden Stoves</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Gas Stoves</a>
+                        </div>
+                    </li>
+                    <li class="nav-item px-3 py-2 py-lg-0 d-flex align-items-center">
+                        <a class="nav-link" href="{% url 'home' %}">Blog</a>
+                    </li>
+                </ul>
+
+            </div>
+            <ul class="list-inline list-unstyled text-center text-lg-right my-0 box-account">
+                <li class="list-inline-item dropdown">
+                    <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center">
+                            <div><i class="fas fa-user fa-md"></i></div>
+                            <p class="my-0">My Account</p>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <a href="#" class="dropdown-item">Product Management</a>
+                        <div class="dropdown-divider"></div>
+                        {% endif %}
+                        <a href="#" class="dropdown-item">My Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Logout</a>
+                        {% else %}
+                        <a href="#" class="dropdown-item">Register</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </li>
+                <li class="list-inline-item">
+                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                        href="#">
+                        <div class="text-center">
+                            <div><i class="fas fa-shopping-cart fa-md"></i></div>
+                            <p class="my-0">
+                                {% if grand_total %}
+                                ${{ grand_total|floatformat:2 }}
+                                {% else %}
+                                $0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
             </div>
         </nav>
         <div class="overlay"></div>
+
     </header>
 
     {% if messages %}
