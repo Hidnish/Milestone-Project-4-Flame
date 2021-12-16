@@ -1,0 +1,133 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    /* background-color: rgb(15, 15, 15); */
+    background-color: black;
+}
+
+.pt-10 {
+    padding-top: 10%;
+}
+
+.home-container {
+    height: 100vh; 
+
+    background: linear-gradient(to top, transparent, #000000), url('/media/homepage-hero.jpg');
+    background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000)), url('/media/homepage-hero.jpg');
+    background: -o-linear-gradient(bottom, transparent, #000000), url('/media/homepage-hero.jpg');
+    /* background: url('/media/homepage-hero.jpg'); */
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+/* FIX LOCATONS */
+
+.navbar-brand {
+    font-size: 35px;
+}
+
+.logo-font {
+    font-family: 'Mrs Saint Delafield', sans-serif;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.scale:hover {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+}
+
+.box-account {
+    background-color: rgb(22, 21, 21) !important;
+    border-radius: 10px !important;
+}
+
+.bg-dark {
+    background-color: transparent !important;
+}
+
+.bg-dark-seet {
+    background-color: transparent !important;
+}
+
+.navbar {
+    background: linear-gradient(to top, transparent, #000000);
+    background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000));
+    background: -o-linear-gradient(bottom, transparent, #000000);
+
+} 
+
+@media (max-width: 992px) {
+
+    .bg-dark {
+        background-color: rgb(20, 20, 20) !important;
+    }
+
+    .mobileMenuOpen {
+        left: 0 !important;
+        transition: all ease 0.5s;
+        -webkit-transition: all ease 0.5s;
+    }
+
+    .mobileMenu {
+        /* box-shadow: 0 0 3px 1px; */
+        z-index: 9999;
+        border-radius: 0 20px 20px 0;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: -100%;
+        -webkit-transition: all ease 0.7s;
+        transition: all ease 0.7s;
+    }
+
+    .mobileMenu .navbar-nav {
+        overflow-y: auto;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+    }
+
+    .overlay.open {
+        display: block;
+        z-index: 1029;
+    }
+
+    .navbar-toggler {
+        border: none !important;
+    }
+}
