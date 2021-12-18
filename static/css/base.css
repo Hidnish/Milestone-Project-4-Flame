@@ -1,3 +1,5 @@
+/* General */
+
 html {
     height: 100%;
 }
@@ -7,43 +9,26 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     /* background-color: rgb(15, 15, 15); */
-    background-color: black;
+    background-color: rgb(27, 26, 26);
 }
 
 .pt-10 {
     padding-top: 10%;
 }
 
-.home-container {
-    height: 100vh; 
-
-    background: linear-gradient(to top, transparent, #000000), url('/media/homepage-hero.jpg');
-    background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000)), url('/media/homepage-hero.jpg');
-    background: -o-linear-gradient(bottom, transparent, #000000), url('/media/homepage-hero.jpg');
-    /* background: url('/media/homepage-hero.jpg'); */
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-size: cover;
+.bg-grey {
+    background-color: rgb(15, 15, 15);
 }
 
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
+.bg-dark {
+    background-color: transparent !important;
 }
 
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 80%;
-    }
+.bg-dark-seet {
+    background-color: transparent !important;
 }
 
-/* FIX LOCATONS */
+/* Navbar */
 
 .navbar-brand {
     font-size: 35px;
@@ -67,20 +52,44 @@ body {
     border-radius: 10px !important;
 }
 
-.bg-dark {
-    background-color: transparent !important;
-}
-
-.bg-dark-seet {
-    background-color: transparent !important;
-}
-
 .navbar {
     background: linear-gradient(to top, transparent, #000000);
     background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000));
     background: -o-linear-gradient(bottom, transparent, #000000);
 
 } 
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Home page */
+
+.home-container {
+    height: 100vh; 
+
+    background: linear-gradient(to top, transparent, #000000), url('/media/homepage-hero.jpg');
+    background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000)), url('/media/homepage-hero.jpg');
+    background: -o-linear-gradient(bottom, transparent, #000000), url('/media/homepage-hero.jpg');
+    /* background: url('/media/homepage-hero.jpg'); */
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+}
 
 @media (max-width: 992px) {
 
