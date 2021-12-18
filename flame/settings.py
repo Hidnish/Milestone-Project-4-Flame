@@ -75,6 +75,8 @@ TEMPLATES = [
                 # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # provide brand object to all views
+                'flame.context_processors.all_brands',
             ],
         },
     },

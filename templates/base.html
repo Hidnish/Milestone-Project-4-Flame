@@ -109,11 +109,11 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Pellet Stoves</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=pellet_stoves">Pellet Stoves</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Wooden Stoves</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=wood_stoves">Wooden Stoves</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Gas Stoves</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=gas_stoves">Gas Stoves</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown px-3 py-2 py-lg-0">
@@ -122,11 +122,12 @@
                             Brands
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Pellet Stoves</a>
+                            {% for brand in brands %}
+                            <a class="dropdown-item" href="{% url 'products' %}?brand={{brand.name}}">{{brand.friendly_name}}</a>
+                            {% if not forloop.last  %}
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Wooden Stoves</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Gas Stoves</a>
+                            {% endif%}
+                            {% endfor %}
                         </div>
                     </li>
                     <li class="nav-item px-3 py-2 py-lg-0">
