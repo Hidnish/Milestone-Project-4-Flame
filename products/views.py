@@ -11,29 +11,46 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
+    sort = None
+    direction = None
 
     if request.GET:
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(request, 'You did not enter any search criteria!')
-                return redirect(reverse('products'))
-            
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__name__icontains=query) | Q(category__name__icontains=query)
-            products = products.filter(queries)
 
-    if 'category' in request.GET:
-        category = request.GET['category']
-        products = products.filter(category__name=category)
-        # current_category = Category.objects.filter(name__in=category)
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
 
-    if 'brand' in request.GET:
-        this_brand = request.GET['brand']
-        products = products.filter(brand__name=this_brand)
+        if 'category' in request.GET:
+            category = request.GET['category']
+            products = products.filter(category__name=category)
+
+        if 'brand' in request.GET:
+            this_brand = request.GET['brand']
+            products = products.filter(brand__name=this_brand)
+
+            if 'q' in request.GET:
+                query = request.GET['q']
+                if not query:
+                    messages.error(request, 'You did not enter any search criteria!')
+                    return redirect(reverse('products'))
+                
+                queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__name__icontains=query) | Q(category__name__icontains=query)
+                products = products.filter(queries)
+    
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
         'search_term': query,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
