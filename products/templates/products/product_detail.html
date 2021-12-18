@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="space" style="height: 20vh;"></div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 col-md-6 col-lg-4 offset-lg-2">
+            <div class="image-container my-5">
+                {% if product.image %}
+                <a href="{{ product.image.url }}" target="_blank">
+                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="product-details-container mb-5 mt-md-5 text-white">
+                <p class="mb-0">{{ product.name }}</p>
+                <p class="mb-0">{{ product.brand.friendly_name }}</p>
+                <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                <p class="mt-3">{{ product.description }}</p>
+                <a href="{{ product.url }}" target="_blank" class="mt-3">Link for technical details</a>
+            </div>
+        </div>
+    </div>
+    <hr class="bg-white w-75">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-white text-center my-5">
+                <h3 class="font-weight-light">Related products</h3>
+            </div>
+            {% for rel_product in related_products %}
+                {% if rel_product.id != product.id %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card h-100 border-0">
+                            {% if rel_product.image %}
+                            <a href="{% url 'product_detail' rel_product.id %}">
+                                <img class="card-img-top img-fluid" src="{{ rel_product.image.url }}"
+                                    alt="{{ rel_product.name }}">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'product_detail' rel_product.id %}">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                    alt="{{ rel_product.name }}">
+                            </a>
+                            {% endif %}
+                            <div class="bg-grey text-white card-body pb-0">
+                                <p class="mb-0">{{ rel_product.name }}</p>
+                                <p class="mb-0">{{ rel_product.brand.friendly_name }}</p>
+                            </div>
+                            <div class="text-white bg-grey card-footer pt-0 border-0 text-left">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="lead mb-0 text-left font-weight-bold">${{ rel_product.price }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- {% if forloop.counter|divisibleby:1 %}
+                    <div class="col-12 d-sm-none mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:4 %}
+                    <div class="col-12 d-none d-xl-block mb-5">
+                        <hr>
+                    </div>
+                    {% endif %} -->
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
