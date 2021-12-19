@@ -48,16 +48,25 @@ body {
 }
 
 .box-account {
-    background-color: rgb(22, 21, 21) !important;
+    background-color: rgb(32, 30, 30) !important;
     border-radius: 10px !important;
 }
 
-.navbar {
+.navbar-bg {
     background: linear-gradient(to top, transparent, #000000);
     background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000));
     background: -o-linear-gradient(bottom, transparent, #000000);
+    -webkit-transition: background-color 300ms linear;
+    -ms-transition: background-color 300ms linear;
+    transition: background-color 300ms linear;
+}
 
-} 
+.navbar.scrolled {
+    background-color: rgba(17, 16, 16, 0.97) !important;
+    transition: background-color 400ms linear;
+    -webkit-transition: background-color 400ms linear;
+    -ms-transition: background-color 400ms linear;
+}
 
 .icon {
     align-items: center;
@@ -79,6 +88,17 @@ body {
     background-repeat: no-repeat; 
     background-position: center;
     background-size: cover;
+}
+
+/* Products */
+
+.card {
+    background-color: transparent!important;
+}
+
+.card:hover {
+    transform: scale(1.025);
+    transition: all ease 0.3s;
 }
 
 
