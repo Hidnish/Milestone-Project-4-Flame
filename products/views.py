@@ -13,6 +13,8 @@ def all_products(request):
     query = None
     sort = None
     direction = None
+    brand = None
+    category = None
 
     if request.GET:
 
@@ -29,21 +31,23 @@ def all_products(request):
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
-            category = request.GET['category']
-            products = products.filter(category__name=category)
+            this_category = request.GET['category']
+            products = products.filter(category__name=this_category)
+            category = Category.objects.get(name=this_category)
 
         if 'brand' in request.GET:
             this_brand = request.GET['brand']
             products = products.filter(brand__name=this_brand)
+            brand = Brand.objects.get(name=this_brand)
 
-            if 'q' in request.GET:
-                query = request.GET['q']
-                if not query:
-                    messages.error(request, 'You did not enter any search criteria!')
-                    return redirect(reverse('products'))
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, 'You did not enter any search criteria!')
+                return redirect(reverse('products'))
 
-                queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__name__icontains=query) | Q(category__name__icontains=query)
-                products = products.filter(queries)
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__name__icontains=query) | Q(category__name__icontains=query)
+            products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
 
@@ -51,6 +55,8 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'current_sorting': current_sorting,
+        'current_category': category,
+        'current_brand': brand,
     }
 
     return render(request, 'products/products.html', context)
