@@ -12,10 +12,6 @@ body {
     background-color: rgb(27, 26, 26);
 }
 
-.pt-10 {
-    padding-top: 10%;
-}
-
 .bg-grey {
     background-color: rgb(15, 15, 15);
 }
@@ -27,6 +23,23 @@ body {
 .bg-dark-seet {
     background-color: transparent !important;
 }
+
+.vh-65 {
+    height: 65vh!important;
+}
+
+.pt-10 {
+    padding-top: 10%;
+}
+
+.radius-5 {
+    border-radius: 5px!important;
+}
+
+.radius-10 {
+    border-radius: 10px!important;
+}
+
 
 /* Navbar */
 
@@ -79,7 +92,7 @@ body {
 /* Home page */
 
 .home-container {
-    height: 100vh; 
+    height: 90vh; 
 
     background: linear-gradient(to top, transparent, #000000), url('/media/homepage-hero.jpg');
     background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000)), url('/media/homepage-hero.jpg');
@@ -90,6 +103,40 @@ body {
     background-size: cover;
 }
 
+.btn-products {
+    border: 1px solid white; 
+    border-radius: 10px; 
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.bg-pellet {
+    background: url('/media/pellet-home.jpeg') no-repeat center left;
+    background-size: cover;
+    opacity: 0.7;
+}
+
+.bg-wood {
+    background: url('/media/wood-home.jpeg') no-repeat center left;
+    background-size: cover;
+    opacity: 0.7;
+}
+
+.bg-gas {
+    background: url('/media/gas-home.jpeg') no-repeat center left;
+    background-size: cover;
+    opacity: 0.7;
+}
+
+.bg-pellet:hover,
+.bg-wood:hover,
+.bg-gas:hover {
+    opacity: 1;
+    transition: all ease 0.4s;
+    -webkit-transition: all ease 0.4s;
+}
+
+
+
 /* Products */
 
 .card {
@@ -98,7 +145,9 @@ body {
 
 .card:hover {
     transform: scale(1.025);
+    -webkit-transform: scale(1.025);;
     transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
 }
 
 
