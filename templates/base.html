@@ -20,7 +20,6 @@
         href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Roboto:wght@100;300;400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-
     {% endblock %}
 
     {% block extra_css %}
@@ -57,13 +56,15 @@
             });
 
             // Slide effect from: https://newbedev.com/adding-a-slide-effect-to-bootstrap-dropdown
+
             $('.dropdown').on('show.bs.dropdown', function () {
                 $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
             });
             // Add slideUp animation to Bootstrap dropdown when collapsing.
             $('.dropdown').on('hide.bs.dropdown', function () {
                 $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-            });
+            })
+
 
             $(function () {
                 $(document).scroll(function () {
@@ -129,7 +130,7 @@
                             <a class="dropdown-item" href="{% url 'products' %}?category=pellet_stoves">Pellet
                                 Stoves</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'products' %}?category=wood_stoves">Wooden Stoves</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=wood_stoves">Wood Stoves</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'products' %}?category=gas_stoves">Gas Stoves</a>
                         </div>
