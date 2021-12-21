@@ -13,6 +13,20 @@
 {% block content %}
     <div class="container">
         <div class="row">
+            <div class="col-12 col-md-6 order-md-first">
+                <p class="text-muted mt-3 text-center text-md-left">
+                    {% if search_term or current_category or current_brand or current_sorting != 'None_None' %}
+                        <span><a href="{% url 'products' %}">View all Products</a> | </span>
+                    {% endif %}
+                    {{ products|length }} Product/s
+                    {% if search_term %} found for <strong>"{{ search_term }}"</strong>
+                    {% elif current_brand %} - Brand: <strong>{{ current_brand.friendly_name }}</strong>
+                    {% elif current_category %} - Category: <strong>{{ current_category.friendly_name }}</strong>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <div class="row">
                 {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div class="card h-100 border-0">
