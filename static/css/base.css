@@ -8,7 +8,6 @@ body {
     height: 100vh;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    /* background-color: rgb(15, 15, 15); */
     background-color: rgb(27, 26, 26);
 }
 
@@ -39,7 +38,6 @@ body {
 .radius-10 {
     border-radius: 10px!important;
 }
-
 
 /* Navbar */
 
@@ -94,13 +92,14 @@ body {
 .home-container {
     height: 90vh; 
 
-    background: linear-gradient(to top, transparent, #000000), url('/media/homepage-hero.jpg');
+    /* background: linear-gradient(to top, transparent, #000000), url('/media/homepage-hero.jpg');
     background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000)), url('/media/homepage-hero.jpg');
-    background: -o-linear-gradient(bottom, transparent, #000000), url('/media/homepage-hero.jpg');
-    /* background: url('/media/homepage-hero.jpg'); */
+    background: -o-linear-gradient(bottom, transparent, #000000), url('/media/homepage-hero.jpg'); */
+    background: url('/media/homepage-hero.jpg');
     background-repeat: no-repeat; 
     background-position: center;
     background-size: cover;
+    opacity: 0.9;
 }
 
 .btn-products {
@@ -135,8 +134,6 @@ body {
     -webkit-transition: all ease 0.4s;
 }
 
-
-
 /* Products */
 
 .card {
@@ -151,9 +148,8 @@ body {
 }
 
 
-/* -------------------------------- Media Queries */
+/* Media Queries */
 
-/* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
     .container {
         max-width: 80%;
@@ -173,7 +169,6 @@ body {
     }
 
     .mobileMenu {
-        /* box-shadow: 0 0 3px 1px; */
         z-index: 9999;
         border-radius: 0 20px 20px 0;
         position: fixed;
@@ -209,3 +204,5 @@ body {
         border: none !important;
     }
 }
+
+
