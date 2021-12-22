@@ -1,7 +1,7 @@
 {% load static %}
 
 <!doctype html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
     {% block meta %}
@@ -56,13 +56,13 @@
             });
 
             // Slide effect from: https://newbedev.com/adding-a-slide-effect-to-bootstrap-dropdown
-
+            
             $('.dropdown').on('show.bs.dropdown', function () {
-                $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
             });
             // Add slideUp animation to Bootstrap dropdown when collapsing.
             $('.dropdown').on('hide.bs.dropdown', function () {
-                $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+                $(this).find('.dropdown-menu').first().stop(true, true).slideUp(); 
             })
 
 
@@ -75,8 +75,6 @@
                         $(".navbar").removeClass('scrolled');
                         $(".navbar").addClass('navbar-bg')
                     }
-                    // $(".navbar").toggleClass('scrolled', $(this).scrollTop() > $(".navbar").height());
-                    // $(".navbar").toggleClass('navbar-bg', $(this).scrollTop() < $(".navbar").height());
                 });
             });
         });
@@ -94,7 +92,7 @@
 
         <nav class="navbar navbar-bg navbar-expand-lg navbar-dark fixed-top">
 
-            <a class="navbar-brand logo-font d-none d-lg-block" href="{% url 'home' %}"><i
+            <a class="navbar-brand logo-font d-none d-lg-block pb-0" href="{% url 'home' %}"><i
                     class="fas fa-fire fa-sm"></i> Flame</a>
             <button class="navbar-toggler mr-auto" type="button">
                 <span class="navbar-toggler-icon"></span>
