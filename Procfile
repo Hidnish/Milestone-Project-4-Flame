@@ -1,0 +1,1 @@
+web: flame.wsgi:application
