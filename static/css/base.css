@@ -39,6 +39,18 @@ body {
     border-radius: 10px!important;
 }
 
+.radius-20 {
+    border-radius: 20px!important;
+}
+
+.round-left {
+    border-radius: 20px 0 0 20px!important;
+}
+
+.round-right {
+    border-radius: 0 20px 20px 0!important;
+}
+
 /* Navbar */
 
 .navbar-brand {
@@ -47,6 +59,10 @@ body {
 
 .logo-font {
     font-family: 'Mrs Saint Delafield', sans-serif;
+}
+
+.t-shadow {
+    text-shadow: 0.3rem 0.3rem 0.4rem rgba(26, 26, 23, 0.8);
 }
 
 .nav-link {
@@ -90,7 +106,7 @@ body {
 /* Home page */
 
 .home-container {
-    height: 90vh; 
+    height: 95vh; 
 
     /* background: linear-gradient(to top, transparent, #000000), url('/media/homepage-hero.jpg');
     background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000)), url('/media/homepage-hero.jpg');
@@ -99,7 +115,6 @@ body {
     background-repeat: no-repeat; 
     background-position: center;
     background-size: cover;
-    opacity: 0.9;
 }
 
 .btn-products {
