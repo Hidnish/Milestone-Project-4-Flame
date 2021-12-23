@@ -1,0 +1,26 @@
+[
+{
+    "model": "products.category",
+    "pk": 5,
+    "fields": {
+        "name": "pellet_stoves",
+        "friendly_name": "Pellet Stoves"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 6,
+    "fields": {
+        "name": "wood_stoves",
+        "friendly_name": "Wood Stoves"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 7,
+    "fields": {
+        "name": "gas_stoves",
+        "friendly_name": "Gas Stoves"
+    }
+}
+]

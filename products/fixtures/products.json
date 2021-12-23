@@ -1,0 +1,394 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "category": 5,
+        "brand": 5,
+        "code": "pp5001340155",
+        "name": "Aris up plus steel",
+        "description": "Pellet stove with steel lining and ceramic top. Aris Up Plus is equipped with a fan for producing hot air which can be ducted to other rooms with special optional kits.",
+        "price": "1200.00",
+        "image": "1pellet.jpeg",
+        "url": "https://www.edilkamin.com/en/aris-up-plus-steel"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "category": 5,
+        "brand": 5,
+        "code": "pp5001600425",
+        "name": "Aris plus ceramic",
+        "description": "Pellet stove with ceramic sides. Aris Up Plus is equipped with a fan for producing hot air which can be ducted to other rooms with special optional kits.",
+        "price": "1100.00",
+        "image": "2pellet.jpeg",
+        "url": "https://www.edilkamin.com/en/aris-up-plus-ceramic"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "category": 5,
+        "brand": 5,
+        "code": "pp5001730010",
+        "name": "Lille 8",
+        "description": "Pellet stoves with structure and combustion chamber entirely in cast iron,\r\nwith NIGHT function and RELAX function.",
+        "price": "1200.00",
+        "image": "3pellet.jpeg",
+        "url": "https://www.edilkamin.com/en/lille"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "category": 5,
+        "brand": 6,
+        "code": "pp5001890157",
+        "name": "Lilium",
+        "description": "The Lilium pellet stove is stylish housing makes it a true decorative element. Usher in the comfort and magic of fire.",
+        "price": "1500.00",
+        "image": "4pellet.jpeg",
+        "url": "https://www.invicta.fr/en/produit/poele-a-granules-lilium-lp9-2/"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "category": 5,
+        "brand": 6,
+        "code": "pp5002111605",
+        "name": "Adrano 7",
+        "description": "Basic, simple. With the Adrano, you have the basics of efficient pellet heating.",
+        "price": "1300.00",
+        "image": "5pellet.jpeg",
+        "url": "https://www.invicta.fr/en/produit/adrano-7-2/"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "category": 6,
+        "brand": 8,
+        "code": "pp5002820147",
+        "name": "Davos",
+        "description": "The original Alpine stove featuring compact forms and a new modern style that adds character wherever you place it. It can be fitted with fireboxes of various powers, proportions and sizes.",
+        "price": "1800.00",
+        "image": "1wood.jpeg",
+        "url": "https://www.piazzetta.com/en/wood-stoves/majolica-davos-installation-wall-corner-energy-class-a"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "category": 6,
+        "brand": 8,
+        "code": "pp5002910572",
+        "name": "E911",
+        "description": "Elegant and refined, this wood-burning stove offers an original solution for heating rooms. It also contains a practical stainless steel oven fitted with a thermometer, for cooking various dishes.",
+        "price": "1500.00",
+        "image": "2wood.jpeg",
+        "url": "https://www.piazzetta.com/en/wood-stoves/majolica-e911-installation-wall-corner-energy-class-a-plus"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+        "category": 6,
+        "brand": 8,
+        "code": "pp5002990740",
+        "name": "E928M",
+        "description": "A wood-burning stove with a linear design and slim proportions, cladded in Majolica in the following colours: Bianco, Nero Opaco, Rosso Lava and Terra Cotta. Adjustable, front hot air vent Also available in an airtight version with combustion air drawn from the outside and with the BCS electronic flame control system.",
+        "price": "1300.00",
+        "image": "3wood_.jpeg",
+        "url": "https://www.piazzetta.com/en/wood-stoves/majolica-e928-m-installation-wall-corner-energy-class-a-plus"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+        "category": 6,
+        "brand": 8,
+        "code": "pp5003050248",
+        "name": "QUBE1",
+        "description": "With a compact design and modern styling, this stove can blend into all kinds of interiors. Finely hand-crafted Majolica cladding. Strong lines enclose the innovative wood-burning firebox.",
+        "price": "1100.00",
+        "image": "4wood.jpeg",
+        "url": "https://www.piazzetta.com/en/wood-stoves/majolica-qube-1-installation-wall-corner-energy-class-a"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+        "category": 6,
+        "brand": 7,
+        "code": "pp5003070787",
+        "name": "Dafne",
+        "description": "Wood-burning stove with steel structure and cast iron combustion chamber. Enamelled cast iron front and top sections with removable food warmer plates.",
+        "price": "1700.00",
+        "image": "5wood.jpeg",
+        "url": "https://www.italianacamini.it/en/product/dafne/"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+        "category": 7,
+        "brand": 8,
+        "code": "pp5003360384",
+        "name": "G958 GPL",
+        "description": "Gas stove using GPL, in Majolica. It Enables to duct a flow of hot air to provide uniform heat from floor to ceiling in other rooms. With a distinguished and elegant decorative style this stove can be a stylish addition in many furnishing solutions.",
+        "price": "2000.00",
+        "image": "1gas.jpeg",
+        "url": "https://www.piazzetta.com/en/gas-stoves/majolica-g958-lpg-installation-wall-corner"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+        "category": 7,
+        "brand": 8,
+        "code": "pp5003440111",
+        "name": "G958 M - GPL",
+        "description": "Gas stove using GPL, in Majolica. It Enables to duct a flow of hot air to provide uniform heat from floor to ceiling in other rooms. Marked by special processing of Majolica in large surface elements, the stove is the absolute epitome of essential elegance.",
+        "price": "1900.00",
+        "image": "2gas.jpeg",
+        "url": "https://www.piazzetta.com/en/gas-stoves/majolica-g958-m-lpg-installation-wall-corner"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+        "category": 7,
+        "brand": 8,
+        "code": "pp5003540313",
+        "name": "G963 D - GPL",
+        "description": "Gas Stove using GPL, in Majolica. It Enables to duct the flow of hot air to provide uniform heat from floor to ceiling in other rooms, too. Linear design and neat forms highlight the front panel in steel and the total cladding in Majolica.",
+        "price": "2200.00",
+        "image": "3gas.jpeg",
+        "url": "https://www.piazzetta.com/en/gas-stoves/majolica-g963-d-lpg-installation-wall-corner"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 14,
+    "fields": {
+        "category": 7,
+        "brand": 8,
+        "code": "pp5003560513",
+        "name": "G958 D - GPL",
+        "description": "Gas Stove using GPL, in Majolica. It Enables to duct the flow of hot air to provide uniform heat from floor to ceiling in other rooms, too. Linear design and neat forms highlight the front panel in steel and the total cladding in Majolica.",
+        "price": "2000.00",
+        "image": "4gas.jpeg",
+        "url": "https://www.piazzetta.com/en/gas-stoves/majolica-g958-d-lpg-installation-wall-corner"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 15,
+    "fields": {
+        "category": 7,
+        "brand": 8,
+        "code": "pp5003560948",
+        "name": "G958 C - GPL",
+        "description": "Gas stove using GPL, in Majolica. It Enables to duct a flow of hot air to provide uniform heat from floor to ceiling in other rooms. The traditional style of cladding in Majolica adds a classic touch to this stove.",
+        "price": "2100.00",
+        "image": "5gas.jpeg",
+        "url": "https://www.piazzetta.com/en/gas-stoves/majolica-g958-c-lpg-installation-wall-corner"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 16,
+    "fields": {
+        "category": 5,
+        "brand": 6,
+        "code": "pp5003690115",
+        "name": "Bassano 5",
+        "description": "Small and compact, Bassano is the pellet stove for small spaces and small budgets. Enjoy the best quality/price ratio on the market.",
+        "price": "1400.00",
+        "image": "6pellet.jpeg",
+        "url": "https://www.invicta.fr/en/produit/bassano-5-2/"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 17,
+    "fields": {
+        "category": 5,
+        "brand": 6,
+        "code": "pp5003690116",
+        "name": "Lodi 7",
+        "description": "Here is a simple and elegant pellet stove. The Lodi represents modernity with its rounded shape.",
+        "price": "1100.00",
+        "image": "7pellet.jpeg",
+        "url": "https://www.invicta.fr/en/produit/poele-a-granules-lodi-7-2/"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 18,
+    "fields": {
+        "category": 5,
+        "brand": 7,
+        "code": "pp5003780391",
+        "name": "Point2",
+        "description": "Square design pellet-burning stove with steel structure, Scamolex combustion chamber and synoptic panel for displaying and controlling all operating phases.",
+        "price": "1100.00",
+        "image": "8pellet_HIF2Z75.jpeg",
+        "url": "https://www.italianacamini.it/en/product/point2/"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 19,
+    "fields": {
+        "category": 5,
+        "brand": 7,
+        "code": "pp5003790542",
+        "name": "Alina",
+        "description": "Compact and elegant. This Space-saving pellet stove is only 26 cm deep.",
+        "price": "1300.00",
+        "image": "9pellet.jpeg",
+        "url": "https://www.italianacamini.it/en/product/alina/"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 20,
+    "fields": {
+        "category": 5,
+        "brand": 5,
+        "code": "pp5003790542",
+        "name": "Klik",
+        "description": "Pellet stove in its most versatile version, with handy knobs or remote control.",
+        "price": "1500.00",
+        "image": "10pellet.jpeg",
+        "url": "https://www.edilkamin.com/en/klik"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 21,
+    "fields": {
+        "category": 5,
+        "brand": 8,
+        "code": "pp5003831225",
+        "name": "P280 M",
+        "description": "The Pellet Stove P220 M, for Flush-with-the-wall/Corner installation and cladded in Majolica, with its 8,5 KW and Energy class A+, is a refined appliance from the Premium Plus Line by Piazzetta.",
+        "price": "1400.00",
+        "image": "11pellet.jpeg",
+        "url": "https://www.piazzetta.com/en/pellet-stoves/majolica-p220-m-installation-flush-with-the-wall-corner"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 22,
+    "fields": {
+        "category": 5,
+        "brand": 8,
+        "code": "pp5003861402",
+        "name": "P934",
+        "description": "Pellet stove with slim profile, ideal also for passageways such as entrances and corridors. An optional kit allows hot air to be released from the sides. Adjustable front air vent.",
+        "price": "1600.00",
+        "image": "12pellet.jpeg",
+        "url": "https://www.piazzetta.com/en/pellet-stoves/majolica-p934-installation-wall-flush-with-the-corner"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 23,
+    "fields": {
+        "category": 6,
+        "brand": 6,
+        "code": "pp5003910638",
+        "name": "Fifty Standing Cast Iron Stove",
+        "description": "Welcome the spirit and imagination of happy times into your home with this vintage wood-burning stove. Inspired by 1950s style, Fifty also brings you the future with high-performance efficiency.",
+        "price": "1500.00",
+        "image": "6wood.jpeg",
+        "url": "https://www.invicta.fr/en/produit/fifty-standing-cast-iron-stove/"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 24,
+    "fields": {
+        "category": 6,
+        "brand": 6,
+        "code": "pp5003950574",
+        "name": "Nelson Cast Iron Stove",
+        "description": "The two glass sides of our Nelson stove give a unique character to your home. Cozy evenings await. Settle in on either side of the stove, and listen to the unmistakable sound of the crackling fire as you watch the flames dance.",
+        "price": "1500.00",
+        "image": "7wood.jpeg",
+        "url": "https://www.invicta.fr/en/produit/nelson_cast-iron-stove/"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 25,
+    "fields": {
+        "category": 6,
+        "brand": 5,
+        "code": "pp5003950576",
+        "name": "Tally 8 UP S",
+        "description": "Wood burning stove. Wide glass vertical and round to emphasise the flame.",
+        "price": "1400.00",
+        "image": "8wood.jpeg",
+        "url": "https://www.edilkamin.com/en/tally-up-s"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 26,
+    "fields": {
+        "category": 6,
+        "brand": 8,
+        "code": "pp5003960062",
+        "name": "E928 S",
+        "description": "A stove with an unusual design including a handy food warming compartment at the top. Adjustable, front hot air vent Also available in an airtight version with combustion air drawn from the outside and with the BCS System.",
+        "price": "1300.00",
+        "image": "9wood.jpeg",
+        "url": "https://www.piazzetta.com/en/wood-stoves/majolica-e928-s-installation-wall-corner-energy-class-a-plus"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 27,
+    "fields": {
+        "category": 6,
+        "brand": 6,
+        "code": "pp5003960682",
+        "name": "Pow-Wow Cast Iron Stove",
+        "description": "Like a totem in your living room, the Pow-Wow celebrates the sacred spirit of fire. Its modern, ethnically-inspired shape gives it an undeniable charm. This large, entirely cast iron stove is effective in even the coldest temperatures, and can also be used doors open like a traditional fireplace.",
+        "price": "1900.00",
+        "image": "10wood.jpeg",
+        "url": "https://www.invicta.fr/en/produit/pow-wow-cast_iron-stove/"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 28,
+    "fields": {
+        "category": 6,
+        "brand": 7,
+        "code": "pp5003960775",
+        "name": "Dafne Oven",
+        "description": "Wood-burning stove with steel structure and cast iron combustion chamber. Featured with enamelled cast iron front, top sections with removable food warmer plates and stainless steel oven.",
+        "price": "2200.00",
+        "image": "11wood.jpeg",
+        "url": "https://www.italianacamini.it/en/product/dafne-oven/"
+    }
+}
+]

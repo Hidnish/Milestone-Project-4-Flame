@@ -1,0 +1,34 @@
+[
+{
+    "model": "products.brand",
+    "pk": 5,
+    "fields": {
+        "name": "edilkamin",
+        "friendly_name": "Edilkamin"
+    }
+},
+{
+    "model": "products.brand",
+    "pk": 6,
+    "fields": {
+        "name": "invicta",
+        "friendly_name": "Invicta"
+    }
+},
+{
+    "model": "products.brand",
+    "pk": 7,
+    "fields": {
+        "name": "italianacamini",
+        "friendly_name": "Italiana Camini"
+    }
+},
+{
+    "model": "products.brand",
+    "pk": 8,
+    "fields": {
+        "name": "piazzetta",
+        "friendly_name": "Piazzetta"
+    }
+}
+]
