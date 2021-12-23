@@ -9,11 +9,11 @@
     }
     .glider-prev {
         left: 0;
-        text-shadow: 1px 1px black;
+        text-shadow: 1px 2px black;
     }
     .glider-next {
         right: 0;
-        text-shadow: 1px 1px black;
+        text-shadow: 1px 2px black;
     }
 </style>
 {% endblock %}
@@ -31,7 +31,7 @@
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-10 col-md-6 col-lg-4 offset-lg-2">
+        <div class="col-10 col-md-6 col-lg-4 offset-1 offset-md-0 offset-lg-2">
             <div class="image-container my-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
@@ -62,7 +62,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-white text-center mt-4 mb-5">
-                <h3 class="font-weight-light">Related products</h3>
+                <h4 class="font-weight-light">Related products: <strong>{{product.category.friendly_name}}</strong></h4>
             </div>
         </div>
         <div class="row">
@@ -101,8 +101,8 @@
                     {% endfor %}
                 </div>
                 <div class="row d-block">
-                    <button aria-label="Previous" class="glider-prev"><i class="fas fa-arrow-circle-left text-white"></i></button>
-                    <button aria-label="Next" class="glider-next"><i class="fas fa-arrow-circle-right text-white"></i></button>
+                    <button aria-label="Previous" class="glider-prev"><i class="fas fa-chevron-left text-white"></i></button>
+                    <button aria-label="Next" class="glider-next"><i class="fas fa-chevron-right text-white"></i></button>
                   </div>
               </div>
         </div>
