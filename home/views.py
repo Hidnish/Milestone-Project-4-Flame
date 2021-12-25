@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from products.models import Brand
 
 # Create your views here.
 
@@ -7,10 +6,4 @@ from products.models import Brand
 def index(request):
     """ view to return index page """
 
-    brands = Brand.objects.all()
-
-    context = {
-        'brands': brands,
-    }
- 
-    return render(request, 'home/index.html', context)
+    return render(request, 'home/index.html')
