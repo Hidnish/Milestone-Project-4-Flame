@@ -79,6 +79,10 @@ body {
     border-radius: 10px !important;
 }
 
+.box-account .nav-link {
+    padding: 0.3rem 0.6rem!important;
+}
+
 .navbar-bg {
     background: linear-gradient(to top, transparent, #000000);
     background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000));
