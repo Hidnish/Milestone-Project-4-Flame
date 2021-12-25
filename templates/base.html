@@ -57,13 +57,23 @@
 
             // Slide effect from: https://newbedev.com/adding-a-slide-effect-to-bootstrap-dropdown
             
-            $('.dropdown').on('show.bs.dropdown', function () {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-            });
-            // Add slideUp animation to Bootstrap dropdown when collapsing.
-            $('.dropdown').on('hide.bs.dropdown', function () {
-                $(this).find('.dropdown-menu').first().stop(true, true).slideUp(); 
-            })
+            
+                $('.dropdown').on('show.bs.dropdown', function () {
+                    if ($(window).width() <= 992){
+                        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+                    } else {
+                        $(this).find('.dropdown-menu').first().stop(false, false).fadeIn('fast');
+                    }
+                });
+                // Add slideUp animation to Bootstrap dropdown when collapsing.
+                $('.dropdown').on('hide.bs.dropdown', function () {
+                    if ($(window).width() <= 992){
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(); 
+                } else {
+                    $(this).find('.dropdown-menu').first().stop(true, true).fadeOut('fast');
+                }
+                })
+            
 
 
             $(function () {
@@ -92,8 +102,7 @@
 
         <nav class="navbar navbar-bg navbar-expand-lg navbar-dark fixed-top">
 
-            <a class="navbar-brand logo-font t-shadow d-none d-lg-block pb-0" href="{% url 'home' %}"><i
-                    class="fas fa-fire fa-sm"></i> Flame</a>
+            <a class="navbar-brand logo-font t-shadow d-none d-lg-block pb-0" href="{% url 'home' %}">Flame </a>
             <button class="navbar-toggler mr-auto" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -184,7 +193,7 @@
                 </li>
                 <li class="list-inline-item">
                     <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link scale"
-                        href="#">
+                        href="{% url 'view_cart' %}">
                         <div class="text-center">
                             <div><i class="fas fa-shopping-cart fa-md icon"></i></div>
                             <p class="my-0">
