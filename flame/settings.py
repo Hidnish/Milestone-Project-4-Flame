@@ -82,6 +82,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # provide brand object to all views
                 'flame.context_processors.all_brands',
+                'cart.contexts.cart_contents',
             ],
         },
     },
@@ -106,6 +107,13 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+
+
+# Delivery variables
+STANDARD_DELIVERY_COST_MAX = 25
+STANDARD_DELIVERY_PERCENTAGE = 5
+STANDARD_DELIVERY_COST_MIN = 10
+
 
 WSGI_APPLICATION = 'flame.wsgi.application'
 
