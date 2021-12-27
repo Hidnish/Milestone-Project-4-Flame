@@ -1,8 +1,6 @@
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from stock.models import Item
 from decimal import Decimal
-
 
 
 def cart_contents(request):
@@ -21,7 +19,6 @@ def cart_contents(request):
         home_delivery = delivery_cost
 
     grand_total = total + home_delivery
-
 
     context = {
         'cart_items': cart_items,
