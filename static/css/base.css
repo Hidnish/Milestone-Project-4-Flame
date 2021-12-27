@@ -47,6 +47,10 @@ body {
     border-radius: 20px!important;
 }
 
+.radius-30 {
+    border-radius: 30px!important;
+}
+
 .round-left {
     border-radius: 20px 0 0 20px!important;
 }
