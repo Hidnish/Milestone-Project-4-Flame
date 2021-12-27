@@ -5,12 +5,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 <style>
     .glider-track {
-        width: inherit!important;
+        width: inherit !important;
     }
+
     .glider-prev {
         left: 0;
         text-shadow: 1px 2px black;
     }
+
     .glider-next {
         right: 0;
         text-shadow: 1px 2px black;
@@ -19,6 +21,7 @@
 {% endblock %}
 
 {% block page_header %}
+<!-- FIX THIS -->
 <div class="container" style="height: 20vh;">
     <div class="row">
         <div class="col">
@@ -28,10 +31,9 @@
 {% endblock %}
 
 {% block content %}
-<div class="overlay"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-10 col-md-6 col-lg-4 offset-1 offset-md-0 offset-lg-2">
+<div class="container">
+    <div class="row mb-10">
+        <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
             <div class="image-container my-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
@@ -44,67 +46,116 @@
                 {% endif %}
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="product-details-container mb-5 mt-md-5 px-5 text-white">
-                <h4 class="mb-2">{{ product.name }}</h4>
-                <hr class="bg-white">
+        <div class="col-12 col-md-6 col-lg-5">
+            <div class="product-details-container mb-5 mt-md-5 px-2 text-white">
+                <h4 class="mb-4">{{ product.name }}</h4>
                 <p class="mb-2"><i class="fas fa-signature"></i> {{ product.brand.friendly_name }}</p>
                 <p class="mb-2"><i class="fas fa-tag"></i> {{product.category.friendly_name}}</p>
                 <hr class="bg-white">
                 <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                <br>
+                <br><br>
                 <p class="mt-3">{{ product.description }}</p>
-                <a href="{{ product.url }}" target="_blank" class="mt-3">Link for technical details</a>
-            </div>
-        </div>
-    </div>
-    <hr class="bg-white w-25">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-white text-center mt-4 mb-5">
-                <h4 class="font-weight-light">Related products: <strong>{{product.category.friendly_name}}</strong></h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="glider-contain">
-                <div class="glider">
-                    {% for rel_product in related_products %}
-                    {% if rel_product.id != product.id %}
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="card h-100 border-0">
-                            {% if rel_product.image %}
-                            <a href="{% url 'product_detail' rel_product.id %}">
-                                <img class="card-img-top img-fluid" src="{{ rel_product.image.url }}"
-                                    alt="{{ rel_product.name }}">
-                            </a>
-                            {% else %}
-                            <a href="{% url 'product_detail' rel_product.id %}">
-                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                                    alt="{{ rel_product.name }}">
-                            </a>
-                            {% endif %}
-                            <div class="bg-grey text-white card-body pb-0">
-                                <p class="mb-0">{{ rel_product.name }}</p>
-                                <p class="mb-0">{{ rel_product.brand.friendly_name }}</p>
-                            </div>
-                            <div class="text-white bg-grey card-footer pt-0 border-0 text-left">
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">${{ rel_product.price }}
-                                        </p>
+                <a href="{{ product.url }}" target="_blank" class="my-3">Link for technical details</a>
+                <hr class="bg-white">
+
+                <!-- Add to product cart -->
+                <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-12">
+                            <p class="mt-3"><strong>Quantity:</strong></p>
+                            <div class="form-group w-50">
+                                <div class="input-group input-group-{{ product.id }}">
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty btn decrement-qty_{{ product.id }}"
+                                            data-item_id="{{ product.id }}">
+                                            <span class="icon">
+                                                <i class="fas fa-minus-circle fa-2x text-white scale"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input
+                                        class="form-control qty_input id_qty_{{ product.id }} radius-20 text-center bg-dark-seet radius-20 text-white"
+                                        type="number" name="quantity" value="1" min="1" max="99"
+                                        data-item_id="{{ product.id }}">
+                                    <div class="input-group-append">
+                                        <button class="increment-qty btn increment-qty_{{ product.id }}"
+                                            data-item_id="{{ product.id }}">
+                                            <span class="icon">
+                                                <i class="fas fa-plus-circle fa-2x text-white scale"></i>
+                                            </span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-12">
+                            <a href="{% url 'products' %}" class="btn mt-3 mx-1 border-white radius-20 scale">
+                                <span class="icon">
+                                    <i class="fas fa-arrow-left text-white"></i>
+                                </span>
+                                <span class="text-uppercase text-white">Keep Shopping</span>
+                            </a>
+                            <input type="submit"
+                                class="btn text-uppercase text-white mt-3 mx-1 border-white radius-20 scale"
+                                value="Add to Cart">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
-                    {% endif %}
-                    {% endfor %}
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-white text-center mt-4 mb-5">
+            <h4 class="font-weight-light">Related products: <strong>{{product.category.friendly_name}}</strong></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="glider-contain">
+            <div class="glider">
+                {% for rel_product in related_products %}
+                {% if rel_product.id != product.id %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 border-0">
+                        {% if rel_product.image %}
+                        <a href="{% url 'product_detail' rel_product.id %}">
+                            <img class="card-img-top img-fluid" src="{{ rel_product.image.url }}"
+                                alt="{{ rel_product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'product_detail' rel_product.id %}">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ rel_product.name }}">
+                        </a>
+                        {% endif %}
+                        <div class="bg-grey text-white card-body pb-0">
+                            <p class="mb-0">{{ rel_product.name }}</p>
+                            <p class="mb-0">{{ rel_product.brand.friendly_name }}</p>
+                        </div>
+                        <div class="text-white bg-grey card-footer pt-0 border-0 text-left">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold">${{ rel_product.price }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="row d-block">
-                    <button aria-label="Previous" class="glider-prev"><i class="fas fa-chevron-left text-white"></i></button>
-                    <button aria-label="Next" class="glider-next"><i class="fas fa-chevron-right text-white"></i></button>
-                  </div>
-              </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="row d-block">
+                <button aria-label="Previous" class="glider-prev"><i
+                        class="fas fa-chevron-left text-white"></i></button>
+                <button aria-label="Next" class="glider-next"><i class="fas fa-chevron-right text-white"></i></button>
+            </div>
         </div>
     </div>
 </div>
@@ -114,35 +165,33 @@
 {% block postload_js %}
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 <script>
-new Glider(document.querySelector('.glider'), {
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  draggable: true,
-  arrows: {
-    prev: '.glider-prev',
-    next: '.glider-next'
-  },
-  responsive: [
-    {
-      breakpoint: 576,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-      }
-    },{
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-      }
-    },{
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-      }
-    }
-  ]
-});
+    new Glider(document.querySelector('.glider'), {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        draggable: true,
+        arrows: {
+            prev: '.glider-prev',
+            next: '.glider-next'
+        },
+        responsive: [{
+            breakpoint: 576,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+            }
+        }, {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+            }
+        }, {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4,
+            }
+        }]
+    });
 </script>
 {% endblock %}
