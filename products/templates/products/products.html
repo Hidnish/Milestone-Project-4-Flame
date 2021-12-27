@@ -32,10 +32,10 @@
                     {% if search_term or current_category or current_brand or current_sorting != 'None_None' %}
                         <span><a href="{% url 'products' %}">View all Products</a> | </span>
                     {% endif %}
-                    {{ products|length }} Product/s
+                    n° of Products: <strong>{{ products|length }}</strong>
                     {% if search_term %} found for <strong>"{{ search_term }}"</strong>
-                    {% elif current_brand %} - Brand: <strong>{{ current_brand.friendly_name }}</strong>
-                    {% elif current_category %} - Category: <strong>{{ current_category.friendly_name }}</strong>
+                    {% elif current_brand %} (Brand: <strong>{{ current_brand.friendly_name }})</strong>
+                    {% elif current_category %} (Category: <strong>{{ current_category.friendly_name }})</strong>
                     {% endif %}
                 </p>
             </div>
