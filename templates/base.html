@@ -38,55 +38,40 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var fixHeight = function () {
-                $('.navbar-nav').css(
-                    'max-height',
-                    document.documentElement.clientHeight - 150
-                );
-            };
-            fixHeight();
-            $(window).resize(function () {
-                fixHeight();
-            });
-            $('.navbar .navbar-toggler').on('click', function () {
-                fixHeight();
-            });
+
+            // Sidenav for medium to xs screen sizes 
             $('.navbar-toggler, .overlay').on('click', function () {
                 $('.mobileMenu, .overlay').toggleClass('open mobileMenuOpen');
             });
 
             // Slide effect from: https://newbedev.com/adding-a-slide-effect-to-bootstrap-dropdown
-            
-            
-                $('.dropdown').on('show.bs.dropdown', function () {
-                    if ($(window).width() <= 992){
-                        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-                    } else {
-                        $(this).find('.dropdown-menu').first().stop(false, false).fadeIn('fast');
-                    }
-                });
-                // Add slideUp animation to Bootstrap dropdown when collapsing.
-                $('.dropdown').on('hide.bs.dropdown', function () {
-                    if ($(window).width() <= 992){
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(); 
+            $('.dropdown').on('show.bs.dropdown', function () {
+                if ($(window).width() <= 992) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+                } else {
+                    $(this).find('.dropdown-menu').first().stop(false, false).fadeIn('fast');
+                }
+            });
+            // Add slideUp animation to Bootstrap dropdown when collapsing.
+            $('.dropdown').on('hide.bs.dropdown', function () {
+                if ($(window).width() <= 992) {
+                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
                 } else {
                     $(this).find('.dropdown-menu').first().stop(true, true).fadeOut('fast');
                 }
-                })
-            
+            })
 
 
-            $(function () {
-                $(document).scroll(function () {
-                    if ($(this).scrollTop() >= $(".navbar").height()) {
-                        $(".navbar").addClass('scrolled');
-                        $(".navbar").removeClass('navbar-bg');
-                    } else {
-                        $(".navbar").removeClass('scrolled');
-                        $(".navbar").addClass('navbar-bg')
-                    }
-                });
+            $(document).scroll(function () {
+                if ($(this).scrollTop() >= $(".navbar").height()) {
+                    $(".navbar").addClass('scrolled');
+                    $(".navbar").removeClass('navbar-bg');
+                } else {
+                    $(".navbar").removeClass('scrolled');
+                    $(".navbar").addClass('navbar-bg')
+                }
             });
+            
         });
     </script>
     {% endblock %}
@@ -110,8 +95,9 @@
             <div class="collapse navbar-collapse bg-dark p-3 p-lg-0 mt-lg-0 d-flex flex-column flex-lg-row mr-2 justify-content-lg-center mobileMenu"
                 id="navbarSupportedContent">
                 <form method="GET" action="{% url 'products'%}">
-                    <div class="input-group w-100 px-3 py-2 py-lg-0">
-                        <input class="form-control border round-left" type="text" name="q" placeholder="Search our site">
+                    <div class="input-group w-100 px-2 px-xl-3 py-2 py-lg-0">
+                        <input class="form-control border round-left" type="text" name="q"
+                            placeholder="Search our site">
                         <div class="input-group-append">
                             <button class="form-control btn btn-black round-right border border-black" type="submit">
                                 <span class="icon">
@@ -123,10 +109,10 @@
                 </form>
                 <div class="dropdown-divider d-lg-none"></div>
                 <ul class="navbar-nav align-self-stretch">
-                    <li class="nav-item px-3 py-2 py-lg-0 d-md-block d-lg-none">
+                    <li class="nav-item px-2 px-xl-3 py-2 py-lg-0 d-md-block d-lg-none">
                         <a class="nav-link scale" href="{% url 'home' %}">Home</a>
                     </li>
-                    <li class="nav-item dropdown px-3 py-2 py-lg-0">
+                    <li class="nav-item dropdown px-2 px-xl-3 py-2 py-lg-0">
                         <a class="nav-link scale dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Products
@@ -142,7 +128,7 @@
                             <a class="dropdown-item" href="{% url 'products' %}?category=gas_stoves">Gas Stoves</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown px-3 py-2 py-lg-0">
+                    <li class="nav-item dropdown px-2 px-xl-3 py-2 py-lg-0">
                         <a class="nav-link scale dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Brands
@@ -157,10 +143,10 @@
                             {% endfor %}
                         </div>
                     </li>
-                    <li class="nav-item px-3 py-2 py-lg-0">
+                    <li class="nav-item px-2 px-xl-3 py-2 py-lg-0">
                         <a class="nav-link scale" href="{% url 'home' %}">Blog</a>
                     </li>
-                    <li class="nav-item px-3 py-2 py-lg-0">
+                    <li class="nav-item px-2 py-2 py-lg-0">
                         <a class="nav-link scale" href="{% url 'home' %}">Contacts</a>
                     </li>
                 </ul>
@@ -192,13 +178,13 @@
                     </div>
                 </li>
                 <li class="list-inline-item">
-                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link scale"
+                    <a class="nav-link scale"
                         href="{% url 'view_cart' %}">
                         <div class="text-center">
                             <div><i class="fas fa-shopping-cart fa-md icon"></i></div>
                             <p class="my-0">
                                 {% if grand_total %}
-                                ${{ grand_total|floatformat:2 }}
+                                <span class="text-warning font-weight-bold">${{ grand_total|floatformat:2 }}</span>
                                 {% else %}
                                 $0.00
                                 {% endif %}
