@@ -27,6 +27,10 @@ body {
     height: 65vh!important;
 }
 
+.h-20 {
+    height: 20%;
+}
+
 .pt-10 {
     padding-top: 10%;
 }
