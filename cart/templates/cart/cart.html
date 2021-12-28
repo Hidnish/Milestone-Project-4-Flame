@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container" style="height: 20vh;">
+<div class="container h-20">
     <div class="row">
         <div class="col-12">
         </div>
@@ -55,18 +55,18 @@
                         {% endfor %}
                         <tr>
                             <th scope="row" colspan="5" class="pt-5 text-right text-white">
-                                <h6>Bag Total:</h6>
-                                <h6>Home delivery:</h6>
-                                <h4 class="mt-4">Grand Total:</h4>
+                                <h6>Bag Total: &nbsp &nbsp <strong>${{ total|floatformat:2 }}</strong></h6>
+                                <h6>Home delivery: &nbsp <strong>${{ home_delivery|floatformat:2 }}</strong></h6>
+                                <h4 class="mt-4">Grand Total: &nbsp <strong>${{ grand_total|floatformat:2 }}</strong></h4>
                             </td>
-                            <td  class="pt-5 text-right text-white">
+                            <!-- <td colspan="{% if device.is_small or device.is_xsmall%}3{% else %}1{% endif %}" class="pt-5 text-right text-white">
                                 <h6><strong>${{ total|floatformat:2 }}</strong></h6>
                                 <h6>${{ home_delivery|floatformat:2 }}</h6>
                                 <h4 class="mt-4"><strong>${{ grand_total|floatformat:2 }}</strong></h4>
-                            </td>
+                            </td> -->
                         </tr>
                         <tr>
-                            <td colspan="10" class="text-right text-white">
+                            <td colspan="5" class="text-right text-white">
                                 <a href="{% url 'products' %}" class="btn btn-md mx-1 border-white radius-30 scale">
                                     <span class="icon">
                                         <i class="fas fa-arrow-left text-white"></i>
@@ -84,8 +84,8 @@
                     </table>
                 </div>
                 {% else %}
-                    <p class="lead mb-5">Your cart is empty.</p>
-                    <a href="{% url 'products' %}" class="btn btn-lg">
+                    <p class="lead mb-5 border-top border-white pt-4">Your cart is empty.</p>
+                    <a href="{% url 'products' %}" class="btn btn-md mx-1 border-white radius-30 scale">
                         <span class="icon">
                             <i class="fas fa-arrow-left text-white"></i>
                         </span>
