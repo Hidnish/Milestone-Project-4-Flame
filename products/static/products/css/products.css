@@ -1,0 +1,22 @@
+.glider-track {
+    width: inherit !important;
+    padding: 15px 0!important;
+}
+
+.glider-prev {
+    left: 0;
+    text-shadow: 1px 2px black;
+}
+
+.glider-next {
+    right: 0;
+    text-shadow: 1px 2px black;
+}
+
+/* Related Products */
+
+.container-related {
+    padding: 5% 10%;
+    background-color: rgb(37, 37, 37);
+    border-radius: 20px 20px 0 0;
+}

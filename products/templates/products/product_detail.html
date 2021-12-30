@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
+<!-- {% block extra_css %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 <style>
     .glider-track {
@@ -18,6 +18,12 @@
         text-shadow: 1px 2px black;
     }
 </style>
+{% endblock %} -->
+
+{% block corecss %}
+{{ block.super}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -115,7 +121,7 @@
 </div>
 
 <!-- Related products section -->
-<div class="container">
+<div class="container-fluid container-related">
     <div class="row">
         <div class="col-12 text-white text-center mt-4 mb-5">
             <h4 class="font-weight-light">Related products: <strong>{{product.category.friendly_name}}</strong></h4>
@@ -171,7 +177,8 @@
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-<script type='text/javascript'>
+<script src="{% static 'products/js/products.js' %}"></script>
+<!-- <script type='text/javascript'>
     new Glider(document.querySelector('.glider'), {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -200,5 +207,5 @@
             }
         }]
     });
-</script>
+</script> -->
 {% endblock %}
