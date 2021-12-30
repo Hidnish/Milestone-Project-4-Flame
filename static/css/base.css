@@ -69,6 +69,24 @@ body {
     border-radius: 0 20px 20px 0!important;
 }
 
+/* Other */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 16px;
+    z-index: 9999999;
+    border-radius: 20px;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /* Navbar */
 
 .navbar-brand {
@@ -129,6 +147,11 @@ body {
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
     outline: none;
+}
+
+.dropdown-item:hover {
+    transform: scale(1.03);
+    background-color: transparent;
 }
 
 /* Home page */
