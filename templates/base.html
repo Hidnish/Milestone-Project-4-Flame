@@ -71,7 +71,7 @@
                     $(".navbar").addClass('navbar-bg')
                 }
             });
-            
+
         });
     </script>
     {% endblock %}
@@ -117,7 +117,7 @@
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Products
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu radius-10" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'products' %}?category=pellet_stoves">Pellet
@@ -133,7 +133,7 @@
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Brands
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu radius-10" aria-labelledby="navbarDropdown">
                             {% for brand in brands %}
                             <a class="dropdown-item"
                                 href="{% url 'products' %}?brand={{brand.name}}">{{brand.friendly_name}}</a>
@@ -152,47 +152,46 @@
                 </ul>
 
             </div>
-            <ul class="list-inline list-unstyled text-center text-lg-right my-0 box-account">
-                <li class="list-inline-item dropdown">
-                    <a class="text-black nav-link scale" href="#" id="user-options" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <div class="text-center">
-                            <div><i class="fas fa-user fa-md icon"></i></div>
-                            <p class="my-0">My Account</p>
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0 box-account">
+                    <li class="list-inline-item dropdown">
+                        <a class="text-black nav-link scale" href="#" id="user-options" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-md icon"></i></div>
+                                <p class="my-0">My Account</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu radius-10" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a href="#" class="dropdown-item">Product Management</a>
+                            <div class="dropdown-divider"></div>
+                            {% endif %}
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">Logout</a>
+                            {% else %}
+                            <a href="#" class="dropdown-item">Register</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">Login</a>
+                            {% endif %}
                         </div>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="user-options">
-                        {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                        <a href="#" class="dropdown-item">Product Management</a>
-                        <div class="dropdown-divider"></div>
-                        {% endif %}
-                        <a href="#" class="dropdown-item">My Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">Logout</a>
-                        {% else %}
-                        <a href="#" class="dropdown-item">Register</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">Login</a>
-                        {% endif %}
-                    </div>
-                </li>
-                <li class="list-inline-item">
-                    <a class="nav-link scale"
-                        href="{% url 'view_cart' %}">
-                        <div class="text-center">
-                            <div><i class="fas fa-shopping-cart fa-md icon"></i></div>
-                            <p class="my-0">
-                                {% if grand_total %}
-                                <span class="text-warning font-weight-bold">${{ grand_total|floatformat:2 }}</span>
-                                {% else %}
-                                $0.00
-                                {% endif %}
-                            </p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link scale" href="{% url 'view_cart' %}">
+                            <div class="text-center">
+                                <div><i class="fas fa-shopping-cart fa-md icon"></i></div>
+                                <p class="my-0">
+                                    {% if grand_total %}
+                                    <span class="text-warning font-weight-bold">${{ grand_total|floatformat:2 }}</span>
+                                    {% else %}
+                                    $0.00
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <div class="overlay"></div>
@@ -200,7 +199,21 @@
     </header>
 
     {% if messages %}
-    <div class="message-container"></div>
+    <div class="message-container">
+        {% for message in messages %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/toast_error.html' %} 
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                    {% include 'includes/toasts/toast_success.html' %}  
+                {% else %}
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
     {% endif %}
 
     {% block page_header%}
@@ -210,6 +223,9 @@
     {% endblock %}
 
     {% block postload_js %}
+        <script type="text/javascript">
+            $('.toast').toast('show');
+        </script>
     {% endblock %}
 
 </body>
