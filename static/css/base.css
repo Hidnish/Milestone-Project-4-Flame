@@ -30,11 +30,11 @@ body {
 }
 
 .vh-65 {
-    height: 65vh!important;
+    height: 65vh !important;
 }
 
 .h-20 {
-    height: 20%!important;
+    height: 20% !important;
 }
 
 .pt-10 {
@@ -46,36 +46,55 @@ body {
 }
 
 .radius-5 {
-    border-radius: 5px!important;
+    border-radius: 5px !important;
 }
 
 .radius-10 {
-    border-radius: 10px!important;
+    border-radius: 10px !important;
 }
 
 .radius-20 {
-    border-radius: 20px!important;
+    border-radius: 20px !important;
 }
 
 .radius-30 {
-    border-radius: 30px!important;
+    border-radius: 30px !important;
 }
 
 .round-left {
-    border-radius: 20px 0 0 20px!important;
+    border-radius: 20px 0 0 20px !important;
 }
 
 .round-right {
-    border-radius: 0 20px 20px 0!important;
+    border-radius: 0 20px 20px 0 !important;
+}
+
+.z-max {
+    z-index: 99999999 !important;
+}
+
+/* Page Loader */
+
+.loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(15, 15, 15) url('/media/loader/fire_loader.gif') no-repeat center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999999999999;
 }
 
 /* Other */
 
 .message-container {
     position: fixed;
-    top: 72px;
+    top: 80px;
     right: 16px;
-    z-index: 9999999;
+    z-index: 9998;
     border-radius: 20px;
 }
 
@@ -116,7 +135,7 @@ body {
 }
 
 .box-account .nav-link {
-    padding: 0.3rem 0.6rem!important;
+    padding: 0.3rem 0.6rem !important;
 }
 
 .navbar-bg {
@@ -157,20 +176,20 @@ body {
 /* Home page */
 
 .home-container {
-    height: 95vh; 
+    height: 95vh;
 
     /* background: linear-gradient(to top, transparent, #000000), url('/media/homepage-hero.jpg');
     background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000)), url('/media/homepage-hero.jpg');
     background: -o-linear-gradient(bottom, transparent, #000000), url('/media/homepage-hero.jpg'); */
     background: url('/media/homepage-hero.jpg');
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
 .btn-products {
-    border: 1px solid white; 
-    border-radius: 10px; 
+    border: 1px solid white;
+    border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -203,12 +222,13 @@ body {
 /* Products */
 
 .card {
-    background-color: transparent!important;
+    background-color: transparent !important;
 }
 
 .card:hover {
     transform: scale(1.025);
-    -webkit-transform: scale(1.025);;
+    -webkit-transform: scale(1.025);
+    ;
     transition: all ease 0.3s;
     -webkit-transition: all ease 0.3s;
 }
@@ -243,7 +263,7 @@ body {
     }
 
     .mobileMenu {
-        z-index: 9999;
+        z-index: 999999999;
         border-radius: 0 20px 20px 0;
         position: fixed;
         top: 0;
@@ -259,6 +279,7 @@ body {
     }
 
     .overlay {
+        z-index: 999999;
         position: fixed;
         top: 0;
         bottom: 0;
@@ -278,5 +299,3 @@ body {
         border: none !important;
     }
 }
-
-

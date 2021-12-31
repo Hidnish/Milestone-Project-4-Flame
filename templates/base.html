@@ -72,6 +72,10 @@
                 }
             });
 
+            // loader 
+            $(window).on('load', function(){
+                $(".loader").fadeOut("slow");
+            });
         });
     </script>
     {% endblock %}
@@ -83,7 +87,10 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
+
+    <div class="loader"></div>
+
+    <header class="container-fluid fixed-top z-max">
 
         <nav class="navbar navbar-bg navbar-expand-lg navbar-dark fixed-top">
 
