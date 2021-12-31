@@ -81,14 +81,15 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background: rgb(15, 15, 15) url('/media/loader/fire_loader.gif') no-repeat center center;
+    background: rgba(15, 15, 15, 0.85) url('/media/loader/fire_loader.gif') no-repeat center center; 
+    backdrop-filter: blur(12px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99999999999999;
 }
 
-/* Other */
+/* Messages */
 
 .message-container {
     position: fixed;
@@ -104,6 +105,11 @@ body {
 
 .toast-capper {
     height: 2px;
+}
+
+.cart-notification-wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Navbar */
@@ -127,6 +133,11 @@ body {
 .scale:hover {
     transform: scale(1.05);
     -webkit-transform: scale(1.05);
+}
+
+.scale-small:hover {
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
 }
 
 .box-account {
