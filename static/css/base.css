@@ -21,6 +21,10 @@ body {
     background-color: rgb(15, 15, 15);
 }
 
+.bg-dark-07 {
+    background-color: rgba(0,0,0,0.7);
+}
+
 .bg-dark {
     background-color: transparent !important;
 }
