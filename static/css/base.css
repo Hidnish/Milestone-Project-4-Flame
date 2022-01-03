@@ -25,12 +25,21 @@ body {
     background-color: rgba(0,0,0,0.7);
 }
 
+.bg-dark-02 {
+    background-color: rgba(0,0,0,0.2);
+}
+
 .bg-dark {
     background-color: transparent !important;
 }
 
 .bg-dark-seet {
     background-color: transparent !important;
+}
+
+.blur-6 {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .vh-65 {
@@ -75,6 +84,10 @@ body {
 
 .z-max {
     z-index: 99999999 !important;
+}
+
+.font-w-100 {
+    font-weight: 100!important;
 }
 
 /* Page Loader */
@@ -183,9 +196,21 @@ body {
     outline: none;
 }
 
+.dropdown-menu {
+    border: 1px solid white;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.dropdown-item {
+    color: white;
+}
+
 .dropdown-item:hover {
     transform: scale(1.03);
     background-color: transparent;
+    color: white;
 }
 
 /* Home page */

@@ -18,17 +18,15 @@
 <div class="loader"></div>
 <div class="home-container container-fluid">
     <div class="row h-100 justify-content-center text-center text-white">
-        <div class="col-12 my-auto pt-5">
-            <h1 class="display-1 t-shadow logo-font pb-1"><i class="fas fa-fire display-3"></i> Flame</h1>
-            <p class="h3 font-weight-light t-shadow pb-5 d-none d-sm-block">
+        <div class="col-12 my-auto px-0">
+            <h1 class="display-2 t-shadow logo-font"><i class="fas fa-fire display-3"></i> Flame</h1>
+            <p class="h4 p-4 font-weight-light t-shadow d-block bg-punch font-w-100 blur-6">
                 Taking care of your home's heating with the finest quality. <br>
                 At the best price.
             </p>
-            <h4>
-                <a href="{% url 'products' %}" class="btn btn-large btn-products py-3 text-white scale">
-                    Shop Now
-                </a>
-            </h4>
+            <a href="{% url 'products' %}" class="btn btn-large btn-products text-white mt-4 scale">
+                <h5 class="mb-0 p-1 font-weight-light">Shop Now</h5>
+            </a>
         </div>
     </div>
 </div>
@@ -36,21 +34,21 @@
     <div class="row h-100 d-flex justify-content-around vh-65">
         <div class="col-12 col-lg-4 d-flex justify-content-center p-2">
             <a class="bg-pellet radius-10 mb-3 h-100 w-100 d-flex justify-content-center align-items-center" href="{% url 'products' %}?category=pellet_stoves">
-                <div class="bg-category-name">
+                <div class="bg-category-name blur-6">
                     <h3 class="category-name">Pellet Stoves</h3>
                 </div>
             </a>
         </div>
         <div class="col-12 col-lg-4 d-flex justify-content-center p-2">
             <a class="bg-wood radius-10 mb-3 h-100 w-100 d-flex justify-content-center align-items-center" href="{% url 'products' %}?category=wood_stoves">
-                <div class="bg-category-name">
+                <div class="bg-category-name blur-6">
                     <h3 class="category-name">Wood Stoves</h3>
                 </div>
             </a>
         </div>
         <div class="col-12 col-lg-4 d-flex justify-content-center p-2">
             <a class="bg-gas radius-10 mb-3 h-100 w-100 d-flex justify-content-center align-items-center" href="{% url 'products' %}?category=gas_stoves">
-                <div class="bg-category-name">
+                <div class="bg-category-name blur-6">
                     <h3 class="category-name">Gas Stoves</h3>
                 </div>
             </a>

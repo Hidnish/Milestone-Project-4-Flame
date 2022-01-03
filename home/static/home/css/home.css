@@ -2,18 +2,17 @@ a:hover {
     text-decoration: none;
 }
 
-.bg-category-name {
-    background-color: rgba(0,0,0,0.8);
+.bg-category-name,
+.bg-punch {
+    background-color: rgba(0,0,0,0.7);
     width: 100%;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white
 }
 
 .category-name {
     padding: 1rem 1rem 0.5rem;
     color: white;
-    font-weight: 300;
     text-align: center;
+    font-weight: 100;
 }
 
 @media (max-width: 991px) {
@@ -21,7 +20,11 @@ a:hover {
         width: auto;
         display: flex;
         border-radius: 10px;
-        border: 1px solid white;
+    }
+
+    .bg-punch {
+        width: auto;
+        display: flex;
     }
 }
 
