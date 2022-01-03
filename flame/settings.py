@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'cart',
+    'checkout',
 
     'storages',
 ]
@@ -88,7 +89,7 @@ TEMPLATES = [
     },
 ]
 
-# For toasts 
+# For toasts
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = [
@@ -113,9 +114,9 @@ LOGIN_REDIRECT_URL = '/'
 
 
 # Delivery variables
-STANDARD_DELIVERY_COST_MAX = 45
+STANDARD_DELIVERY_COST_MAX = 75
 STANDARD_DELIVERY_PERCENTAGE = 3
-STANDARD_DELIVERY_COST_MIN = 30
+STANDARD_DELIVERY_COST_MIN = 35
 
 
 WSGI_APPLICATION = 'flame.wsgi.application'
