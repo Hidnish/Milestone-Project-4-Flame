@@ -50,7 +50,9 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
 
+    # Otders 
     'storages',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -64,6 +66,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'flame.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -81,10 +85,15 @@ TEMPLATES = [
                 # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 # provide brand object to all views
                 'flame.context_processors.all_brands',
                 'cart.contexts.cart_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
