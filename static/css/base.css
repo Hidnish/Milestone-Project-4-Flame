@@ -100,6 +100,7 @@ body {
     left: 0;
     background: rgba(15, 15, 15, 0.85) url('/media/loader/fire_loader.gif') no-repeat center center; 
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     display: flex;
     justify-content: center;
     align-items: center;
