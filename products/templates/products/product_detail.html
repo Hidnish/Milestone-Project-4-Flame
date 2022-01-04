@@ -1,25 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-<!-- {% block extra_css %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
-<style>
-    .glider-track {
-        width: inherit !important;
-    }
-
-    .glider-prev {
-        left: 0;
-        text-shadow: 1px 2px black;
-    }
-
-    .glider-next {
-        right: 0;
-        text-shadow: 1px 2px black;
-    }
-</style>
-{% endblock %} -->
-
 {% block corecss %}
 {{ block.super}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
@@ -36,6 +17,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="loader2"></div>
 <div class="container">
     <div class="row mb-10">
 
