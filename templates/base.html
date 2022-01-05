@@ -74,8 +74,12 @@
 
             // loader 
             $(window).on('load', function(){
-                $(".loader").fadeOut("slow");
-                $(".loader2").fadeOut("fast");
+                setInterval(() => {
+                    $(".loader").fadeOut("slow")
+                }, 300);
+                setInterval(() => {
+                    $(".loader2").fadeOut("fast");
+                }, 100);
             });
         });
     </script>
