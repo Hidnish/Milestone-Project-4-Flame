@@ -1,0 +1,50 @@
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  background-color: white;
+}
+
+/* .StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+} */
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: white;
+    border: 1px solid white;
+}
+
+.ElementsApp .InputElement {
+    color: white!important;
+}
+
+#payment-form .form-control,
+#card-element {
+    background-color: rgba(255,255,255,0.08);
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+
+.fildset-label {
+    position: relative;
+    right: .5rem;
+}
