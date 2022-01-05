@@ -75,11 +75,11 @@ body {
 }
 
 .round-left {
-    border-radius: 20px 0 0 20px !important;
+    border-radius: 10px 0 0 10px !important;
 }
 
 .round-right {
-    border-radius: 0 20px 20px 0 !important;
+    border-radius: 0 10px 10px 0 !important;
 }
 
 .z-max {
@@ -89,6 +89,7 @@ body {
 .font-w-100 {
     font-weight: 100!important;
 }
+
 
 /* Page Loader */
 
@@ -297,6 +298,9 @@ body {
     cursor: pointer;
 }
 
+.form-control {
+    background-clip: unset!important;
+}
 
 /* Media Queries */
 
