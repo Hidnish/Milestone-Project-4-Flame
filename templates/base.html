@@ -73,13 +73,9 @@
             });
 
             // loader 
-            $(window).on('load', function(){
-                setInterval(() => {
-                    $(".loader").fadeOut("slow")
-                }, 300);
-                setInterval(() => {
-                    $(".loader2").fadeOut("fast");
-                }, 100);
+            $(window).ready(function(){
+                $(".loader").fadeOut("slow")
+                $(".loader2").fadeOut("fast");
             });
         });
     </script>
