@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+if os.path.exists('env.py'):
+    import env
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -122,12 +124,6 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 
-# Delivery variables
-STANDARD_DELIVERY_COST_MAX = 75
-STANDARD_DELIVERY_PERCENTAGE = 3
-STANDARD_DELIVERY_COST_MIN = 35
-
-
 WSGI_APPLICATION = 'flame.wsgi.application'
 
 
@@ -216,3 +212,18 @@ if 'USE_AWS' in os.environ:
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Stripe
+
+# Delivery variables
+STANDARD_DELIVERY_COST_MAX = 75
+STANDARD_DELIVERY_PERCENTAGE = 3
+STANDARD_DELIVERY_COST_MIN = 35
+
+STRIPE_CURRENCY = 'eur'
+DEFAULT_FROM_EMAIL = ''
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
+# keep secret key here !!
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+# STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
