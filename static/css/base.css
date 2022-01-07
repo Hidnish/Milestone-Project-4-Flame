@@ -29,6 +29,10 @@ body {
     background-color: rgba(0,0,0,0.2);
 }
 
+.bg-light-01 {
+    background-color: rgba(255,255,255,0.1);
+}
+
 .bg-dark {
     background-color: transparent !important;
 }
@@ -301,6 +305,11 @@ body {
 .form-control {
     background-clip: unset!important;
 }
+
+input.form-control:focus {
+    background-color: rgba(255,255,255,0.1);
+}
+
 
 /* Media Queries */
 
