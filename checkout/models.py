@@ -35,10 +35,10 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
 
         delivery_cost = self.order_total * Decimal(
-            settings.DELIVERY_COST_PERCENTAGE/100)
+            settings.STANDARD_DELIVERY_PERCENTAGE/100)
 
         if delivery_cost < settings.STANDARD_DELIVERY_COST_MIN:
             self.home_delivery_cost = settings.STANDARD_DELIVERY_COST_MIN
