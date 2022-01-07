@@ -103,7 +103,7 @@
                 id="navbarSupportedContent">
                 <form method="GET" action="{% url 'products'%}">
                     <div class="input-group w-100 px-2 px-xl-3 py-2 py-lg-0">
-                        <input class="form-control border round-left bg-dark-seet text-white" type="text" name="q"
+                        <input class="form-control border round-left bg-light-01 text-white" type="text" name="q"
                             placeholder="Search our site">
                         <div class="input-group-append">
                             <button class="form-control btn btn-black round-right border border-black" type="submit">
@@ -192,7 +192,7 @@
                                     {% if grand_total %}
                                     <span class="text-warning font-weight-bold">€{{ grand_total|floatformat:2 }}</span>
                                     {% else %}
-                                    $0.00
+                                    €0.00
                                     {% endif %}
                                 </p>
                             </div>

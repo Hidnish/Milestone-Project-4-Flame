@@ -47,7 +47,7 @@
                             <p class="my-0 small text-muted">Product code: {{ item.product.code|upper }}</p>
                         </td>
                         <td class="py-3">
-                            <p class="my-0">${{ item.product.price }}</p>
+                            <p class="my-0">€{{ item.product.price }}</p>
                         </td>
                         <td class="py-3 w-25">
                             <form class="form update-form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
@@ -85,16 +85,16 @@
                                 id="remove_{{ item.item_id }}"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
-                            <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
                     </tr>
                     {% endfor %}
                     <!-- Grand Total -->
                     <tr>
                         <td scope="row" colspan="5" class="pt-5 text-right text-white">
-                            <h6>Cart Total: &nbsp &nbsp &nbsp <strong>${{ total|floatformat:2 }}</strong></h6>
-                            <h6>Home delivery: &nbsp <strong>${{ home_delivery|floatformat:2 }}</strong></h6>
-                            <h4 class="mt-4">Grand Total: &nbsp <strong>${{ grand_total|floatformat:2 }}</strong></h4>
+                            <h6>Cart Total: &nbsp &nbsp &nbsp <strong>€{{ total|floatformat:2 }}</strong></h6>
+                            <h6>Home delivery: &nbsp <strong>€{{ home_delivery|floatformat:2 }}</strong></h6>
+                            <h4 class="mt-4">Grand Total: &nbsp <strong>€{{ grand_total|floatformat:2 }}</strong></h4>
                         </td>
                     </tr>
                     <!-- Keep shopping & checkout buttons -->
