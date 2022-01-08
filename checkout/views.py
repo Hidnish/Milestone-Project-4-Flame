@@ -4,7 +4,7 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-from products.models import Product 
+from products.models import Product
 from cart.contexts import cart_contents
 
 import stripe
@@ -94,15 +94,14 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order Successfully Processed \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
-    
+
     if 'cart' in request.session:
         del request.session['cart']
-    
+
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
     }
 
     return render(request, template, context)
-
 

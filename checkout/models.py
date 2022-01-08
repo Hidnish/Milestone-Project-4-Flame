@@ -46,6 +46,7 @@ class Order(models.Model):
             self.home_delivery_cost = settings.STANDARD_DELIVERY_COST_MAX
         else:
             self.home_delivery_cost = delivery_cost
+
         self.grand_total = self.order_total + self.home_delivery_cost
         self.save()
 
