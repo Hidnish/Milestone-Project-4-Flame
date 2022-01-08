@@ -83,14 +83,14 @@
 
                         <!-- Keep shopping or add to cart section -->
                         <div class="col-12">
-                            <a href="{% url 'products' %}" class="btn mt-3 mx-1 border-white bg-dark-07 radius-20 scale">
+                            <a href="{% url 'products' %}" class="btn mt-3 mx-1 bg-dark-07 radius-20 scale">
                                 <span class="icon">
                                     <i class="fas fa-arrow-left text-white"></i>
                                 </span>
                                 <span class="text-uppercase text-white">Keep Shopping</span>
                             </a>
                             <input type="submit"
-                                class="btn text-uppercase text-white mt-3 mx-1 border-white radius-20 scale bg-dark-07"
+                                class="btn text-uppercase text-white mt-3 mx-1 radius-20 scale bg-dark-07"
                                 value="Add to Cart">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">

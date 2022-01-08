@@ -30,7 +30,7 @@ body {
 }
 
 .bg-light-01 {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgb(43, 43, 43);
 }
 
 .bg-dark {
@@ -179,7 +179,7 @@ body {
 }
 
 .box-account {
-    background-color: rgb(32, 30, 30) !important;
+    background-color: rgb(30, 30, 30) !important;
     border-radius: 10px !important;
 }
 
@@ -218,8 +218,8 @@ body {
 }
 
 .dropdown-menu {
-    border: 1px solid white;
-    background-color: rgba(0,0,0,0.7);
+    border: 1px solid rgb(43,43,43);
+    background-color: rgba(30,30,30,0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
@@ -229,8 +229,7 @@ body {
 }
 
 .dropdown-item:hover {
-    transform: scale(1.03);
-    background-color: transparent;
+    background-color: rgba(255,255,255,0.1);
     color: white;
 }
 
@@ -251,7 +250,7 @@ body {
 .btn-products {
     border: 1px solid white;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(30,30,30, 0.9);
 }
 
 .bg-pellet {
@@ -306,8 +305,12 @@ body {
     background-clip: unset!important;
 }
 
+input[name='q']{
+    border: none;
+}
+
 input.form-control:focus {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgb(43, 43, 43);
 }
 
 
