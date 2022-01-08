@@ -54,9 +54,12 @@ var form = document.getElementById('payment-form')
 form.addEventListener('submit', (ev) => {
     ev.preventDefault();
     // prevent multiple submissions 
-    card.update({ 'disabled': true });
+    card.update({
+        'disabled': true
+    });
     $('#submit-button').attr('disabled', true);
-
+    $('#payment-form').fadeToggle(100);
+    $('#loading-overlay').fadeToggle(100);
     stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
@@ -64,13 +67,18 @@ form.addEventListener('submit', (ev) => {
         })
         .then(function (result) {
             if (result.error) {
+                let errorDiv = document.getElementById('card-errors');
                 let html = `
                     <span class="icon" role="alert">
                         <i class="fas fa-times"></i>
                     </span>
                     <span>${result.error.message}</span>`;
                 $(errorDiv).html(html);
-                card.update({ 'disabled': false });
+                $('#payment-form').fadeToggle(100);
+                $('#loading-overlay').fadeToggle(100);
+                card.update({
+                    'disabled': false
+                });
                 $('#submit-button').attr('disabled', false);
             } else {
                 if (result.paymentIntent.status == 'succeeded') {
