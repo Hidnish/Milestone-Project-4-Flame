@@ -224,6 +224,5 @@ STANDARD_DELIVERY_COST_MIN = 35
 STRIPE_CURRENCY = 'eur'
 DEFAULT_FROM_EMAIL = ''
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
-# keep secret key here !!
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
-# STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
