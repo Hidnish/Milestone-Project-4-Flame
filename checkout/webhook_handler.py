@@ -4,7 +4,7 @@ from django.http import HttpResponse
 class StripeWH_Handler:
     """Handle stripe webhooks"""
 
-    # To access attributes from request coming from stripe
+    # To access attributes from the request coming from stripe
     def __init__(self, request):
         self.request = request
 
@@ -18,6 +18,9 @@ class StripeWH_Handler:
 
     def handle_payment_intent_succeeded(self, event):
         """Handle payment_intent.succeeded webhook from stripe"""
+
+        intent = event.data.object
+        print(intent)
 
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
