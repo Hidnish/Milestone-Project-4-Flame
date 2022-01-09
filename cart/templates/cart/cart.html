@@ -26,7 +26,7 @@
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
                     <!-- Cart table header -->
-                    <thead class="text-white border-bottom border-white">
+                    <thead class="text-white border-bottom">
                         <tr>
                             <th scope="col">Product Info</th>
                             <th scope="col"></th>
@@ -38,7 +38,7 @@
 
                     <!-- Cart products -->
                     {% for item in cart_items %}
-                    <tr class='text-white {% if forloop.last %}border-bottom border-white {% endif %}'>
+                    <tr class='text-white {% if forloop.last %}border-bottom{% endif %}'>
                         <td class="p-3 w-25">
                             <img class="img-fluid rounded" src="{{ item.product.image.url }}">
                         </td>

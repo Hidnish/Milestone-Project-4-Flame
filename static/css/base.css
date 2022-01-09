@@ -11,6 +11,10 @@ body {
     background-color: rgb(27, 26, 26);
 }
 
+hr {
+    background-color: rgb(60, 60, 60)!important;
+}
+
 .btn:focus,
 .nav-link {
     outline: 0;
@@ -29,7 +33,7 @@ body {
     background-color: rgba(0,0,0,0.2);
 }
 
-.bg-light-01 {
+.bg-grey-light {
     background-color: rgb(43, 43, 43);
 }
 
@@ -92,6 +96,11 @@ body {
 
 .font-w-100 {
     font-weight: 100!important;
+}
+
+.border-bottom,
+.border-top {
+    border-color: rgb(60, 60, 60)!important;
 }
 
 
