@@ -174,13 +174,13 @@
                             <a href="#" class="dropdown-item my-2">Product Management</a>
                             
                             {% endif %}
-                            <a href="#" class="dropdown-item my-2">My Profile</a>
+                            <a href="{% url 'profile' %}" class="dropdown-item my-2">My Profile</a>
                             
-                            <a href="{% url 'account_logout' %}" class="dropdown-item my-2">Logout</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item my-2">Sign out</a>
                             {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item my-2">Register</a>
+                            <a href="{% url 'account_signup' %}" class="dropdown-item my-2">Sign Up</a>
                             
-                            <a href="{% url 'account_login' %}" class="dropdown-item my-2">Login</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item my-2">Sign In</a>
                             {% endif %}
                         </div>
                     </li>
