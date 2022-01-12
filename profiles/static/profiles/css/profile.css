@@ -1,0 +1,20 @@
+#profile-update-form input::placeholder {
+    color: #aab7c4; 
+}
+
+.profile-input-form,
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: white;
+    border: none;
+}
+
+#id-default-country,
+#id-default-country option:not(:first-child) {
+    color: white;
+}
+
+#id-default-country option:first-child {
+    color: #aab7c4;
+}
+

@@ -227,6 +227,7 @@ hr {
 }
 
 .dropdown-menu {
+    left: -15px;
     padding: 0 !important;
     background-color: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(8px);
