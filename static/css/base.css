@@ -363,7 +363,7 @@ hr {
 .allauth-form-inner-content .btn {
     color: white;
     border-radius: 20px;
-    background-color: rgb(43,43,43);
+    background-color: rgb(43, 43, 43);
     border: none;
     margin: 0.75rem 2px;
 }
@@ -392,6 +392,7 @@ input[name='q'] {
 
 input.form-control:focus {
     background-color: rgb(43, 43, 43);
+    color: white;
 }
 
 
