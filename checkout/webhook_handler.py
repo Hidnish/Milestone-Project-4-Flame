@@ -17,7 +17,7 @@ class StripeWH_Handler:
     # To access attributes from the request coming from stripe
     def __init__(self, request):
         self.request = request
-    
+
     def _send_confirmation_email(self, order):
         """Send a confirmation email to the user"""
 
