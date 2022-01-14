@@ -258,9 +258,9 @@ hr {
 }
 
 .btn-products {
-    border: 1px solid white;
+    box-shadow: 0 0 8px rgb(129, 129, 129);
     border-radius: 10px;
-    background-color: rgba(30, 30, 30, 0.9);
+    background-color: rgba(30, 30, 30);
 }
 
 .bg-pellet {
@@ -369,8 +369,7 @@ hr {
 }
 
 
-
-/* Other */
+/* Form Inputs and buttons */
 
 .btt-link,
 .update-link,
@@ -384,16 +383,24 @@ input[name='q']::placeholder {
 
 .form-control {
     background-clip: unset !important;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    border: 1px solid rgb(43,43,43);
+}
+
+.form-control:focus {
+    background-color: rgb(43, 43, 43);
+    color: white;
 }
 
 input[name='q'] {
     border: none;
 }
 
-input.form-control:focus {
+/* input.form-control:focus {
     background-color: rgb(43, 43, 43);
     color: white;
-}
+} */
 
 
 /* Media Queries */
