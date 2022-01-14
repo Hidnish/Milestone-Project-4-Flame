@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.http import JsonResponse
 
-from .models import Product, Category, Brand
-from .forms import ProductForm
+from .models import Product, Category, Brand, ProductReview
+from .forms import ProductForm, ProductReviewForm
 
 from django.db.models.functions import Lower
 from django.db.models import Q
@@ -77,9 +78,12 @@ def product_detail(request, product_id):
     product_category = product.category.name
     related_products = Product.objects.filter(category__name=product_category)
 
+    review_form = ProductReviewForm()
+
     context = {
         'product': product,
         'related_products': related_products,
+        'review_form': review_form,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -108,3 +112,18 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
+
+def save_review(request, product_id):
+
+    product = Product.objects.get(pk=product_id)
+    user = request.user
+    review = ProductReview.objects.create(
+        user=user,
+        product=product,
+        review_text=request.POST['review_text'],
+        review_rating=request.POST['review_rating'],
+    )
+
+    return JsonResponse({'bool': True})
+

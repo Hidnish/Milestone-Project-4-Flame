@@ -67,7 +67,10 @@
                                         </button>
                                     </div>
                                     <!-- Quantity display -->
-                                    <input class="form-control qty_input id_qty_{{ product.id }} radius-20 text-center bg-dark-seet radius-20 text-white" type="number" name="quantity" value="1" min="1" max="10" data-item_id="{{ product.id }}">
+                                    <input
+                                        class="form-control qty_input id_qty_{{ product.id }} radius-20 text-center bg-dark-seet radius-20 text-white"
+                                        type="number" name="quantity" value="1" min="1" max="10"
+                                        data-item_id="{{ product.id }}">
                                     <!-- Remove quantity -->
                                     <div class="input-group-append">
                                         <button class="increment-qty btn increment-qty_{{ product.id }}"
@@ -97,6 +100,48 @@
                     </div>
                 </form>
 
+            </div>
+        </div>
+
+        <!-- Product Review -->
+        <div class="col-12">
+            <h3 class="my-3">Reviews - <span class="avg-rating">{{avg_reviews.avg_rating}}</span>/5 <i
+                    class="fa fa-star text-warning"></i>
+                    {% if user.is_authenticated %}
+                    <button data-toggle="modal" data-target="#productReview" type="button"
+                    class="btn btn-warning btn-sm float-right reviewBtn">Add Review</button>
+                    {% endif %}
+                <!-- {% if canAdd %} -->
+                <!-- {% endif %} -->
+            </h3>
+            <!-- Add Review -->
+            <div class="modal fade" id="productReview" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Product Review</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" id="addForm" action="{% url 'save_review' product.id %}">
+                                {% csrf_token %}
+                                <table class="table table-bordered">
+                                    {{review_form.as_table}}
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <input type="reset" class="btn btn-dark" value="Reset" id="reset" />
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="ajaxRes"></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -160,34 +205,4 @@
 {% include 'products/includes/quantity_input_script.html' %}
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 <script src="{% static 'products/js/products.js' %}"></script>
-<!-- <script type='text/javascript'>
-    new Glider(document.querySelector('.glider'), {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        draggable: true,
-        arrows: {
-            prev: '.glider-prev',
-            next: '.glider-next'
-        },
-        responsive: [{
-            breakpoint: 576,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-            }
-        }, {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-            }
-        }, {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 4,
-                slidesToScroll: 4,
-            }
-        }]
-    });
-</script> -->
 {% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -42,3 +43,26 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ProductReview(models.Model):
+
+    PRODUCT_RATINGS = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    review_text = models.TextField()
+    review_rating = models.IntegerField(choices=PRODUCT_RATINGS, default=0)
+
+    def __str__(self):
+        return self.product.name
+
+    # Can't show directly choice data
+    def get_review_rating(self):
+        return self.review_rating
