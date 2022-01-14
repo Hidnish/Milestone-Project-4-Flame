@@ -77,13 +77,16 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product_category = product.category.name
     related_products = Product.objects.filter(category__name=product_category)
-
     review_form = ProductReviewForm()
+
+    # Product reviews
+    reviews = ProductReview.objects.filter(product=product)
 
     context = {
         'product': product,
         'related_products': related_products,
         'review_form': review_form,
+        'reviews': reviews,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -115,6 +118,7 @@ def add_product(request):
 
 
 def save_review(request, product_id):
+    """Save product reviews and ratings"""
 
     product = Product.objects.get(pk=product_id)
     user = request.user
@@ -125,5 +129,12 @@ def save_review(request, product_id):
         review_rating=request.POST['review_rating'],
     )
 
-    return JsonResponse({'bool': True})
+    data = {
+        'user': user.username,
+        'review_text': request.POST['review_text'],
+        'review_rating': request.POST['review_rating']
+    }
 
+    return JsonResponse({'bool': True, 'data': data})
+    # messages.success(request, 'Message successfully added!')
+    # return redirect(reverse('product_detail', args=[product.id]))

@@ -29,10 +29,12 @@ class BrandAdmin(admin.ModelAdmin):
         'name',
     )
 
+
 class ProductReviewAdmin(admin.ModelAdmin):
     list_display = (
         'user',
         'product',
+        'date',
         'review_text',
         'get_review_rating',
     )
