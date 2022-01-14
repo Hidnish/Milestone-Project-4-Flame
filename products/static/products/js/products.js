@@ -32,27 +32,20 @@ $("#addForm").submit(function (e) {
                 $(".reviewBtn").hide();
                 // End
 
-                const timeElapsed = Date.now();
-                const today = new Date(timeElapsed);
-                const date = today.toDateString();
-                console.log(date);
+                // const timeElapsed = Date.now();
+                const m = new Date()
+                var date = m.toLocaleString('en-us', { month: 'short' }) +", "+ m.getDate() +", "+ m.getFullYear() +", " + m.getHours() + ":" + m.getMinutes();
+                // const date = dateString.toDateString();
+                
 
                 // create data for review
-                var _html = `<i>${res.data.user}</i> &nbsp - &nbsp <small>${date}</small>
-                <br>`;
+                var _html = `<small>${res.data.user} &nbsp - &nbsp ${date}</small> <br>`;
                 for (var i = 1; i <= res.data.review_rating; i++) {
-                    _html += '<i class="fa fa-star text-warning"></i>';
+                    _html += '<i class="fa fa-star text-warning mb-2"></i>';
                 }
-                `<br> 
-                <p>${res.data.review_text}</p>`;
+                _html += `<br> <p>${res.data.review_text}</p><hr>`;
 
-                var _html = '<i>' + res.data.user + '</i> &nbsp - &nbsp <small>' + res.data.date + '</small> <br>';
-                for (var i = 1; i <= res.data.review_rating; i++) {
-                    _html += '<i class="fa fa-star text-warning"></i>';
-                }
-                _html += `<br> <p>${res.data.review_text}</p>`;
-
-                // $(".no-data").hide();
+                $(".no-data").hide();
 
                 // Prepend Data
                 $(".review-current").prepend(_html);

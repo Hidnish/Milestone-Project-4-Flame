@@ -51,7 +51,7 @@
 
                 <div class="card-body text-leftpt-0">
                     <!-- Product info -->
-                    <div class="product-details-container mb-5 mt-md-5 px-2 text-white">
+                    <div class="product-details-container mb-1 mt-md-1 px-2 text-white">
                         <h4 class="mb-4">{{ product.name }}</h4>
                         <p class="mb-2"><i class="fas fa-signature"></i> {{ product.brand.friendly_name }}</p>
                         <p class="mb-2"><i class="fas fa-tag"></i> {{product.category.friendly_name}}</p>
@@ -99,14 +99,14 @@
 
                                 <!-- Keep shopping or add to cart section -->
                                 <div class="col-12">
-                                    <a href="{% url 'products' %}" class="btn btn-small mt-3 mx-1 bg-dark-07 radius-20 scale">
+                                    <a href="{% url 'products' %}" class="btn btn-sm mt-3 mx-1 bg-dark-07 radius-20 scale">
                                         <span class="icon">
                                             <i class="fas fa-arrow-left text-white"></i>
                                         </span>
                                         <span class="text-uppercase text-white">Keep Shopping</span>
                                     </a>
                                     <input type="submit"
-                                        class="btn text-uppercase text-white mt-3 mx-1 radius-20 scale bg-dark-07"
+                                        class="btn btn-sm text-uppercase text-white mt-3 mx-1 radius-20 scale bg-dark-07"
                                         value="Add to Cart">
                                 </div>
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -115,12 +115,12 @@
 
                     </div>
                     <!-- Product Review -->
-                    <div class="review-container mb-5 mt-md-5 px-2 text-white">
-                        <h4 class="my-3 mb-5">Reviews - <span class="avg-rating">{{avg_reviews.avg_rating}}</span>/5 <i
+                    <div class="review-container mb-5 mt-md-1 px-2 text-white">
+                        <h4 class="my-1 mb-5">Reviews - <span class="avg-rating">{{avg_reviews.avg_rating}}</span>/5 <i
                                 class="fa fa-star text-warning"></i>
                             {% if user.is_authenticated %}
                             <button data-toggle="modal" data-target="#productReview" type="button"
-                                class="btn btn-warning btn-sm float-right reviewBtn">Add Review</button>
+                                class="btn btn-warning btn-sm float-right radius-20 scale reviewBtn">Add Review</button>
                             {% endif %}
                         </h4>
                         <!-- Add Review modal -->
@@ -128,26 +128,20 @@
                         <div class="modal fade" id="productReview" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
-                                <div class="modal-content">
+                                <div class="modal-content bg-grey-medium">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Add Product Review</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
                                         <form method="POST" id="addForm" action="{% url 'save_review' product.id %}">
                                             {% csrf_token %}
-                                            <table class="table table-bordered">
-                                                {{review_form.as_table}}
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                                        <input type="reset" class="btn btn-dark" value="Reset"
-                                                            id="reset" />
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                {{review_form|crispy}}
+                                                <input type="reset" class="btn radius-20 bg-grey-light text-white mx-1 scale" value="Reset"
+                                                id="reset" />
+                                                <button type="submit" class="btn radius-20 bg-dark-07 text-white mx-1 scale">Submit</button>       
                                             <p class="ajaxRes text-black"></p>
                                         </form>
                                     </div>
@@ -158,13 +152,13 @@
                         <!-- List of reviews -->
                         <div class="review-current"></div>
                         {% for review in reviews %}
-                            <i>{{review.user}}</i> &nbsp - &nbsp <small>{{review.date}}</small>
+                            <small class="mb-3">{{review.user}} &nbsp - &nbsp {{review.date}}</small>
                             <br>
                             {% for star in review.review_rating|ljust:review.review_rating %}
-						  		<i class="fa fa-star text-warning"></i>
+						  		<i class="fa fa-star text-warning mb-2"></i>
 							{% endfor %}
-                            <br>
                             <p>{{review.review_text}}</p>
+                            <hr>
                         {% endfor %}
                     </div>
                 </div>
@@ -237,10 +231,12 @@
         $("#product-details-button").click(() => {
             $(".product-details-container").css('display', 'block');
             $(".review-container").css('display', 'none');
+            $(".card-body").removeClass('card-scroll');
         })
         $("#product-review-button").click(() => {
             $(".product-details-container").css('display', 'none');
             $(".review-container").css('display', 'block');
+            $(".card-body").addClass('card-scroll');
         })
     })
 </script>
