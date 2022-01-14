@@ -7,12 +7,6 @@
   background-color: white;
 }
 
-/* .StripeElement--focus,
-.stripe-style-input:focus,
-.stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
-} */
-
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
@@ -38,7 +32,7 @@
 
 #payment-form .form-control,
 #card-element {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(43, 43, 43);
   color: white;
   border-radius: 10px;
   border: none;
