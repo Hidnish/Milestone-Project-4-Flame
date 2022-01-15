@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from .models import Product, Category, Brand, ProductReview
 from .forms import ProductForm, ProductReviewForm
 
+from django.db.models import Avg
 from django.db.models.functions import Lower
 from django.db.models import Q
 
@@ -79,14 +80,16 @@ def product_detail(request, product_id):
     related_products = Product.objects.filter(category__name=product_category)
     review_form = ProductReviewForm()
 
-    # Product reviews
+    # Product reviews and average
     reviews = ProductReview.objects.filter(product=product)
+    avg_reviews = reviews.aggregate(avg_rating=Avg('review_rating'))
 
     context = {
         'product': product,
         'related_products': related_products,
         'review_form': review_form,
         'reviews': reviews,
+        'avg_reviews': avg_reviews,
     }
 
     return render(request, 'products/product_detail.html', context)
