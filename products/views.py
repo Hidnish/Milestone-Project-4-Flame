@@ -53,10 +53,12 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, 'You did not enter any search criteria!')
+                messages.error(
+                    request, 'You did not enter any search criteria!')
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(brand__name__icontains=query) | Q(category__name__icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(
+                brand__name__icontains=query) | Q(category__name__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -108,7 +110,8 @@ def add_product(request):
             messages.success(request, 'Successfully added Product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid')
+            messages.error(
+                request, 'Failed to add product. Please ensure the form is valid')
     else:
         form = ProductForm()
 
@@ -132,7 +135,8 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to update product. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -144,6 +148,14 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    """ Delete a product from the store """
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('products'))
 
 
 def save_review(request, product_id):
@@ -158,12 +170,10 @@ def save_review(request, product_id):
         review_rating=request.POST['review_rating'],
     )
 
-    data = {
-        'user': user.username,
-        'review_text': request.POST['review_text'],
-        'review_rating': request.POST['review_rating']
-    }
+    # data = {
+    #     'user': user.username,
+    #     'review_text': request.POST['review_text'],
+    #     'review_rating': request.POST['review_rating']
+    # }
 
-    return JsonResponse({'bool': True, 'data': data})
-    # messages.success(request, 'Message successfully added!')
-    # return redirect(reverse('product_detail', args=[product.id]))
+    return JsonResponse({'bool': True})
