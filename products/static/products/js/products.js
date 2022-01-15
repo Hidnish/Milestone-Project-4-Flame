@@ -28,6 +28,7 @@ $(document).ready(function () {
             success: function (res) {
                 if (res.bool == true) {
                     $("#reset").trigger('click');
+                    $("#no-review").css('display', 'none');
 
                     // Generate review timestamp 
                     const m = new Date()

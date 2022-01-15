@@ -36,6 +36,7 @@
             </div>
         </div>
 
+        <!-- Product navigation buttons -->
         <div class="col-12 col-md-6 col-lg-5 mt-5 mt-md-0">
             <div class="card card-product-content">
                 <div class="card-header">
@@ -159,16 +160,21 @@
                         {% endif %}
                         <!-- List of reviews -->
                         <div class="review-current"></div>
-                        {% for review in reviews %}
-                        <hr>
-                        <small class="mb-3">{{review.user}} &nbsp - &nbsp {{review.date}}</small>
-                        <br>
-                        {% for star in review.review_rating|ljust:review.review_rating %}
-                        <i class="fa fa-star text-warning mb-2"></i>
-                        {% endfor %}
-                        <p>{{review.review_text}}</p>
-                        {% endfor %}
+                        {% if reviews %}
+                            {% for review in reviews %}
+                                <hr>
+                                <small class="mb-3">{{review.user}} &nbsp - &nbsp {{review.date}}</small>
+                                <br>
+                            {% for star in review.review_rating|ljust:review.review_rating %}
+                                <i class="fa fa-star text-warning mb-2"></i>
+                            {% endfor %}
+                                <p>{{review.review_text}}</p>
+                            {% endfor %}
+                        {% else %}
+                            <p id="no-review">This product has no reviews yet</p>
+                        {% endif %}
                     </div>
+
                 </div>
             </div>
         </div>
