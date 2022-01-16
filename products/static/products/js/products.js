@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
 
     // Show product info or review 
@@ -18,7 +16,6 @@ $(document).ready(function () {
     })
 
     // Save product review 
-
     $("#addForm").submit(function (e) {
         $.ajax({
             data: $(this).serialize(),
@@ -31,15 +28,18 @@ $(document).ready(function () {
                     $("#no-review").css('display', 'none');
 
                     // Generate review timestamp 
-                    const m = new Date()
-                    var date = m.toLocaleString('en-us', {
-                        month: 'short'
-                    }) + ", " + m.getDate() + ", " + m.getFullYear() + ", " + m.getHours() + ":"
-                    + (m.getMinutes() < 10 ? '0' : '') + m.getMinutes();
+                    const nDate = new Date()
+                    var date = nDate.toLocaleString('en-us', {
+                            month: 'short'
+                        }) + ", " + nDate.getDate() + ", " + nDate.getFullYear() + ", " + nDate.getHours() + ":" +
+                        (nDate.getMinutes() < 10 ? '0' : '') + nDate.getMinutes();
 
 
                     // Format data to display last review without refreshing the page
-                    var _html = `<hr><small>${res.data.user} &nbsp - &nbsp ${date}</small> <br>`;
+                    var _html = `<hr><small>${res.data.user} &nbsp - &nbsp ${date}</small>`;
+                    _html += `<small class="float-right"> 
+                    <a id="delete-review-btn" class="text-danger" href="">Delete</a>
+                    </small><br>`
                     for (var i = 1; i <= res.data.review_rating; i++) {
                         _html += '<i class="fa fa-star text-warning mb-2 mr-1"></i>';
                     }
@@ -50,11 +50,38 @@ $(document).ready(function () {
 
                     // Hide Modal
                     $("#productReview").modal('hide');
+
+                    // Update average rating
+                    $(".avg-rating").text(res.avg_reviews.avg_rating.toFixed(1))
+
+                    $('#delete-review-btn').click(function (e) {
+                        e.preventDefault();
+                        $(".review-current").empty();
+                        $('#delete-last-review')[0].click();
+                    })
                 }
             }
         });
         e.preventDefault();
     });
+
+    // Prevent delete_last_review view from refreshing the page
+    $('#delete-last-review').on('click', function (e) {
+        $.ajax({
+            data: $(this).serialize(),
+            url: $(this).attr('href'),
+            dataType: 'json',
+            success: function (res) {
+                if (res.bool == true) {
+                    console.log(res.bool);
+                    $("#no-review").css('display', 'block');
+                }
+            }
+        });
+        e.preventDefault();;
+    })
+
+
 
 
     // Slider for related products 

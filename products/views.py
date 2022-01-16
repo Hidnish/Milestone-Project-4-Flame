@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
 from .models import Product, Category, Brand, ProductReview
 from .forms import ProductForm, ProductReviewForm
@@ -84,7 +84,7 @@ def product_detail(request, product_id):
     review_form = ProductReviewForm()
 
     # Product reviews and average
-    reviews = ProductReview.objects.filter(product=product)
+    reviews = ProductReview.objects.filter(product=product).order_by('-date')
     avg_reviews = reviews.aggregate(avg_rating=Avg('review_rating'))
 
     context = {
@@ -172,6 +172,7 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
+@login_required
 def save_review(request, product_id):
     """Save product reviews and ratings"""
 
@@ -184,10 +185,32 @@ def save_review(request, product_id):
         review_rating=request.POST['review_rating'],
     )
 
-    # data = {
-    #     'user': user.username,
-    #     'review_text': request.POST['review_text'],
-    #     'review_rating': request.POST['review_rating']
-    # }
+    data = {
+        'user': user.username,
+        'review_text': request.POST['review_text'],
+        'review_rating': request.POST['review_rating']
+    }
+
+    avg_reviews = ProductReview.objects.filter(
+        product=product).aggregate(avg_rating=Avg('review_rating'))
+
+    return JsonResponse({'bool': True, 'data': data, 'avg_reviews': avg_reviews })
+
+
+@login_required
+def delete_review(request, review_id):
+    """Remove specific review"""
+
+    review = get_object_or_404(ProductReview, pk=review_id)
+    review.delete()
+    messages.success(request, 'Review deleted!')
+    return redirect(reverse('product_detail', args=[review.product.id]))
+
+
+def delete_last_review(request, product_id):
+    """Remove last review added via JS"""
+
+    last_review = ProductReview.objects.filter(product=product_id).order_by('-date')[0]
+    last_review.delete()
 
     return JsonResponse({'bool': True})
