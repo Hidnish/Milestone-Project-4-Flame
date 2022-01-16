@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 
 from .models import Product, Category, Brand, ProductReview
 from .forms import ProductForm, ProductReviewForm
@@ -207,8 +207,10 @@ def delete_review(request, review_id):
     return redirect(reverse('product_detail', args=[review.product.id]))
 
 
-def delete_last_review(request, product_id):
-    """Remove last review added via JS"""
+def delete_last_review(product_id):
+    """
+    Remove last review added via JS without refreshing page
+    """
 
     last_review = ProductReview.objects.filter(product=product_id).order_by('-date')[0]
     last_review.delete()
