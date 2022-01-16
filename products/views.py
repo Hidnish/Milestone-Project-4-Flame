@@ -177,7 +177,7 @@ def save_review(request, product_id):
 
     product = Product.objects.get(pk=product_id)
     user = request.user
-    review = ProductReview.objects.create(
+    ProductReview.objects.create(
         user=user,
         product=product,
         review_text=request.POST['review_text'],
