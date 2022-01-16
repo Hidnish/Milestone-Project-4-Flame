@@ -58,6 +58,12 @@
                     <!-- Product info -->
                     <div class="product-details-container mb-1 mt-md-1 px-2 text-white">
                         <h4 class="mb-4">{{ product.name }}</h4>
+                        {% if request.user.is_superuser %}
+                            <small class="float-right">
+                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
+                        {% endif %}
                         <p class="mb-2"><i class="fas fa-signature"></i> {{ product.brand.friendly_name }}</p>
                         <p class="mb-2"><i class="fas fa-tag"></i> {{product.category.friendly_name}}</p>
                         <hr>
@@ -162,17 +168,17 @@
                         <!-- List of reviews -->
                         <div class="review-current"></div>
                         {% if reviews %}
-                            {% for review in reviews %}
-                                <hr>
-                                <small class="mb-3">{{review.user}} &nbsp - &nbsp {{review.date}}</small>
-                                <br>
-                            {% for star in review.review_rating|ljust:review.review_rating %}
-                                <i class="fa fa-star text-warning mb-2"></i>
-                            {% endfor %}
-                                <p>{{review.review_text}}</p>
-                            {% endfor %}
+                        {% for review in reviews %}
+                        <hr>
+                        <small class="mb-3">{{review.user}} &nbsp - &nbsp {{review.date}}</small>
+                        <br>
+                        {% for star in review.review_rating|ljust:review.review_rating %}
+                        <i class="fa fa-star text-warning mb-2"></i>
+                        {% endfor %}
+                        <p>{{review.review_text}}</p>
+                        {% endfor %}
                         {% else %}
-                            <p id="no-review">This product has no reviews yet</p>
+                        <p id="no-review">This product has no reviews yet</p>
                         {% endif %}
                     </div>
 
