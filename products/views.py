@@ -207,7 +207,7 @@ def delete_review(request, review_id):
     return redirect(reverse('product_detail', args=[review.product.id]))
 
 
-def delete_last_review(product_id):
+def delete_last_review(request, product_id):
     """
     Remove last review added via JS without refreshing page
     """
