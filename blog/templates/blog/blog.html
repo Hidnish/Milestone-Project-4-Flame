@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<style type="text/css">
+    .blog-image-container {
+        height: 25rem;
+        width: 100%;
+        position: relative;
+    }
+
+    .blog-image-container img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        opacity: 0.7;
+    }
+
+    .blog-image-container img:hover {
+        opacity: 1;
+    }
+
+    .overlay-blog {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-radius: 0 0 10px 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+</style>
+{% endblock %}
+
+{% block page_header %}
+<div class="container h-20">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="loader"></div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col">
+            <h3 class="mb-2 text-white">The &nbsp<span class="logo-font display-4">Flame &nbsp</span>Blog</h3>
+        </div>
+    </div>
+    <hr class="mb-4">
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-sm-6 col-md-6 col-lg-4 pb-5">
+            <div class="blog-image-container radius-10">
+                {% if post.image %}
+                <a href="">
+                    <img class="radius-10" src="{{ post.image.url }}" alt="{{ post.title }}">
+                    <div class="bg-grey text-white rounded-top-0 overlay-blog p-3">
+                        {% if request.user.is_superuser %}
+                        <small class="float-right">
+                            <a href="">Edit</a> |
+                            <a class="text-danger" href="">Delete</a>
+                        </small>
+                        {% endif %}
+                        <h5 class="mb-0 text-white">{{ post.title }}</h5>
+                        <small class="mb-0 text-white">{{post.author}} &nbsp - &nbsp {{ post.date }}</small>
+                    </div>
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
