@@ -8,11 +8,11 @@ body {
     height: 100vh;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    background-color: rgb(27, 26, 26);
+    background-color: rgb(25, 25, 25);
 }
 
 hr {
-    background-color: rgb(60, 60, 60) !important;
+    background-color: rgb(43, 43, 43) !important;
 }
 
 .btn:focus,

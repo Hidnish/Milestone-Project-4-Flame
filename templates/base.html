@@ -204,33 +204,38 @@
                     <div class="col-12 col-sm-6 col-md-3 item separator b-sm-none">
                         <h4 class="mb-3">Shop</h4>
                         <ul>
-                            <li class="mb-1"><a href="#">Pellet Stoves</a></li>
-                            <li class="mb-1"><a href="#">Wood Stoves</a></li>
-                            <li class="mb-1"><a href="#">Gas Stoves</a></li>
+                            <li class="mb-1"><a href="{% url 'products' %}?category=pellet_stoves">Pellet Stoves</a></li>
+                            <li class="mb-1"><a href="{% url 'products' %}?category=wood_stoves">Wood Stoves</a></li>
+                            <li class="mb-1"><a href="{% url 'products' %}?category=gas_stoves">Gas Stoves</a></li>
                         </ul>
                     </div>
 
                     <div class="col-12 col-sm-6 col-md-3 item separator">
                         <h4 class="mb-3">Account</h4>
                         <ul>
-                            <li class="mb-1"><a href="#">Sign In</a></li>
-                            <li class="mb-1"><a href="#">Sign up</a></li>
                             <li class="mb-1"><a href="#">Blog</a></li>
+                            {% if not user.is_authenticated %}
+                            <li class="mb-1"><a href="{% url 'account_login' %}">Sign In</a></li>
+                            <li class="mb-1"><a href="{% url 'account_signup' %}">Sign up</a></li>
+                            {% else %}
+                            <li class="mb-1"><a href="{% url 'profile' %}">Profile</a></li>
+                            <li class="mb-1"><a href="{% url 'account_logout' %}">Sign out</a></li>
+                            {% endif %}
                         </ul>
                     </div>
 
                     <div class="col-12 col-sm-6 col-md-3 item">
                         <h4 class="mb-3">Socials</h4>
                         <ul>
-                            <li class="mb-1"><a href="#"><i class="fab fa-facebook mx-1"></i>Facebook</a></li>
-                            <li class="mb-1"><a href="#"><i class="fab fa-twitter mx-1"></i>Twitter</a></li>
-                            <li class="mb-1"><a href="#"><i class="fab fa-linkedin mx-1"></i>LinkedIn</a></li>
-                            <li class="mb-1"><a href="#"><i class="fab fa-instagram mx-1"></i>Instagram</a></li>
+                            <li class="mb-1"><a href="#" target="_blank"><i class="fab fa-facebook mx-1"></i>Facebook</a></li>
+                            <li class="mb-1"><a href="#" target="_blank"><i class="fab fa-twitter mx-1"></i>Twitter</a></li>
+                            <li class="mb-1"><a href="#" target="_blank"><i class="fab fa-linkedin mx-1"></i>LinkedIn</a></li>
+                            <li class="mb-1"><a href="#" target="_blank"><i class="fab fa-instagram mx-1"></i>Instagram</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-4">
                 <p class="copyright text-center">Flame © 2021</p>
             </div>
         </footer>
