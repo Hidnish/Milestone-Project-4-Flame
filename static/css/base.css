@@ -26,7 +26,7 @@ hr {
 }
 
 .bg-grey-medium {
-    background-color: rgb(30, 30 ,30);
+    background-color: rgb(30, 30, 30);
 }
 
 .bg-grey-light {
@@ -98,13 +98,13 @@ hr {
     z-index: 99999999 !important;
 }
 
-.font-w-100 {
-    font-weight: 100 !important;
-}
-
 .border-bottom,
 .border-top {
     border-color: rgb(60, 60, 60) !important;
+}
+
+.bt-grey {
+    border-top: 1px solid rgb(43,43,43);
 }
 
 
@@ -191,6 +191,10 @@ hr {
     -webkit-transform: scale(1.02);
 }
 
+.underline:hover {
+    text-decoration: underline;
+}
+
 .box-account {
     background-color: rgb(30, 30, 30) !important;
     border-radius: 10px !important;
@@ -252,19 +256,10 @@ hr {
 .home-container {
     height: 95vh;
 
-    /* background: linear-gradient(to top, transparent, #000000), url('/media/homepage-hero.jpg');
-    background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000)), url('/media/homepage-hero.jpg');
-    background: -o-linear-gradient(bottom, transparent, #000000), url('/media/homepage-hero.jpg'); */
     background: url('/media/homepage-hero.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-}
-
-.btn-products {
-    box-shadow: 0 0 8px rgb(129, 129, 129);
-    border-radius: 10px;
-    background-color: rgba(30, 30, 30);
 }
 
 .bg-pellet {
@@ -307,6 +302,27 @@ hr {
     -webkit-transition: all ease 0.3s;
 }
 
+/* Footer */
+
+footer,
+footer a {
+    color: white;
+}
+
+footer ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.separator {
+    border-right: 1px solid rgb(43,43,43);
+}
+
+.footer-clean a:hover {
+    transform: scale(1.02)!important;
+    color: white!important;
+}
+
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
@@ -331,7 +347,6 @@ hr {
 
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
-    /* btn */
     display: inline-block;
     font-weight: 400;
     color: #fff;
@@ -361,7 +376,6 @@ hr {
 
 .allauth-form-inner-content a {
     color: #17a2b8;
-    /* text-info */
 }
 
 .allauth-form-inner-content .btn {
@@ -389,7 +403,7 @@ input[name='q']::placeholder {
     background-clip: unset !important;
     background-color: rgb(43, 43, 43);
     color: white;
-    border: 1px solid rgb(43,43,43);
+    border: 1px solid rgb(43, 43, 43);
 }
 
 .form-control:focus {
@@ -400,11 +414,6 @@ input[name='q']::placeholder {
 input[name='q'] {
     border: none;
 }
-
-/* input.form-control:focus {
-    background-color: rgb(43, 43, 43);
-    color: white;
-} */
 
 /* Product Form */
 
@@ -488,5 +497,17 @@ input[name='q'] {
 
     .navbar-toggler {
         border: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .b-sm-none {
+        border: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .separator {
+        border-right: none;
     }
 }

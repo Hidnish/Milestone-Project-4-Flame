@@ -37,56 +37,14 @@
     <script src="https://kit.fontawesome.com/4863a75fd6.js" crossorigin="anonymous"></script>
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            // Sidenav for medium to xs screen sizes 
-            $('.navbar-toggler, .overlay').on('click', function () {
-                $('.mobileMenu, .overlay').toggleClass('open mobileMenuOpen');
-            });
-
-            // Slide effect from: https://newbedev.com/adding-a-slide-effect-to-bootstrap-dropdown
-            $('.dropdown').on('show.bs.dropdown', function () {
-                if ($(window).width() <= 992) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-                } else {
-                    $(this).find('.dropdown-menu').first().stop(false, false).fadeIn('fast');
-                }
-            });
-            // Add slideUp animation to Bootstrap dropdown when collapsing.
-            $('.dropdown').on('hide.bs.dropdown', function () {
-                if ($(window).width() <= 992) {
-                    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-                } else {
-                    $(this).find('.dropdown-menu').first().stop(true, true).fadeOut('fast');
-                }
-            })
-
-
-            $(document).scroll(function () {
-                if ($(this).scrollTop() >= $(".navbar").height()) {
-                    $(".navbar").addClass('scrolled');
-                    $(".navbar").removeClass('navbar-bg');
-                } else {
-                    $(".navbar").removeClass('scrolled');
-                    $(".navbar").addClass('navbar-bg')
-                }
-            });
-
-            // loader 
-            $(window).ready(function(){
-                $(".loader").fadeOut("slow")
-                $(".loader2").fadeOut("fast");
-            });
-        });
-    </script>
+    <!-- Custom js -->
+    <script src="{% static 'js/base.js' %}"></script>
     {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
 
-    <title>Flame {% block extra_titel %}{% endblock %}</title>
+    <title>Flame {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -106,7 +64,8 @@
                         <input class="form-control round-left bg-grey-light text-white shadow-none" type="text" name="q"
                             placeholder="Search our site">
                         <div class="input-group-append">
-                            <button class="form-control btn btn-black round-right bg-grey-light border-black search" type="submit">
+                            <button class="form-control btn btn-black round-right bg-grey-light border-black search"
+                                type="submit">
                                 <span class="icon">
                                     <i class="fas fa-search text-white"></i>
                                 </span>
@@ -117,26 +76,27 @@
                 <div class="dropdown-divider d-lg-none"></div>
                 <ul class="navbar-nav align-self-stretch">
                     <li class="nav-item px-2 px-xl-3 py-2 py-lg-0 d-md-block d-lg-none">
-                        <a class="nav-link scale" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link underline" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item dropdown px-2 px-xl-3 py-2 py-lg-0">
-                        <a class="nav-link scale dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
+                        <a class="nav-link underline dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Products
                         </a>
                         <div class="dropdown-menu radius-10" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item my-2" href="{% url 'products' %}">All Products</a>
-                            
+
                             <a class="dropdown-item my-2" href="{% url 'products' %}?category=pellet_stoves">Pellet
                                 Stoves</a>
-                            
-                            <a class="dropdown-item my-2" href="{% url 'products' %}?category=wood_stoves">Wood Stoves</a>
-                            
+
+                            <a class="dropdown-item my-2" href="{% url 'products' %}?category=wood_stoves">Wood
+                                Stoves</a>
+
                             <a class="dropdown-item my-2" href="{% url 'products' %}?category=gas_stoves">Gas Stoves</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown px-2 px-xl-3 py-2 py-lg-0">
-                        <a class="nav-link scale dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
+                        <a class="nav-link underline dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Brands
                         </a>
@@ -145,60 +105,60 @@
                             <a class="dropdown-item my-2"
                                 href="{% url 'products' %}?brand={{brand.name}}">{{brand.friendly_name}}</a>
                             {% if not forloop.last  %}
-                            
+
                             {% endif%}
                             {% endfor %}
                         </div>
                     </li>
                     <li class="nav-item px-2 px-xl-3 py-2 py-lg-0">
-                        <a class="nav-link scale" href="{% url 'home' %}">Blog</a>
+                        <a class="nav-link underline" href="{% url 'home' %}">Blog</a>
                     </li>
                     <li class="nav-item px-2 py-2 py-lg-0">
-                        <a class="nav-link scale" href="{% url 'home' %}">Contacts</a>
+                        <a class="nav-link underline" href="{% url 'home' %}">Contacts</a>
                     </li>
                 </ul>
 
             </div>
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0 box-account">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link scale" href="#" id="user-options" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="fas fa-user fa-md icon"></i></div>
-                                <p class="my-0">My Account</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu radius-10" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'add_product' %}" class="dropdown-item my-2">Product Management</a>
-                            
-                            {% endif %}
-                            <a href="{% url 'profile' %}" class="dropdown-item my-2">My Profile</a>
-                            
-                            <a href="{% url 'account_logout' %}" class="dropdown-item my-2">Sign out</a>
-                            {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item my-2">Sign Up</a>
-                            
-                            <a href="{% url 'account_login' %}" class="dropdown-item my-2">Sign In</a>
-                            {% endif %}
+            <ul class="list-inline list-unstyled text-center text-lg-right my-0 box-account">
+                <li class="list-inline-item dropdown">
+                    <a class="text-black nav-link underline" href="#" id="user-options" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center">
+                            <div><i class="fas fa-user fa-md icon"></i></div>
+                            <p class="my-0">My Account</p>
                         </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="nav-link scale" href="{% url 'view_cart' %}">
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-cart fa-md icon"></i></div>
-                                <p class="my-0">
-                                    {% if grand_total %}
-                                    <span class="text-warning font-weight-normal">€{{ grand_total|floatformat:2 }}</span>
-                                    {% else %}
-                                    €0.00
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                    </a>
+                    <div class="dropdown-menu radius-10" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <a href="{% url 'add_product' %}" class="dropdown-item my-2">Product Management</a>
+
+                        {% endif %}
+                        <a href="{% url 'profile' %}" class="dropdown-item my-2">My Profile</a>
+
+                        <a href="{% url 'account_logout' %}" class="dropdown-item my-2">Sign out</a>
+                        {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item my-2">Sign Up</a>
+
+                        <a href="{% url 'account_login' %}" class="dropdown-item my-2">Sign In</a>
+                        {% endif %}
+                    </div>
+                </li>
+                <li class="list-inline-item">
+                    <a class="nav-link underline" href="{% url 'view_cart' %}">
+                        <div class="text-center">
+                            <div><i class="fas fa-shopping-cart fa-md icon"></i></div>
+                            <p class="my-0">
+                                {% if grand_total %}
+                                <span class="text-warning font-weight-normal">€{{ grand_total|floatformat:2 }}</span>
+                                {% else %}
+                                €0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
             </div>
         </nav>
         <div class="overlay"></div>
@@ -208,17 +168,17 @@
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
-            {% with message.level as level %}
-                {% if level == 40 %}
-                    {% include 'includes/toasts/toast_error.html' %} 
-                {% elif level == 30 %}
-                    {% include 'includes/toasts/toast_warning.html' %}
-                {% elif level == 25 %}
-                    {% include 'includes/toasts/toast_success.html' %}  
-                {% else %}
-                    {% include 'includes/toasts/toast_info.html' %}
-                {% endif %}
-            {% endwith %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
         {% endfor %}
     </div>
     {% endif %}
@@ -229,10 +189,58 @@
     {% block content %}
     {% endblock %}
 
+    <div class="footer-clean bt-grey mt-5 pt-5 pb-1">
+        <footer>
+            <div class="container">
+                <div class="row justify-content-center">
+
+                    <div class="col-12 col-sm-6 col-md-3 item mb-3 separator">
+                        <h4 class="mb-3">Contact Us</h4>
+                        <i class="fas fa-phone mb-1"></i><p class="mb-1"> +46 (0)765195442</p>
+                        <i class="fas fa-at mb-1"></i><p class="mb-1">flame@example.com</p>
+                        <i class="fas fa-envelope mb-1"></i><br><a class="mb-1" href="#">Contanct us from here!</a>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-3 item separator b-sm-none">
+                        <h4 class="mb-3">Shop</h4>
+                        <ul>
+                            <li class="mb-1"><a href="#">Pellet Stoves</a></li>
+                            <li class="mb-1"><a href="#">Wood Stoves</a></li>
+                            <li class="mb-1"><a href="#">Gas Stoves</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-3 item separator">
+                        <h4 class="mb-3">Account</h4>
+                        <ul>
+                            <li class="mb-1"><a href="#">Sign In</a></li>
+                            <li class="mb-1"><a href="#">Sign up</a></li>
+                            <li class="mb-1"><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-3 item">
+                        <h4 class="mb-3">Socials</h4>
+                        <ul>
+                            <li class="mb-1"><a href="#"><i class="fab fa-facebook mx-1"></i>Facebook</a></li>
+                            <li class="mb-1"><a href="#"><i class="fab fa-twitter mx-1"></i>Twitter</a></li>
+                            <li class="mb-1"><a href="#"><i class="fab fa-linkedin mx-1"></i>LinkedIn</a></li>
+                            <li class="mb-1"><a href="#"><i class="fab fa-instagram mx-1"></i>Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-5">
+                <p class="copyright text-center">Flame © 2021</p>
+            </div>
+        </footer>
+    </div>
+
+
     {% block postload_js %}
-        <script type="text/javascript">
-            $('.toast').toast('show');
-        </script>
+    <script type="text/javascript">
+        $('.toast').toast('show');
+    </script>
     {% endblock %}
 
 </body>
