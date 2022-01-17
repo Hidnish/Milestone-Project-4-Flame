@@ -8,7 +8,7 @@
 }
 
 .profile-input-form,
-.form-control:focus {
+.form-control:not([name='q']):focus {
     background-color: rgba(255, 255, 255, 0.08);
     color: white;
     border: none;
