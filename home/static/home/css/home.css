@@ -1,7 +1,3 @@
-a:hover {
-    text-decoration: none;
-}
-
 .bg-category-name,
 .bg-punch {
     background-color: rgba(0,0,0,0.7);
@@ -12,7 +8,7 @@ a:hover {
     padding: 1rem 1rem 0.5rem;
     color: white;
     text-align: center;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 @media (max-width: 991px) {
