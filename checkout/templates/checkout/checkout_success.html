@@ -174,7 +174,7 @@
                         <p class="mb-0  font-weight-bold">Order Total</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
-                        <p class="mb-0">{{ order.order_total }}</p>
+                        <p class="mb-0">€{{ order.order_total }}</p>
                     </div>
                 </div>
 
@@ -183,16 +183,16 @@
                         <p class="mb-0  font-weight-bold">Delivery</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
-                        <p class="mb-0">{{ order.home_delivery_cost }}</p>
+                        <p class="mb-0">€{{ order.home_delivery_cost }}</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0  font-weight-bold">Grand Total</p>
+                        <p class="mb-0 font-weight-bold">Grand Total</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
-                        <p class="mb-0">{{ order.grand_total }}</p>
+                        <p class="mb-0">€{{ order.grand_total }}</p>
                     </div>
                 </div>
             </div>
@@ -202,17 +202,15 @@
         <div class="col-12 col-lg-7 text-right">
             {% if from_profile %}
                 <a href="{% url 'profile' %}" class="btn btn-black my-2">
-                    <span class="icon mr-2">
-                        <i class="fas fa-arrow-left"></i>
+                    <span class=" btn text-uppercase text-white radius-20 bg-dark-07 text-white mx-1 scale">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to profile
                     </span>
-                    <span class="text-uppercase text-white">Back to profile</span>
                 </a>
             {% else %}
                 <a href="{% url 'products' %}" class="btn btn-black my-2">
-                    <span class="icon mr-2">
-                        <i class="fas fa-gifts"></i>
+                    <span class="btn text-uppercase text-white radius-20 bg-dark-07 text-white mx-1 scale">
+                        Continue shopping
                     </span>
-                    <span class="text-uppercase text-white">Continue shopping</span>
                 </a>
             {% endif %}
         </div>
