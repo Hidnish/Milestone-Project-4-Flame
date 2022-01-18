@@ -59,7 +59,11 @@ hr {
 }
 
 .h-20 {
-    height: 20% !important;
+    height: 20%!important;
+}
+
+.mt-20 {
+    margin-top: 20vh !important;
 }
 
 .pt-10 {
