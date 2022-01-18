@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<div class="loader2"></div>
+<div class="container mt-20">
+    <div class="row mb-10">
+
+        <!-- Post image -->
+        <div class="col-12 col-md-10 offset-md-1">
+            {% if post.image %}
+            <div class="image-container post-image-container">
+                <a href="{{ post.image.url }}" target="_blank">
+                    <img class="img-fluid radius-10" src="{{ post.image.url }}" alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="img-fluid radius-10" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                </a>
+                {% endif %}
+                <div class="bg-grey text-white rounded-top-0 overlay-post p-3 text-center">
+                    <h3 class="mb-0 text-white">{{ post.title }}</h5>
+                        <p class="mb-0 text-white">{{post.author}} &nbsp - &nbsp {{ post.date }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post info -->
+        <div class="col-12 col-md-8 offset-md-2">
+            <p class="text-white mt-5">{{ post.body }}</p>
+            {% if request.user.is_superuser %}
+            <small class="float-right">
+                <a href="">Edit</a> |
+                <a class="text-danger" href="">Delete</a>
+            </small>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

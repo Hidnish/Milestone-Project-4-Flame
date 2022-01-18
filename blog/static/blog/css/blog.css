@@ -1,0 +1,41 @@
+.blog-image-container,
+.post-image-container {
+    height: 25rem;
+    width: 100%;
+    position: relative;
+}
+
+.blog-image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.post-image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.blog-image-container img:hover {
+    opacity: 1;
+}
+
+.overlay-blog {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.overlay-post {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(to bottom, transparent, #000000);
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000000));
+    background: -o-linear-gradient(top, transparent, #000000);
+}
