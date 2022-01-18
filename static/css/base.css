@@ -502,6 +502,10 @@ input[name='q'] {
     .navbar-toggler {
         border: none !important;
     }
+
+    .box-account {
+        background-color: transparent!important;
+    }
 }
 
 @media (max-width: 767px) {
