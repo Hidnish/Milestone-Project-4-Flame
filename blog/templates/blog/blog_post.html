@@ -18,11 +18,11 @@
             {% if post.image %}
             <div class="image-container post-image-container">
                 <a href="{{ post.image.url }}" target="_blank">
-                    <img class="img-fluid radius-10" src="{{ post.image.url }}" alt="{{ product.name }}">
+                    <img class="img-fluid radius-10" src="{{ post.image.url }}" alt="{{ post.title }}">
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="img-fluid radius-10" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    <img class="img-fluid radius-10" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.title }}">
                 </a>
                 {% endif %}
                 <div class="bg-grey text-white rounded-top-0 overlay-post p-3 text-center">
@@ -34,7 +34,7 @@
 
         <!-- Post info -->
         <div class="col-12 col-md-8 offset-md-2">
-            <p class="text-white mt-5">{{ post.body }}</p>
+            <p class="post-body text-white mt-5">{{ post.body }}</p>
             {% if request.user.is_superuser %}
             <small class="float-right">
                 <a href="">Edit</a> |
@@ -42,7 +42,134 @@
             </small>
             {% endif %}
         </div>
+
+
+        <!-- Post Comment section -->
+        <div class="col-12 col-md-8 offset-md-2 mt-5">
+            <div class="comment-container mb-5 mt-md-1 p-4 text-white radius-10">
+                <h4 class="my-1 mb-5">Comments
+                    {% if user.is_authenticated %}
+                    <button data-toggle="modal" data-target="#postComment" type="button"
+                        class="btn btn-sm float-right radius-20 scale text-white bg-grey-light">Add Comment</button>
+                    {% endif %}
+                </h4>
+
+                <!-- Add Review Modal -->
+                {% if user.is_authenticated %}
+                <div class="modal fade" id="postComment" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-grey-medium">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add a Comment</h5>
+                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="POST" id="addFormComment" action="{% url 'save_comment' post.id %}">
+                                    {% csrf_token %}
+                                    {{comment_form|crispy}}
+                                    <input type="reset" class="btn radius-20 bg-grey-light text-white mx-1 scale"
+                                        value="Reset" id="reset" />
+                                    <button type="submit"
+                                        class="btn radius-20 bg-dark-07 text-white mx-1 scale">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- List of comments -->
+                <div class="comment-current"></div>
+                <a id="delete-last-comment" href="{% url 'delete_last_comment' post.id %}"></a>
+                {% if comments %}
+                {% for comment in comments %}
+                <hr>
+                <small class="mb-3">{{comment.user}} &nbsp - &nbsp {{comment.date}}</small>
+                {% if comment.user == request.user or request.user.is_superuser %}
+                <small class="float-right">
+                    <a class="text-danger" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                </small>
+                {% endif %}
+                <br><br>
+                <p>{{comment.comment}}</p>
+                {% endfor %}
+                {% else %}
+                <p id="no-comment">This post has no comments yet</p>
+                {% endif %}
+
+            </div>
+        </div>
     </div>
 </div>
 
+{% endblock %}
+
+{% block corejs %}
+{{ block.super }}
+<script type="text/javascript">
+    // Save  comment 
+    $(document).ready(function() {
+    $("#addFormComment").submit(function (e) {
+        $.ajax({
+            data: $(this).serialize(),
+            method: $(this).attr('method'),
+            url: $(this).attr('action'),
+            dataType: 'json',
+            success: function (res) {
+                if (res.bool == true) {
+                    $("#reset").trigger('click');
+                    $("#no-comment").css('display', 'none');
+
+                    // Generate comment timestamp 
+                    const nDate = new Date()
+                    var date = nDate.toLocaleString('en-us', {
+                            month: 'short'
+                        }) + ", " + nDate.getDate() + ", " + nDate.getFullYear() + ", " + nDate.getHours() + ":" +
+                        (nDate.getMinutes() < 10 ? '0' : '') + nDate.getMinutes();
+
+
+                    // Format data to display last comment without refreshing the page
+                    var _html = `<hr><small>${res.data.user} &nbsp - &nbsp ${date}</small>`;
+                    _html += `<small class="float-right"> 
+                    <a id="delete-comment-btn" class="text-danger" href="">Delete</a>
+                    </small><br>`
+                    _html += `<br> <p>${res.data.comment}</p>`;
+
+                    // Prepend Data
+                    $(".comment-current").prepend(_html);
+
+                    // Hide Modal
+                    $("#postComment").modal('hide');
+
+                    $('#delete-comment-btn').click(function (e) {
+                        e.preventDefault();
+                        $(".comment-current").empty();
+                        $('#delete-last-comment')[0].click();
+                    })
+                }
+            }
+        });
+        e.preventDefault();
+    });
+
+    // Prevent delete_last_comment view from refreshing the page
+    $('#delete-last-comment').on('click', function (e) {
+        $.ajax({
+            data: $(this).serialize(),
+            url: $(this).attr('href'),
+            dataType: 'json',
+            success: function (res) {
+                if (res.bool == true) {
+                    console.log(res.bool);
+                    $("#no-comment").css('display', 'block');
+                }
+            }
+        });
+        e.preventDefault();;
+    })
+})
+</script>
 {% endblock %}

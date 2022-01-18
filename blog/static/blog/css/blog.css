@@ -39,3 +39,19 @@
     background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000000));
     background: -o-linear-gradient(top, transparent, #000000);
 }
+
+.post-body {
+    font-size: 1.2rem;
+}
+
+/* Post comments */
+
+.comment-container {
+    border: 1px solid rgb(43, 43, 43)!important;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.modal-content {
+    margin-top: 20%;
+}
