@@ -110,7 +110,7 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request, 'Successfully added Product!')
+            messages.success(request, 'Product uploaded successfully!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
@@ -121,6 +121,7 @@ def add_product(request):
     template = 'products/add_product.html'
     context = {
         'form': form,
+        "dont_show_checkout": True,
     }
 
     return render(request, template, context)
@@ -153,6 +154,7 @@ def edit_product(request, product_id):
     context = {
         'form': form,
         'product': product,
+        "dont_show_checkout": True,
     }
 
     return render(request, template, context)
@@ -168,7 +170,7 @@ def delete_product(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.success(request, 'Product deleted!')
+    messages.info(request, 'Product deleted!')
     return redirect(reverse('products'))
 
 
@@ -203,7 +205,7 @@ def delete_review(request, review_id):
 
     review = get_object_or_404(ProductReview, pk=review_id)
     review.delete()
-    messages.success(request, 'Review deleted!')
+    messages.info(request, 'Review deleted!')
     return redirect(reverse('product_detail', args=[review.product.id]))
 
 
