@@ -37,8 +37,8 @@
             <p class="post-body text-white mt-5">{{ post.body }}</p>
             {% if request.user.is_superuser %}
             <small class="float-right">
-                <a href="">Edit</a> |
-                <a class="text-danger" href="">Delete</a>
+                <a href="{% url 'edit_blog_post' post.id %}">Edit</a> |
+                <a class="text-danger" href="{% url 'delete_blog_post' post.id %}">Delete</a>
             </small>
             {% endif %}
         </div>

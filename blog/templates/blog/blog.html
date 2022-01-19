@@ -28,12 +28,6 @@
                         <img class="radius-10" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                     {% endif %}
                     <div class="bg-grey text-white rounded-top-0 overlay-blog p-3">
-                        {% if request.user.is_superuser %}
-                        <small class="float-right">
-                            <a href="">Edit</a> |
-                            <a class="text-danger" href="">Delete</a>
-                        </small>
-                        {% endif %}
                         <h5 class="mb-0 text-white">{{ post.title }}</h5>
                         <small class="mb-0 text-white">{{post.author}} &nbsp - &nbsp {{ post.date }}</small>
                     </div>

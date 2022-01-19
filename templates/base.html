@@ -111,7 +111,7 @@
                         </div>
                     </li>
                     <li class="nav-item px-2 px-xl-3 py-2 py-lg-0">
-                        <a class="nav-link underline" href="{% url 'home' %}">Blog</a>
+                        <a class="nav-link underline" href="{% url 'view_blog' %}">Blog</a>
                     </li>
                     <li class="nav-item px-2 py-2 py-lg-0">
                         <a class="nav-link underline" href="{% url 'home' %}">Contacts</a>
@@ -213,7 +213,7 @@
                     <div class="col-12 col-sm-6 col-md-3 item separator">
                         <h4 class="mb-3">Account</h4>
                         <ul>
-                            <li class="mb-1"><a href="#">Blog</a></li>
+                            <li class="mb-1"><a href="{% url 'view_blog' %}">Blog</a></li>
                             {% if not user.is_authenticated %}
                             <li class="mb-1"><a href="{% url 'account_login' %}">Sign In</a></li>
                             <li class="mb-1"><a href="{% url 'account_signup' %}">Sign up</a></li>
