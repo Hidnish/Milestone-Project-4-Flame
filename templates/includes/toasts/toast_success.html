@@ -12,7 +12,7 @@
                 {{ message }}
             </div>
         </div>
-        {% if grand_total and not on_profile_page %}
+        {% if grand_total and not dont_show_checkout %}
             <hr class="mt-1 mb-3">
             <p class="text-black py-1">Your Cart ({{ product_count }})</p>
             <div class="cart-notification-wrapper">

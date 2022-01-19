@@ -31,7 +31,7 @@ def profile(request):
     context = {
         'form': form,
         'orders': orders,
-        'on_profile_page': True,
+        'dont_show_checkout': True,
     }
 
     return render(request, template, context)
