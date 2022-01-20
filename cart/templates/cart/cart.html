@@ -3,26 +3,57 @@
 {% load cart_tools %}
 
 {% block page_header %}
-<div class="row mt-20">
-    <div class="col">
-        <h3 class="mb-4">Shopping Cart</h3>
-    </div>
-</div>
 {% endblock %}
 
 {% block content %}
 <div class="loader2"></div>
-<div class="container mb-2 text-white text-center">
+<div class="container mb-2 text-white text-center mt-20">
     <div class="row">
         <div class="col">
-            <h3 class="mb-4">Shopping Cart</h3>
+            <h3 class="mb-5">Shopping Cart</h3>
         </div>
     </div>
 
     <div class="row">
         <div class="col">
             {% if cart_items %}
-            <div class="table-responsive rounded">
+            <div class="d-block d-md-none">
+                <div class="row">
+                    <div class="col">
+                        {% include 'cart/cart_total.html' %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {% include 'cart/checkout_buttons.html' %}
+                        <p class="text-muted mt-5 mb-2">Check below for a summary of your cart contents</p>
+                    </div>
+                </div>
+                <hr class="w-75 mb-4">
+                {% for item in cart_items %}
+                <div class="row text-left">
+                    <div class="col-12 col-sm-6 mb-2">
+                        {% include "cart/product_image.html" %}
+                    </div>
+                    <div class="col-12 col-sm-6 mb-2">
+                        {% include "cart/product_info.html" %}
+                    </div>
+                    <div class="col-12 col-sm-6 order-sm-last">
+                        <p class="my-0">Price Each: €{{ item.product.price }}</p>
+                        <p><strong>Subtotal: </strong>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        {% include "cart/quantity_form.html" %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <hr>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="table-responsive rounded d-none d-md-block">
                 <table class="table table-sm table-borderless">
                     <!-- Cart table header -->
                     <thead class="text-white border-bottom">
@@ -39,53 +70,16 @@
                     {% for item in cart_items %}
                     <tr class='text-white {% if forloop.last %}border-bottom{% endif %}'>
                         <td class="p-3 w-25">
-                            {% if item.product.image %}
-                                <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                            {% else %}
-                                <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png">
-                            {% endif %}
+                            {% include 'cart/product_image.html' %}
                         </td>
                         <td class="py-3">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small text-muted">Product code: {{ item.product.code|upper }}</p>
+                            {% include 'cart/product_info.html' %}
                         </td>
                         <td class="py-3">
                             <p class="my-0">€{{ item.product.price }}</p>
                         </td>
                         <td class="py-3 w-25">
-                            <form class="form update-form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="input-group input-group-{{ item.item_id }}">
-                                        <!-- Add quantity -->
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm decrement-qty_{{ item.item_id }}"
-                                                data-item_id="{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-minus-circle fa-lg text-white scale"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <!-- Quantity display -->
-                                        <input
-                                            class="form-control form-control-sm qty_input id_qty_{{ item.item_id }} radius-20 text-center bg-dark-seet radius-20 text-white"
-                                            type="number" name="quantity" value="{{ item.quantity }}" min="1" max="10"
-                                            data-item_id="{{ item.item_id }}">
-                                        <!-- Remove quantity -->
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm increment-qty_{{ item.item_id }}"
-                                                data-item_id="{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-plus-circle fa-lg text-white scale"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <a class="update-link text-info float-left"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right border-danger"
-                                id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                            {% include 'cart/quantity_form.html' %}
                         </td>
                         <td class="py-3">
                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -95,26 +89,13 @@
                     <!-- Grand Total -->
                     <tr>
                         <td scope="row" colspan="5" class="pt-5 text-right text-white">
-                            <h6>Cart Total: &nbsp &nbsp &nbsp <strong>€{{ total|floatformat:2 }}</strong></h6>
-                            <h6>Home delivery: &nbsp <strong>€{{ home_delivery|floatformat:2 }}</strong></h6>
-                            <h4 class="mt-4">Grand Total: &nbsp <strong>€{{ grand_total|floatformat:2 }}</strong></h4>
+                            {% include 'cart/cart_total.html' %}
                         </td>
                     </tr>
                     <!-- Keep shopping & checkout buttons -->
                     <tr>
                         <td colspan="5" class="text-right text-white">
-                            <a href="{% url 'products' %}" class="btn btn-md mx-1 bg-dark-07 radius-30 scale">
-                                <span class="icon">
-                                    <i class="fas fa-arrow-left text-white"></i>
-                                </span>
-                                <span class="text-uppercase text-white">Keep Shopping</span>
-                            </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-md mx-1 bg-dark-07 radius-30 scale">
-                                <span class="text-uppercase text-white">Secure Checkout</span>
-                                <span class="icon">
-                                    <i class="fas fa-lock text-white"></i>
-                                </span>
-                            </a>
+                            {% include 'cart/checkout_buttons.html' %}
                         </td>
                     </tr>
                 </table>
@@ -153,9 +134,9 @@
         }
 
         $.post(url, data)
-         .done(function () {
-            location.reload();
-         })
+            .done(function () {
+                location.reload();
+            })
     })
 </script>
 {% endblock %}
