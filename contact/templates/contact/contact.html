@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container text-white mt-20">
+        <div class="row text-center">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h3 class="text-white mb-4">Contact Us</h3>
+                <h5 class="text-muted">Send us a message</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <form method="POST" action="{% url 'contact' %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="text-right">
+                        <a class="btn btn-outline-black radius-20 bg-grey-light text-white mx-1 scale" href="{% url 'home' %}">Cancel</a>
+                        <button class="btn btn-black radius-20 bg-dark-07 text-white mx-1 scale" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>  
+        </div>
+    </div>
+  
+{% endblock %}
