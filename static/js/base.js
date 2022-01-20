@@ -38,4 +38,12 @@ $(document).ready(function () {
         $(".loader").fadeOut("slow")
         $(".loader2").fadeOut("fast");
     });
+
+    // Modal to ask for action confirmation (i.e. delete)
+    $('.are-you-sure').click(function(e) {
+        e.preventDefault();
+        if (window.confirm("Are you sure you want to proceed?")) {
+            location.href = this.href;
+        }
+    });
 });

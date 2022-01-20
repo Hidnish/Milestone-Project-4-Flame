@@ -50,10 +50,10 @@
                     <div class="product-details-container mb-1 mt-md-1 px-2 text-white">
                         <h4 class="mb-4">{{ product.name }}</h4>
                         {% if request.user.is_superuser %}
-                            <small class="float-right">
-                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                            </small>
+                        <small class="float-right">
+                            <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                            <a class="text-danger are-you-sure" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </small>
                         {% endif %}
                         <p class="mb-2"><i class="fas fa-signature"></i> {{ product.brand.friendly_name }}</p>
                         <p class="mb-2"><i class="fas fa-tag"></i> {{product.category.friendly_name}}</p>
@@ -85,7 +85,7 @@
                                             <input
                                                 class="form-control qty_input id_qty_{{ product.id }} radius-20 text-center bg-dark-seet radius-20 text-white"
                                                 type="number" name="quantity" value="1" min="1" max="10"
-                                                data-item_id="{{ product.id }}"> 
+                                                data-item_id="{{ product.id }}">
                                             <!-- Remove quantity -->
                                             <div class="input-group-append">
                                                 <button class="increment-qty btn increment-qty_{{ product.id }}"
@@ -125,10 +125,8 @@
                             {% if user.is_authenticated %}
                             <button data-toggle="modal" data-target="#productReview" type="button"
                                 class="btn btn-warning btn-sm float-right radius-20 scale reviewBtn">Add Review</button>
-                            {% endif %}
                         </h5>
                         <!-- Add Review Modal -->
-                        {% if user.is_authenticated %}
                         <div class="modal fade" id="productReview" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
@@ -158,21 +156,21 @@
 
                         <!-- List of reviews -->
                         <div class="review-current"></div>
-                        <a id="delete-last-review" href="{% url 'delete_last_review' product.id %}"></a>
+                        <a id="delete-last-review are-you-sure" href="{% url 'delete_last_review' product.id %}"></a>
                         {% if reviews %}
                         {% for review in reviews %}
-                            <hr>
-                            <small class="mb-3">{{review.user}} &nbsp - &nbsp {{review.date}}</small>
-                            {% if review.user == request.user or request.user.is_superuser %}
-                            <small class="float-right">
-                                <a class="text-danger" href="{% url 'delete_review' review.id %}">Delete</a>
-                            </small>
-                            {% endif %}
-                            <br>
-                            {% for star in review.review_rating|ljust:review.review_rating %}
-                                <i class="fa fa-star text-warning mb-2"></i>
-                            {% endfor %}
-                            <p>{{review.review_text}}</p>
+                        <hr>
+                        <small class="mb-3">{{review.user}} &nbsp - &nbsp {{review.date}}</small>
+                        {% if review.user == request.user or request.user.is_superuser %}
+                        <small class="float-right">
+                            <a class="text-danger are-you-sure" href="{% url 'delete_review' review.id %}">Delete</a>
+                        </small>
+                        {% endif %}
+                        <br>
+                        {% for star in review.review_rating|ljust:review.review_rating %}
+                        <i class="fa fa-star text-warning mb-2"></i>
+                        {% endfor %}
+                        <p>{{review.review_text}}</p>
                         {% endfor %}
                         {% else %}
                         <p id="no-review">This product has no reviews yet</p>

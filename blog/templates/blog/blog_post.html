@@ -51,7 +51,7 @@
             {% if request.user.is_superuser %}
             <small class="float-right">
                 <a href="{% url 'edit_blog_post' post.id %}">Edit</a> |
-                <a class="text-danger" href="{% url 'delete_blog_post' post.id %}">Delete</a>
+                <a class="text-danger are-you-sure" href="{% url 'delete_blog_post' post.id %}">Delete</a>
             </small>
             {% endif %}
         </div>
@@ -64,11 +64,9 @@
                     {% if user.is_authenticated %}
                     <button data-toggle="modal" data-target="#postComment" type="button"
                         class="btn btn-sm float-right radius-20 scale text-white bg-grey-light">Add Comment</button>
-                    {% endif %}
                 </h4>
 
                 <!-- Add Review Modal -->
-                {% if user.is_authenticated %}
                 <div class="modal fade" id="postComment" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -96,14 +94,14 @@
 
                 <!-- List of comments -->
                 <div class="comment-current"></div>
-                <a id="delete-last-comment" href="{% url 'delete_last_comment' post.id %}"></a>
+                <a id="delete-last-comment are-you-sure" href="{% url 'delete_last_comment' post.id %}"></a>
                 {% if comments %}
                 {% for comment in comments %}
                 <hr>
                 <small class="mb-3">{{comment.user}} &nbsp - &nbsp {{comment.date}}</small>
                 {% if comment.user == request.user or request.user.is_superuser %}
                 <small class="float-right">
-                    <a class="text-danger" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                    <a class="text-danger are-you-sure" href="{% url 'delete_comment' comment.id %}">Delete</a>
                 </small>
                 {% endif %}
                 <br><br>
