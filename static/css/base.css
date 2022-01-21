@@ -107,6 +107,9 @@ hr {
     border-top: 1px solid rgb(43,43,43);
 }
 
+.no-underline:hover {
+    text-decoration: none;
+}
 
 /* Page Loader */
 
@@ -174,7 +177,7 @@ hr {
 }
 
 .t-shadow {
-    text-shadow: 0.3rem 0.3rem 0.4rem rgba(26, 26, 23, 0.8);
+    text-shadow: 0 0 0.3rem rgba(26, 26, 23, 0.8);
 }
 
 .nav-link {
@@ -201,7 +204,7 @@ hr {
 }
 
 .box-account .nav-link {
-    padding: 0.15rem 0.3rem !important;
+    padding: 0.15rem 0.5rem !important;
 }
 
 .navbar-bg {
