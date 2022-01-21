@@ -17,6 +17,21 @@
         </div>
     </div>
     <hr class="mb-4">
+
+    <!-- Add blog post -->
+    {% if user.is_superuser %}
+    <div class="row">
+        <div class="col-12">
+            <span>
+                <a href="{% url 'add_blog_post' %}" class="text-white"><i class="fas fa-plus fa-lg scale float-right"></i></a>
+            </span>
+        </div>
+    </div>
+
+    <br>
+    {% endif %}
+
+    <!-- List of blog posts -->
     <div class="row">
         {% for post in posts %}
         <div class="col-sm-6 col-md-6 col-lg-4 pb-5">
