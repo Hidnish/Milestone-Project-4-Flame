@@ -73,13 +73,15 @@ def delete_comment(request, comment_id):
     return redirect(reverse('view_blog_post', args=[comment.post.id]))
 
 
-def delete_last_comment(request, post_id):
+def delete_last_comment(request, post_id, user_id):
     """
     Remove last comment added via JS without refreshing page
     """
 
-    last_comment = Comment.objects.filter(post=post_id).order_by('-date')[0]
-    last_comment.delete()
+    comments_by_post = Comment.objects.filter(post=post_id)
+    last_comment_by_user = comments_by_post.filter(user=user_id).order_by('-date')[0]
+
+    last_comment_by_user.delete()
 
     return JsonResponse({'bool': True})
 
