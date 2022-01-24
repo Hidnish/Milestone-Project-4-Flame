@@ -156,7 +156,7 @@
 
                         <!-- List of reviews -->
                         <div class="review-current"></div>
-                        <a id="delete-last-review are-you-sure" href="{% url 'delete_last_review' product.id %}"></a>
+                        <a id="delete-last-review" href="{% url 'delete_last_review' product.id user.id %}"></a>
                         {% if reviews %}
                         {% for review in reviews %}
                         <hr>

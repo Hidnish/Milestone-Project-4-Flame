@@ -196,7 +196,9 @@ def save_review(request, product_id):
     avg_reviews = ProductReview.objects.filter(
         product=product).aggregate(avg_rating=Avg('review_rating'))
 
-    return JsonResponse({'bool': True, 'data': data, 'avg_reviews': avg_reviews })
+    return JsonResponse({'bool': True,
+                         'data': data,
+                         'avg_reviews': avg_reviews})
 
 
 @login_required
@@ -204,17 +206,28 @@ def delete_review(request, review_id):
     """Remove specific review"""
 
     review = get_object_or_404(ProductReview, pk=review_id)
-    review.delete()
-    messages.info(request, 'Review deleted!')
-    return redirect(reverse('product_detail', args=[review.product.id]))
+
+    if request.user == review.user or request.user.is_superuser:
+        review.delete()
+        messages.info(request, 'Review deleted!')
+        return redirect(reverse('product_detail', args=[review.product.id]))
+    else:
+        messages.error(
+            request,
+            "Only store owner and the reviewer can do that."
+        )
+        return redirect(reverse('product_detail', args=[review.product.id]))
 
 
-def delete_last_review(request, product_id):
+@login_required
+def delete_last_review(request, product_id, user_id):
     """
     Remove last review added via JS without refreshing page
     """
 
-    last_review = ProductReview.objects.filter(product=product_id).order_by('-date')[0]
-    last_review.delete()
+    reviews_by_product = ProductReview.objects.filter(product=product_id)
+    last_review_by_user = reviews_by_product.filter(user=user_id).order_by('-date')[0]
+
+    last_review_by_user.delete()
 
     return JsonResponse({'bool': True})
