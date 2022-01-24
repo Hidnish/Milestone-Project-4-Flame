@@ -156,24 +156,26 @@
 
                         <!-- List of reviews -->
                         <div class="review-current"></div>
+                        {% if user.is_authenticated %}
                         <a id="delete-last-review" href="{% url 'delete_last_review' product.id user.id %}"></a>
-                        {% if reviews %}
-                        {% for review in reviews %}
-                        <hr>
-                        <small class="mb-3">{{review.user}} &nbsp - &nbsp {{review.date}}</small>
-                        {% if review.user == request.user or request.user.is_superuser %}
-                        <small class="float-right">
-                            <a class="text-danger are-you-sure" href="{% url 'delete_review' review.id %}">Delete</a>
-                        </small>
                         {% endif %}
-                        <br>
-                        {% for star in review.review_rating|ljust:review.review_rating %}
-                        <i class="fa fa-star text-warning mb-2"></i>
-                        {% endfor %}
-                        <p>{{review.review_text}}</p>
-                        {% endfor %}
-                        {% else %}
-                        <p id="no-review">This product has no reviews yet</p>
+                        {% if reviews %}
+                            {% for review in reviews %}
+                            <hr>
+                            <small class="mb-3">{{review.user}} &nbsp - &nbsp {{review.date}}</small>
+                            {% if review.user == request.user or request.user.is_superuser %}
+                            <small class="float-right">
+                                <a class="text-danger are-you-sure" href="{% url 'delete_review' review.id %}">Delete</a>
+                            </small>
+                            {% endif %}
+                            <br>
+                            {% for star in review.review_rating|ljust:review.review_rating %}
+                            <i class="fa fa-star text-warning mb-2"></i>
+                            {% endfor %}
+                            <p>{{review.review_text}}</p>
+                            {% endfor %}
+                            {% else %}
+                            <p id="no-review">This product has no reviews yet</p>
                         {% endif %}
                     </div>
 

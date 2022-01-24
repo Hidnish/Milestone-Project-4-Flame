@@ -94,7 +94,9 @@
 
                 <!-- List of comments -->
                 <div class="comment-current"></div>
+                {% if user.is_authenticated %}
                 <a id="delete-last-comment" href="{% url 'delete_last_comment' post.id user.id %}"></a>
+                {% endif %}
                 {% if comments %}
                 {% for comment in comments %}
                 <hr>

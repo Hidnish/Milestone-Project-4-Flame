@@ -222,12 +222,18 @@ def delete_review(request, review_id):
 @login_required
 def delete_last_review(request, product_id, user_id):
     """
-    Remove last review added via JS without refreshing page
+    Remove last review added by specific user via JS, without refreshing page
     """
 
-    reviews_by_product = ProductReview.objects.filter(product=product_id)
-    last_review_by_user = reviews_by_product.filter(user=user_id).order_by('-date')[0]
+    last_review_by_user = ProductReview.objects.filter(
+        product=product_id, user=user_id).order_by('-date')[0]
 
-    last_review_by_user.delete()
-
-    return JsonResponse({'bool': True})
+    if request.user == last_review_by_user.user or request.user.is_superuser:
+        last_review_by_user.delete()
+        return JsonResponse({'bool': True})
+    else: 
+        messages.error(
+            request,
+            "Only store owner and the reviewer can do that."
+        )
+        return redirect(reverse('product_detail', args=[product_id]))

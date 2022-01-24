@@ -67,23 +67,37 @@ def delete_comment(request, comment_id):
     """Remove specific comment"""
 
     comment = get_object_or_404(Comment, pk=comment_id)
-    comment.delete()
-    messages.info(request, 'Review deleted!')
 
-    return redirect(reverse('view_blog_post', args=[comment.post.id]))
+    if request.user == comment.user or request.user.is_superuser:
+        comment.delete()
+        messages.info(request, 'Comment deleted!')
+        return redirect(reverse('view_blog_post', args=[comment.post.id]))
+    else:
+        messages.error(
+            request,
+            "Only store owner and the commentator can do that."
+        )
+        return redirect(reverse('view_blog_post', args=[comment.post.id]))
 
 
+@login_required
 def delete_last_comment(request, post_id, user_id):
     """
-    Remove last comment added via JS without refreshing page
+    Remove last comment added by specific user via JS, without refreshing page
     """
 
-    comments_by_post = Comment.objects.filter(post=post_id)
-    last_comment_by_user = comments_by_post.filter(user=user_id).order_by('-date')[0]
-
-    last_comment_by_user.delete()
-
-    return JsonResponse({'bool': True})
+    last_comment_by_user = Comment.objects.filter(
+        post=post_id, user=user_id).order_by('-date')[0]
+    
+    if request.user == last_comment_by_user.user or request.user.is_superuser:
+        last_comment_by_user.delete()
+        return JsonResponse({'bool': True})
+    else: 
+        messages.error(
+            request,
+            "Only store owner and the commentator can do that."
+        )
+        return redirect(reverse('view_blog_post', args=[post_id]))
 
 
 @login_required
