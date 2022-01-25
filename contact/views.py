@@ -41,6 +41,7 @@ def contact(request):
     template = "contact/contact.html"
     context = {
         "form": form,
+        "dont_show_checkout": True,
     }
 
     return render(request,
