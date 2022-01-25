@@ -20,7 +20,8 @@
             <div class="row">
                 <div class="col-12">
                     <span>
-                        <a href="{% url 'view_blog' %}" class="text-white"><i class="fas fa-chevron-left fa-lg scale float-left"></i></a>
+                        <a href="{% url 'view_blog' %}" class="text-white"><i
+                                class="fas fa-chevron-left fa-lg scale float-left"></i></a>
                     </span>
                 </div>
             </div>
@@ -60,11 +61,12 @@
         <!-- Post Comment section -->
         <div class="col-12 col-md-8 offset-md-2 mt-5">
             <div class="comment-container mb-5 mt-md-1 p-4 text-white radius-10">
-                <h4 class="my-1 mb-5">Comments
-                    {% if user.is_authenticated %}
+                <h4 class="my-1 mb-3">Comments</h4>
+                {% if user.is_authenticated %}
+                <div class="row">
                     <button id="addComment" data-toggle="modal" data-target="#postComment" type="button"
-                        class="btn btn-sm float-right radius-20 scale text-white bg-grey-light">Add Comment</button>
-                </h4>
+                        class="btn btn-sm float-right radius-20 scale text-white bg-grey-light mx-3 mb-4">Add Comment</button>
+                </div>
 
                 <!-- Add Review Modal -->
                 <div class="modal fade" id="postComment" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -90,7 +92,17 @@
                         </div>
                     </div>
                 </div>
+                {% else %}
+                <div class="row">
+                    <span class="mx-3 mb-3">
+                        <a href="{% url 'account_login' %}" class="">Sign in</a>
+                        or
+                        <a href="{% url 'account_signup' %}" class="">Sign up</a>
+                        to add comments
+                    </span>
+                </div>
                 {% endif %}
+
 
                 <!-- List of comments -->
                 <div class="comment-current"></div>
@@ -98,19 +110,19 @@
                 <a id="delete-last-comment" href="{% url 'delete_last_comment' post.id user.id %}"></a>
                 {% endif %}
                 {% if comments %}
-                {% for comment in comments %}
-                <hr>
-                <small class="mb-3">{{comment.user}} &nbsp - &nbsp {{comment.date}}</small>
-                {% if comment.user == request.user or request.user.is_superuser %}
-                <small class="float-right">
-                    <a class="text-danger are-you-sure" href="{% url 'delete_comment' comment.id %}">Delete</a>
-                </small>
-                {% endif %}
-                <br><br>
-                <p>{{comment.comment}}</p>
-                {% endfor %}
+                    {% for comment in comments %}
+                            <hr>
+                            <small class="mb-3">{{comment.user}} &nbsp - &nbsp {{comment.date}}</small>
+                        {% if comment.user == request.user or request.user.is_superuser %}
+                            <small class="float-right">
+                                <a class="text-danger are-you-sure" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                            </small>
+                        {% endif %}
+                            <br><br>
+                            <p>{{comment.comment}}</p>
+                    {% endfor %}
                 {% else %}
-                <p id="no-comment">This post has no comments yet</p>
+                    <p id="no-comment">This post has no comments yet</p>
                 {% endif %}
 
             </div>

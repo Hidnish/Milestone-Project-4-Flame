@@ -119,13 +119,15 @@
                     </div>
                     <!-- Product Review -->
                     <div class="review-container mb-5 mt-md-1 px-2 text-white">
-                        <h5 class="my-1 mb-5">Reviews - <span
-                                class="avg-rating">{{avg_reviews.avg_rating|floatformat:1}}</span>/5 <i
-                                class="fa fa-star text-warning"></i>
-                            {% if user.is_authenticated %}
-                            <button data-toggle="modal" data-target="#productReview" type="button"
-                                class="btn btn-warning btn-sm float-right radius-20 scale reviewBtn">Add Review</button>
+                        <h5 class="my-1 mb-3">Reviews - 
+                            <span class="avg-rating">{{avg_reviews.avg_rating|floatformat:1}}</span>/5 
+                            <i class="fa fa-star text-warning"></i>
                         </h5>
+                        {% if user.is_authenticated %}
+                        <div class="row">
+                            <button data-toggle="modal" data-target="#productReview" type="button"
+                                class="btn btn-warning btn-sm float-right radius-20 scale reviewBtn mx-3 mb-4">Add Review</button>
+                        </div>
                         <!-- Add Review Modal -->
                         <div class="modal fade" id="productReview" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
@@ -152,6 +154,15 @@
                                 </div>
                             </div>
                         </div>
+                        {% else %}
+                            <div class="row">
+                                <span class="mx-3 mb-3">
+                                <a href="{% url 'account_login' %}" class="">Sign in</a>
+                                    or
+                                <a href="{% url 'account_signup' %}" class="">Sign up</a>
+                                    to add reviews
+                                </span>
+                            </div>
                         {% endif %}
 
                         <!-- List of reviews -->
