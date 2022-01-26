@@ -88,11 +88,11 @@ def delete_last_comment(request, post_id, user_id):
 
     last_comment_by_user = Comment.objects.filter(
         post=post_id, user=user_id).order_by('-date')[0]
-    
+
     if request.user == last_comment_by_user.user or request.user.is_superuser:
         last_comment_by_user.delete()
         return JsonResponse({'bool': True})
-    else: 
+    else:
         messages.error(
             request,
             "Only store owner and the commentator can do that."

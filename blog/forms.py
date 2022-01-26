@@ -18,7 +18,7 @@ class BlogPostForm(forms.ModelForm):
         label="Image",
         required=True,
         widget=CustomClearableFileInput,
-        )
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -31,4 +31,3 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('comment',)
-

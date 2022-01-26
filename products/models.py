@@ -30,8 +30,10 @@ class Brand(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey('Brand', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    brand = models.ForeignKey(
+        'Brand', null=True, blank=True, on_delete=models.SET_NULL)
     code = models.CharField(max_length=100,
                             null=True,
                             blank=True)

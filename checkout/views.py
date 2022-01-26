@@ -17,7 +17,7 @@ import json
 @require_POST
 def cache_checkout_data(request):
     try:
-        # Ensure order is saved in database even during user errors 
+        # Ensure order is saved in database even during user errors
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
@@ -69,15 +69,18 @@ def checkout(request):
                     )
                     order_line_item.save()
                 except Product.DoesNotExist:
-                    messages.error(request, (
-                        'One of the products in the cart was not found in the database. '
-                        'Please call us for assistance'
-                    ))
+                    messages.error(
+                        request, ('One of the products in the cart was not found in the database. '
+                                  'Please call us for assistance'))
                     order.delete()
                     return redirect(reverse('view_cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(
+                reverse(
+                    'checkout_success',
+                    args=[
+                        order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -171,4 +174,3 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
-

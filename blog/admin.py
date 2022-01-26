@@ -10,6 +10,7 @@ class BlogPostAdmin(admin.ModelAdmin):
 
     ordering = ('-date', )
 
+
 class CommentAdmin(admin.ModelAdmin):
 
     list_display = ('post',
@@ -17,7 +18,6 @@ class CommentAdmin(admin.ModelAdmin):
                     'date',)
 
     ordering = ('-date', )
-
 
 
 admin.site.register(BlogPost, BlogPostAdmin)
