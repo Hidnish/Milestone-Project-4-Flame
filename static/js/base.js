@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // Sidenav for medium to xs screen sizes 
-    $('.navbar-toggler, .overlay').on('click', function () {
+    $('.navbar-toggler, .overlay, .close-nav').on('click', function () {
         $('.mobileMenu, .overlay').toggleClass('open mobileMenuOpen');
     });
 
