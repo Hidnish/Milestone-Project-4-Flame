@@ -41,7 +41,7 @@ class TestProductForms(TestCase):
             }
         )
         self.assertTrue(form.is_valid())
-    
+
     def test_product_form_invalid(self):
         """Testing invalid product form"""
 
@@ -56,7 +56,8 @@ class TestProductForms(TestCase):
         )
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['name'][0], 'This field is required.')
-        self.assertEqual(form.errors['description'][0], 'This field is required.')
+        self.assertEqual(form.errors['description']
+                         [0], 'This field is required.')
         self.assertEqual(form.errors['price'][0], 'This field is required.')
 
     def test_product_review_form(self):
@@ -88,5 +89,7 @@ class TestProductForms(TestCase):
             }
         )
         self.assertFalse(form.is_valid())
-        self.assertEqual(form.errors['review_rating'][0], 'This field is required.')
-        self.assertEqual(form.errors['review_text'][0], 'This field is required.')
+        self.assertEqual(form.errors['review_rating']
+                         [0], 'This field is required.')
+        self.assertEqual(form.errors['review_text']
+                         [0], 'This field is required.')

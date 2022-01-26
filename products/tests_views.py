@@ -236,7 +236,7 @@ class TestProductsViews(TestCase):
             "name": "Test edited product",
             "description": "test edited description",
             "price": 1300,
-            }
+        }
         )
         product = Product.objects.get(id=self.product.id)
         self.assertEqual(product.description, 'test edited description')
@@ -267,9 +267,3 @@ class TestProductsViews(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]),
                          'Product deleted!')
-
-
-
-
-
-    

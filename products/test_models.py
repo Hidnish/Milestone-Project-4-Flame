@@ -11,7 +11,7 @@ class TestProductsModels(TestCase):
             friendly_name="Test Category",
         )
         self.assertEqual(str(category), "test_category")
-    
+
     def test_brand_model(self):
         brand = Brand.objects.create(
             name="test_brand",
@@ -38,7 +38,7 @@ class TestProductsModels(TestCase):
             brand=brand
         )
         self.assertEqual(str(product), "Test product")
-    
+
     def test_product_review_model(self):
         product = Product.objects.create(
             name="Test Product",
