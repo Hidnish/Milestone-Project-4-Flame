@@ -2,45 +2,45 @@
 
 ## User Stories
 
-- As a Customer:
+#### As a Customer:
 
   - Website experience:
-    - I want to see what products are being sold on the website.
-    - I want to be able to navigate the website intuitively.
-    - I want to be able to contact the seller.
-    - I want to stay up to date with the latest developments in the sector.
-    - I want to be able to read and add comments on the blog posts.
+    1. I want to see what products are being sold on the website.
+    2. I want to be able to navigate the website intuitively.
+    3. I want to be able to contact the seller.
+    4. I want to stay up to date with the latest developments in the sector.
+    5. I want to be able to read and add comments on blog posts.
   
   - Searching for products:
-    - I want to see all the products the website offers.
-    - I want to be able to search by category.
-    - I want to be able to seatch by brand.
-    - I want to be able to search with a search bar.
-    - I want to be able to sort products by price, name, brand and category.
+    6. I want to see all the products the website offers.
+    7. I want to be able to search by category.
+    8. I want to be able to seatch by brand.
+    9. I want to be able to search with a search bar.
+    10. I want to be able to sort products by price, name, brand and category.
 
   - Shopping experience:
-    - I want to see the products' price and description.
-    - I want to see other users' reviews and ratings on the products.
-    - I want to be able to add my review on products.
-    - I want to be able to add products to the shopping cart.
-    - I want to be notified when I complete an operation.
-    - I want to be able to edit the content of my shopping cart.
-    - I want to be able to checkout intuitively.
-    - I want to receive confirmation of my order.
+    11. I want to see the products' price and description.
+    12. I want to see other users' reviews and ratings on the products.
+    13. I want to be able to add my review on products.
+    14. I want to be able to add products to the shopping cart.
+    15. I want to be notified when I complete an operation.
+    16. I want to be able to edit the content of my shopping cart.
+    17. I want to be able to checkout easily.
+    18. I want to receive confirmation of my order.
 
   - Account:
-    - I want to save my details to a user profile.
-    - I want to be able to see my previous order details.
+    19. I want to save my details to a user profile.
+    20. I want to be able to see my previous order details.
 
-- As the owner of the Website:
+#### As the owner of the Website:
 
-  - I want to be able to add products with ease.
-  - I want to be able to edit and delete products.
-  - I want to have access to an admin page. 
-  - I want to be able to add, edit and delete posts on the website blog.
-  - I want to be able to delete inappropriate product reviews.
-  - I want to be able to delete inappropriate blog comments.
-  - I want to be able to check contact messages that have been sent site users and mark them as read once they have been taken care of. 
+  1. I want to be able to add products with ease.
+  2. I want to be able to edit and delete products.
+  3. I want to have access to an admin page. 
+  4. I want to be able to add, edit and delete posts on the website blog.
+  5. I want to be able to delete inappropriate product reviews.
+  6. I want to be able to delete inappropriate blog comments.
+  7. I want to be able to check contact messages that have been sent site users and mark them as read once they have been taken care of. 
 
 
 ## Features
