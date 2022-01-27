@@ -102,11 +102,11 @@
                     </li>
                     <li class="nav-item dropdown px-2 px-xl-3 py-2 py-lg-0">
                         <a class="nav-link underline dropdown-toggle d-flex align-items-center" href="#"
-                            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             Brands
                         </a>
-                        <div class="dropdown-menu radius-10" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu radius-10" aria-labelledby="navbarDropdown2">
                             {% for brand in brands %}
                             <a class="dropdown-item my-2"
                                 href="{% url 'products' %}?brand={{brand.name}}">{{brand.friendly_name}}</a>
@@ -165,7 +165,6 @@
                     </a>
                 </li>
             </ul>
-            </div>
         </nav>
         <div class="overlay"></div>
 
@@ -240,13 +239,14 @@
                     <div class="col-12 col-sm-6 col-md-3 item">
                         <h4 class="mb-3">Socials</h4>
                         <ul>
-                            <li class="mb-1"><a href="#" target="_blank"><i
+                            <li class="mb-1"><a href="https://www.facebook.com/" target="_blank"><i
                                         class="fab fa-facebook mx-1"></i>Facebook</a></li>
-                            <li class="mb-1"><a href="#" target="_blank"><i class="fab fa-twitter mx-1"></i>Twitter</a>
+                            <li class="mb-1"><a href="https://www.twitter.com/" target="_blank"><i
+                                        class="fab fa-twitter mx-1"></i>Twitter</a>
                             </li>
-                            <li class="mb-1"><a href="#" target="_blank"><i
+                            <li class="mb-1"><a href="https://www.linkedin.com/" target="_blank"><i
                                         class="fab fa-linkedin mx-1"></i>LinkedIn</a></li>
-                            <li class="mb-1"><a href="#" target="_blank"><i
+                            <li class="mb-1"><a href="https://www.instagram.com/" target="_blank"><i
                                         class="fab fa-instagram mx-1"></i>Instagram</a></li>
                         </ul>
                     </div>
@@ -260,7 +260,7 @@
 
 
     {% block postload_js %}
-    <script type="text/javascript">
+    <script>
         $('.toast').toast('show');
     </script>
     {% endblock %}

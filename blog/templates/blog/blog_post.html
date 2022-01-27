@@ -40,8 +40,8 @@
                 </a>
                 {% endif %}
                 <div class="bg-grey text-white rounded-top-0 overlay-post p-3 text-center">
-                    <h3 class="mb-0 text-white">{{ post.title }}</h5>
-                        <p class="mb-0 text-white">{{post.author}} &nbsp - &nbsp {{ post.date }}</p>
+                    <h3 class="mb-0 text-white">{{ post.title }}</h3>
+                        <p class="mb-0 text-white">{{post.author}} &nbsp; - &nbsp; {{ post.date }}</p>
                 </div>
             </div>
         </div>
@@ -112,7 +112,7 @@
                 {% if comments %}
                     {% for comment in comments %}
                             <hr>
-                            <small class="mb-3">{{comment.user}} &nbsp - &nbsp {{comment.date}}</small>
+                            <small class="mb-3">{{comment.user}} &nbsp; - &nbsp; {{comment.date}}</small>
                         {% if comment.user == request.user or request.user.is_superuser %}
                             <small class="float-right">
                                 <a class="text-danger are-you-sure" href="{% url 'delete_comment' comment.id %}">Delete</a>

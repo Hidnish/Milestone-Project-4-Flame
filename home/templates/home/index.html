@@ -65,9 +65,9 @@
 <!-- Blog -->
 <div class="container-fluid">
     <h3 class="text-center text-white font-weight-normal mt-5">
-        Check the latest posts from the &nbsp
+        Check the latest posts from the &nbsp;
         <a href="{% url 'view_blog' %}" class="logo-font text-white display-4 no-underline shadow-hov">Flame</a>
-        &nbsp Blog
+        &nbsp; Blog
     </h3>
     <div class="row m-1">
         <div class="glider-contain">
@@ -105,31 +105,5 @@
 {% block postload_js%}
 {{ block.super }}
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        new Glider(document.querySelector('.glider'), {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            draggable: true,
-            dots: '.dots',
-            arrows: {
-                prev: '.glider-prev',
-                next: '.glider-next'
-            },
-            responsive: [{
-                breakpoint: 576,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                }
-            }, {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                }
-            }]
-        });
-    })
-</script>
+<script src="{% static 'home/js/home.js' %}"></script>
 {% endblock %}

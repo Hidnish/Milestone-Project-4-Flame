@@ -88,7 +88,7 @@
                     {% endfor %}
                     <!-- Grand Total -->
                     <tr>
-                        <td scope="row" colspan="5" class="pt-5 text-right text-white">
+                        <td colspan="5" class="pt-5 text-right text-white">
                             {% include 'cart/cart_total.html' %}
                         </td>
                     </tr>
@@ -117,7 +117,7 @@
 {% block postload_js %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-<script type="text/javascript">
+<script>
     // Update quantity on click 
     $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');

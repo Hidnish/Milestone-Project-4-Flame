@@ -101,14 +101,14 @@
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
 
-                <div class="submit-button text-right mt-5 mb-2">                    
-                    <a href="{% url 'view_cart' %}" class="btn btn-outline-black mx-1 text-white radius-20 bg-grey-light scale">
+                <div class="submit-button text-right mt-4 mb-2">                    
+                    <a href="{% url 'view_cart' %}" class="btn btn-outline-black mx-1 mt-2 text-white radius-20 bg-grey-light scale">
                         <span class="icon">
                             <i class="fas fa-arrow-left"></i>
                         </span>
                         <span class="text-uppercase">Adjust Cart</span>
                     </a>
-                    <button id="submit-button" class="btn btn-black mx-1 text-white radius-20 bg-dark-07 scale">
+                    <button id="submit-button" class="btn btn-black mx-1 mt-2 text-white radius-20 bg-dark-07 scale">
                         <span class="text-uppercase">Complete Order</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
@@ -126,11 +126,11 @@
     </div>
 </div>
 <div id="loading-overlay">
-    <h1 class="text-light logo-font loading-spinner">
+    <div class="text-light logo-font loading-spinner display-4">
         <span class="icon">
             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
         </span>
-    </h1>
+    </div>
 </div>
 {% endblock %}
 
@@ -138,6 +138,6 @@
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
-    <script type="text/javascript" src="{% static 'checkout/js/stripe_elements.js'%}"></script>
+    <script src="{% static 'checkout/js/stripe_elements.js'%}"></script>
 {% endblock %}
 
