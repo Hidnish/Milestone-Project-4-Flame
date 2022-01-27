@@ -23,6 +23,7 @@ class ProductForm(forms.ModelForm):
         self.fields['brand'].choices = friendly_names_brands
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'radius-10'
+        self.fields['image'].widget.attrs['class'] = 'new-image radius-10'
 
 
 # Add review form

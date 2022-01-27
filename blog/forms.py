@@ -25,6 +25,7 @@ class BlogPostForm(forms.ModelForm):
 
         self.fields["title"].widget.attrs["class"] = 'radius-10'
         self.fields["body"].widget.attrs["class"] = 'radius-10'
+        self.fields["image"].widget.attrs["class"] = ' radius-10 new-image'
 
 
 class CommentForm(forms.ModelForm):
