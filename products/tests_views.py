@@ -62,7 +62,7 @@ class TestProductsViews(TestCase):
 
     def test_all_products_views_with_search(self):
         """
-        Test the all_products view with a search query parameter 
+        Test the all_products view with a search query parameter
         """
 
         response = self.client.get(self.all_products,

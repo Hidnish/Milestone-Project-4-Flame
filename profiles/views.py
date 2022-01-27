@@ -48,7 +48,8 @@ def order_history(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
-        # allows to check in the template if the user got there via the order history view
+        # allows to check in the template if the user got
+        # there via the order history view
         'from_profile': True,
     }
 

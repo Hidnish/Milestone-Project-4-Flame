@@ -75,7 +75,7 @@ class TestProductForms(TestCase):
         )
         self.assertTrue(form.is_valid())
 
-    def test_product_review_form(self):
+    def test_product_review_form_invalid(self):
         """Testing invalid review form"""
 
         self.client.login(username='test_user', password='testpassword')
