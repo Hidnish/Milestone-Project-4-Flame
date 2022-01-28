@@ -529,4 +529,12 @@ input[name='q'] {
     .separator {
         border-right: none;
     }
+
+    .box-account p {
+        font-size: .7rem!important;
+    }
+
+    .box-account i{
+        font-size: .9rem!important;
+    }
 }
