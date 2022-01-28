@@ -211,7 +211,8 @@ a:hover {
 }
 
 .box-account {
-    background-color: rgb(30, 30, 30) !important;
+    box-shadow: 0 0 5px black;
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px !important;
 }
 
