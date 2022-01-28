@@ -380,7 +380,7 @@
     - In Development, environment variables are store in an env.py file.
 
 - User account
-    - I have used Django all auth has been used to handle securely user's account credentials.
+    - Django all auth has been used to handle securely user's accounts their credentials.
     
 ### Defensive Programming.
         
@@ -391,4 +391,33 @@
     - Conditional statements such as 'if request.user.is_superuser' or 'if user.is_authenticated' for views and templates.
 
 - A confirmation modal has been set up to ensure the user does not delete products, reviews, posts and comments accidentally.
-        
+
+
+## Code Validation 
+
+- #### CSS
+    - All the website's CSS code has been passed through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and it has passesd.
+
+- #### Javascript
+
+     - All JavaScript has been passed through the [JSHint Validator](https://jshint.com/) and it has passesd.
+
+     - <div float="left">
+        <img src="readme-images/testing/jshint.png" alt="Image of jshint" width="500px" height="180px" />
+        </div>
+
+- #### Python
+
+     - All Python code has been passed though the [PEP8 online check](http://pep8online.com/) with the following results:
+
+     - <div float="left">
+        <img src="readme-images/testing/pep8.png" alt="Image of pep8 results" width="500px" height="280px" />
+        </div>
+
+- #### Html
+
+     - My Html code was passed through the [W3C Markup Validator](https://validator.w3.org/)  and it has passed.
+
+     - <div float="left">
+        <img src="readme-images/testing/html-validation.png" alt="Image of pep8 results" width="500px" height="280px" />
+        </div>
