@@ -369,3 +369,26 @@
 | 01 | Sign In Link | Directs the user to the sign in page | ✓ |
 | 02 | Back to Login Link | Redirects the user to the sign in page | ✓ |
 | 03 | Sign Up Link | If the form is valid directs the user to the verify email address page and a confirmation email is sent to the user | ✓ |
+
+
+# Security & Defensive programming 
+
+### Security
+
+- Environment variables 
+    - In Production, environment variables are stored on Heroku's 'config variables' section. 
+    - In Development, environment variables are store in an env.py file.
+
+- User account
+    - I have used Django all auth has been used to handle securely user's account credentials.
+    
+### Defensive Programming.
+        
+- Measures have been taken and tested to ensure only authorised users can perform certain actions such as adding, deleting or editing:
+    - Products, reviews, posts and comments.
+- By means of:
+    - @login_required decorators for views.
+    - Conditional statements such as 'if request.user.is_superuser' or 'if user.is_authenticated' for views and templates.
+
+- A confirmation modal has been set up to ensure the user does not delete products, reviews, posts and comments accidentally.
+        
