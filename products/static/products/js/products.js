@@ -16,6 +16,7 @@ $(document).ready(function () {
     })
 
     // Save product review 
+    // Credit: https://www.youtube.com/watch?v=7tyMyLCjKVg&t=1267s&ab_channel=CodeArtisanLab
     $("#addForm").submit(function (e) {
         $.ajax({
             data: $(this).serialize(),
