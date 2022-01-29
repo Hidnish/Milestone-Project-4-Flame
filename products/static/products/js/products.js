@@ -7,13 +7,13 @@ $(document).ready(function () {
         $(".product-details-container").css('display', 'block');
         $(".review-container").css('display', 'none');
         $(".card-body").removeClass('card-scroll');
-    })
+    });
     $("#product-review-button").click((e) => {
         e.preventDefault();
         $(".product-details-container").css('display', 'none');
         $(".review-container").css('display', 'block');
         $(".card-body").addClass('card-scroll');
-    })
+    });
 
     // Save product review 
     // Credit: https://www.youtube.com/watch?v=7tyMyLCjKVg&t=1267s&ab_channel=CodeArtisanLab
@@ -30,7 +30,7 @@ $(document).ready(function () {
                     $(".reviewBtn").hide();
 
                     // Generate review timestamp 
-                    const nDate = new Date()
+                    const nDate = new Date();
                     var date = nDate.toLocaleString('en-us', {
                             month: 'short'
                         }) + ", " + nDate.getDate() + ", " + nDate.getFullYear() + ", " + nDate.getHours() + ":" +
@@ -41,7 +41,7 @@ $(document).ready(function () {
                     var _html = `<hr><small>${res.data.user} &nbsp - &nbsp ${date}</small>`;
                     _html += `<small class="float-right"> 
                     <a class="text-danger delete-review-btn" href="">Delete</a>
-                    </small><br>`
+                    </small><br>`;
                     for (var i = 1; i <= res.data.review_rating; i++) {
                         _html += '<i class="fa fa-star text-warning mb-2 mr-1"></i>';
                     }
@@ -54,13 +54,13 @@ $(document).ready(function () {
                     $("#productReview").modal('hide');
 
                     // Update average rating
-                    $(".avg-rating").text(res.avg_reviews.avg_rating.toFixed(1))
+                    $(".avg-rating").text(res.avg_reviews.avg_rating.toFixed(1));
 
                     $('.delete-review-btn').click(function (e) {
                         e.preventDefault();
                         $(".review-current").empty();
                         $('#delete-last-review')[0].click();
-                    })
+                    });
                 }
             }
         });
@@ -70,7 +70,7 @@ $(document).ready(function () {
 
     // Prevent delete_last_review view from refreshing the page
     $('#delete-last-review').on('click', function (e) {
-        window.confirm("Are you sure you want to proceed?")
+        window.confirm("Are you sure you want to proceed?");
         $.ajax({
             data: $(this).serialize(),
             url: $(this).attr('href'),
@@ -83,7 +83,7 @@ $(document).ready(function () {
             }
         });
         e.preventDefault();
-    })
+    });
 
 
 
@@ -118,5 +118,4 @@ $(document).ready(function () {
             }
         }]
     });
-
-})
+});

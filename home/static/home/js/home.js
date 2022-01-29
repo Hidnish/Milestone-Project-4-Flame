@@ -1,3 +1,4 @@
+// Blog posts glider 
 $(document).ready(function () {
     new Glider(document.querySelector('.glider'), {
         slidesToShow: 1,

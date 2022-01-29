@@ -13,7 +13,7 @@ $(document).ready(function () {
                     $("#addComment").hide();
 
                     // Generate comment timestamp 
-                    const nDate = new Date()
+                    const nDate = new Date();
                     var date = nDate.toLocaleString('en-us', {
                             month: 'short'
                         }) + ", " + nDate.getDate() + ", " + nDate.getFullYear() + ", " + nDate.getHours() + ":" +
@@ -24,7 +24,7 @@ $(document).ready(function () {
                     var _html = `<hr><small>${res.data.user} &nbsp - &nbsp ${date}</small>`;
                     _html += `<small class="float-right"> 
                     <a class="text-danger delete-comment-btn" href="">Delete</a>
-                    </small><br>`
+                    </small><br>`;
                     _html += `<br> <p>${res.data.comment}</p>`;
 
                     // Prepend Data
@@ -37,7 +37,7 @@ $(document).ready(function () {
                         e.preventDefault();
                         $(".comment-current").empty();
                         $('#delete-last-comment')[0].click();
-                    })
+                    });
                 }
             }
         });
@@ -58,6 +58,6 @@ $(document).ready(function () {
                 }
             }
         });
-        e.preventDefault();;
-    })
-})
+        e.preventDefault();
+    });
+});

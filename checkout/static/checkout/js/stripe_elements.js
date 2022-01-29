@@ -44,12 +44,12 @@ card.addEventListener('change', (event) => {
     } else {
         $(errorDiv).textContent = '';
     }
-})
+});
 
 
 // Handle form submission 
 
-var form = document.getElementById('payment-form')
+var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', (ev) => {
     ev.preventDefault();
@@ -67,7 +67,7 @@ form.addEventListener('submit', (ev) => {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save_info': saveInfo,
-    }
+    };
     var url = '/checkout/cache_checkout_data/';
 
     $.post(url, postData).done(function() {
@@ -124,5 +124,5 @@ form.addEventListener('submit', (ev) => {
     }).fail(function() {
         // reload page and show error in django messages
         location.reload();
-    })
-})
+    });
+});
