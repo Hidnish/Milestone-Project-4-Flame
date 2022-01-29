@@ -1,3 +1,15 @@
+# Testing 
+
+## Table of contents.
+
+- [Testing User Stories.](#testing-user-stories)
+- [Manual Testing](#manual-testing)
+- [Security and Defensive Programming](#security-and-defensive-programming)
+- [Code Validation](#code-validation)
+- [Responsiveness](#responsiveness)
+- [Accessibility](#accessibility)
+- [Issues](#issues)
+
 # Testing User Stories
 
 #### As a Customer:
@@ -393,31 +405,77 @@
 - A confirmation modal has been set up to ensure the user does not delete products, reviews, posts and comments accidentally.
 
 
-## Code Validation 
+# Code Validation 
 
 - #### CSS
-    - All the website's CSS code has been passed through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and it has passesd.
+
+    - All the website's CSS code has been passed through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and it has passesd without errors.
 
 - #### Javascript
 
-     - All JavaScript has been passed through the [JSHint Validator](https://jshint.com/) and it has passesd.
-
-     - <div float="left">
-        <img src="readme-images/testing/jshint.png" alt="Image of jshint" width="500px" height="180px" />
-        </div>
+     - All JavaScript has been passed through the [JSHint Validator](https://jshint.com/) and it has passesd without errors.
 
 - #### Python
 
      - All Python code has been passed though the [PEP8 online check](http://pep8online.com/) with the following results:
 
-     - <div float="left">
-        <img src="readme-images/testing/pep8.png" alt="Image of pep8 results" width="500px" height="280px" />
-        </div>
 
-- #### Html
+- #### HTML
 
-     - My Html code was passed through the [W3C Markup Validator](https://validator.w3.org/)  and it has passed.
+     - My Html code was passed through the [W3C Markup Validator](https://validator.w3.org/) and it has passed  withouterrors.
 
-     - <div float="left">
-        <img src="readme-images/testing/html-validation.png" alt="Image of pep8 results" width="500px" height="280px" />
-        </div>
+
+# Responsiveness
+
+- The application responsiveness have been tested using:
+    - Google Chrome Developer Tools throughout the development of the project.
+    - [Responsinator](http://www.responsinator.com/?url=https%3A%2F%2Fmilestone-project-4-flame.herokuapp.com)
+
+- The application has been manually tested for responsiveness on the following devices:
+    - MacBook Air (13-inch)
+    - Iphone 8
+
+- The application has also been tested on the following browsers to ensure compatibility:
+    - Google chrome
+    - Safari
+    - Opera
+    - Microsoft edge
+    - Firefox
+
+# Accessibility
+
+- The site has been tested for Accessibility using Google's Lighthouse.
+- When testing I made several changes to heading elements to improve the Accessibility.
+- I have also ensured that all images have alt text attributes.
+- All icons have been aria-labelled and include text descriptions for screenreaders only.
+- Upon testing in lighthouse, I have received scores of 98% to 100% across the site.
+
+
+# Issues 
+
+## Solved issues 
+
+- I have used the jQuery’s $.ajax method for allowing users to add a product review without refreshing the page. 
+This has been possible by creating a temporary review in javascript that would be substituted by the “real” one (the one stored in the database) after reloading the page. 
+
+    The bug I have encountered had to do with the fact that it was not possible to delete that review from the database without first refreshing the page. This is because “delete_review” view requires the review’s id as a parameter, which is created in the backend, and therefore can not be fetched from the js review. 
+
+    To solve this problem I have linked the temporary review’s delete button to a view that, instead of deleting the specific review via id, removes the last review added by the request.user to the database, which occurs be the correct one unless the user posts multiple reviews without refreshing.
+
+    I took care of this last small issue by setting up the “Add review” button to disappear once the first review is added. The button, would then reappear when the page is reloaded. 
+
+    The same thing was done in setting up the blog posts’ comments. 
+
+    Resorting to the Django API framework would have probably been a better way of handling the issue. However, due to time constraints, I have decided to consider that as a feature to be implemented in a future project.
+
+- Attempting to make a purchase amounting to more than € 9999 would cause a 500 internal server error to occur. To solve the issue, I have added a conditional statement to the checkout view to prevent the user from accessing the checkout page if the grand total in the cart exceeds the limit.  
+
+## Known Issues 
+
+- Attempting to send a payment_intent.success from Stripe throws a 500 error. This is because the test webhooks from Stripe is sent directly to the checkout/wh/ URL, causing it to never being processed by the cache_checkout_data view, as there is no real checkout ever occurring. Therefore this causes a clash between the default data sent by stripe and the data held in the 'cache_checkout_data' view. 
+
+    However, when making a purchase on the webiste (checking out) the website, a 200 response for the payment_intent.success is displayed in the Stripe dashboard. 
+
+
+
+
