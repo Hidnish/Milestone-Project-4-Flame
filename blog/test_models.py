@@ -41,4 +41,5 @@ class TestBlogModels(TestCase):
             user=self.user,
             comment="Test Comment",
         )
-        self.assertEqual(str(comment), "Comment on post: Test post by testuser")
+        self.assertEqual(str(comment),
+                         "Comment on post: Test post by testuser")

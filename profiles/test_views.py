@@ -87,3 +87,4 @@ class TestUserViews(TestCase):
                          f'This is a past confirmation for order number \
         {order.order_number}. A confirmation was sent on the order date.')
 
+

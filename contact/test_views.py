@@ -46,3 +46,4 @@ class TestContactViews(TestCase):
             "Something went wrong,\
                             Please try again")
 
+

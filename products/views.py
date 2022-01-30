@@ -181,7 +181,7 @@ def delete_product(request, product_id):
 
 
 # Code based on:
-# https://www.youtube.com/watch?v=7tyMyLCjKVg&t=1267s&ab_channel=CodeArtisanLab 
+# https://www.youtube.com/watch?v=7tyMyLCjKVg&t=1267s&ab_channel=CodeArtisanLab
 # https://www.youtube.com/watch?v=kcMfRJ7AGJY&ab_channel=CodeArtisanLab
 @login_required
 def save_review(request, product_id):
