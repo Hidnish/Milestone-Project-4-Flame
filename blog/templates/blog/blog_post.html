@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}
+Blog Post
+{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
@@ -38,7 +42,7 @@
                 {% endif %}
                 <div class="bg-grey text-white rounded-top-0 overlay-post p-3 text-center">
                     <h3 class="mb-0 text-white">{{ post.title }}</h3>
-                        <p class="mb-0 text-white">{{post.author}} &nbsp; - &nbsp; {{ post.date }}</p>
+                    <p class="mb-0 text-white">{{post.author}} &nbsp; - &nbsp; {{ post.date }}</p>
                 </div>
             </div>
         </div>
@@ -62,7 +66,8 @@
                 {% if user.is_authenticated %}
                 <div class="row">
                     <button id="addComment" data-toggle="modal" data-target="#postComment" type="button"
-                        class="btn btn-sm float-right radius-20 scale text-white bg-grey-light mx-3 mb-4">Add Comment</button>
+                        class="btn btn-sm float-right radius-20 scale text-white bg-grey-light mx-3 mb-4">Add
+                        Comment</button>
                 </div>
 
                 <!-- Add Review Modal -->
@@ -107,19 +112,19 @@
                 <a id="delete-last-comment" href="{% url 'delete_last_comment' post.id user.id %}"></a>
                 {% endif %}
                 {% if comments %}
-                    {% for comment in comments %}
-                            <hr>
-                            <small class="mb-3">{{comment.user}} &nbsp; - &nbsp; {{comment.date}}</small>
-                        {% if comment.user == request.user or request.user.is_superuser %}
-                            <small class="float-right">
-                                <a class="text-danger are-you-sure" href="{% url 'delete_comment' comment.id %}">Delete</a>
-                            </small>
-                        {% endif %}
-                            <br><br>
-                            <p>{{comment.comment}}</p>
-                    {% endfor %}
+                {% for comment in comments %}
+                <hr>
+                <small class="mb-3">{{comment.user}} &nbsp; - &nbsp; {{comment.date}}</small>
+                {% if comment.user == request.user or request.user.is_superuser %}
+                <small class="float-right">
+                    <a class="text-danger are-you-sure" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                </small>
+                {% endif %}
+                <br><br>
+                <p>{{comment.comment}}</p>
+                {% endfor %}
                 {% else %}
-                    <p id="no-comment">This post has no comments yet</p>
+                <p id="no-comment">This post has no comments yet</p>
                 {% endif %}
 
             </div>

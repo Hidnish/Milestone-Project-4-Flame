@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_title %}
+Checkout Success
+{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
@@ -18,6 +22,7 @@
         </div>
     </div>
 
+    <!-- Order summary -->
     <div class="row">
         <div class="col-12 col-lg-7">
             <div class="order-confirmation-wrapper text-left p-4 bg-grey-light radius-10">
@@ -189,6 +194,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Back to profile/shopping button-->
     <div class="row">
         <div class="col-12 col-lg-7 text-right">
             {% if from_profile %}

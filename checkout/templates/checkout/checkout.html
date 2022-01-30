@@ -2,6 +2,10 @@
 {% load static %}
 {% load cart_tools %}
 
+{% block extra_title %}
+Checkout
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
@@ -15,6 +19,7 @@
         </div>
     </div>
 
+    <!-- Purchase summary -->
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last mb-5">
             <p class="text-muted">Order Summary ({{ product_count }})</p>
@@ -60,6 +65,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- Checkout form -->
         <div class="col-12 col-lg-6">
             <p class="text-muted">Please fill out the form below to complete the order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">

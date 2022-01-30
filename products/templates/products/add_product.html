@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}
+Add Product
+{% endblock %}
+
 {% block corecss %}
 {{ block.super}}
 <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
