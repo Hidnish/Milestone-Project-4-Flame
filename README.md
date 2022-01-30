@@ -487,7 +487,7 @@ To test the Stripe payment function when making purchases, use the following det
 
 # Testing
 
-- The testing section for this site is located at the following link.
+- The testing section for this site is located at the following link:
     - [Testing file](TESTING.md)
 
 
