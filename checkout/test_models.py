@@ -37,6 +37,6 @@ class TestOrderModels(TestCase):
 
         self.assertEqual(
             str(order_line_item),
-            f'Product code: {self.product.code} on order \
-               {self.order.order_number}'
+            f'Product code: {product.code} on order \
+                 {order.order_number}'
         )

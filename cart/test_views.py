@@ -58,7 +58,8 @@ class TestCartViews(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]),
-                         f'Updated {self.item.name} quantity to 4')
+                         f'Updated {self.item.name} quantity \
+                                    to 4')
 
     def test_adjust_cart(self):
         """
@@ -71,7 +72,8 @@ class TestCartViews(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]),
-                         f'Updated {self.item.name} quantity to 4')
+                         f'Updated {self.item.name} quantity \
+                                    to 4')
         response = self.client.post(self.view_cart)
         context = response.context
         self.assertEqual(context["cart_items"][0]["quantity"], 4)

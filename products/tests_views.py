@@ -257,7 +257,7 @@ class TestProductsViews(TestCase):
         self.assertEqual(str(messages[0]),
                          'Sorry, only store owners can do that')
 
-    def test_delete_post_superuser_GET(self):
+    def test_delete_product_superuser_GET(self):
         """ Test delete_product view GET functionality if a superuser """
 
         self.client.login(
