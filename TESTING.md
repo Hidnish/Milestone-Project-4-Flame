@@ -42,7 +42,7 @@
 
     2. I want to be able to navigate the website intuitively.
 
-    - The navbar and footer provide the user with all the links necessary to access the main sections of the webiste:
+    - The navbar and footer provide the user with all the links necessary to access the main sections of the website:
         - Home page
         - Products catalogue 
         - Blog
