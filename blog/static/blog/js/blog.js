@@ -1,4 +1,4 @@
-// Save  comment 
+// Save comment: based on code used for products review (credited in README.md)
 $(document).ready(function () {
     $("#addFormComment").submit(function (e) {
         $.ajax({

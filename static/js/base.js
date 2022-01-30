@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-    // Sidenav for medium to xs screen sizes 
+    // Sidenav for xs to medium screen sizes from: https://github.com/frontendfunn/bootstrap-4-sidebar
     $('.navbar-toggler, .overlay, .close-nav').on('click', function () {
         $('.mobileMenu, .overlay').toggleClass('open mobileMenuOpen');
     });
 
-    // Slide effect from: https://newbedev.com/adding-a-slide-effect-to-bootstrap-dropdown
+    // Dropdown slide effect from: https://newbedev.com/adding-a-slide-effect-to-bootstrap-dropdown
     $('.dropdown').on('show.bs.dropdown', function () {
         if ($(window).width() <= 992) {
             $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
@@ -22,7 +22,7 @@ $(document).ready(function () {
         }
     })
 
-
+    // 
     $(document).scroll(function () {
         if ($(this).scrollTop() >= $(".navbar").height()) {
             $(".navbar").addClass('scrolled');
@@ -33,7 +33,7 @@ $(document).ready(function () {
         }
     });
 
-    // loader 
+    // Page Loader 
     $(window).ready(function () {
         $(".loader").fadeOut("slow")
         $(".loader2").fadeOut("fast");
