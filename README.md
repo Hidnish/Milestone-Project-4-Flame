@@ -1,24 +1,85 @@
+<h1 align="center">Flame - Milestone Project 4</h1>
+
+![Mock-Up](readme-images/main/mockup.png)
+
+View the repository on GitHub [here](https://github.com/Hidnish/Milestone-Project-4-Flame)
+
+View the live site [here](https://milestone-project-4-flame.herokuapp.com/)
+
+# Overview
+
+Flame is a fictitious e-commerce website that offers home's heating equipment. This full stack application has been created using the Django framework and was written in HTML, CSS, Javascript and Python. 
+
+Users visiting the site would be able to browse through all products available based on category (pellet, wood and gas stoves) and brand, read and comment on blog posts uploaded by the site administrator, register for an account, write product reviews and contact the company via message. The website is also featured with a payments system using Stripe.
+
+The app administrator is enabled to use CRUD functionality to manage products and blog posts, in addition to having access to the Django's admin section and the database. 
+
+This website is for educational purposes only. Therefore, the Stripe's credit card payment functionality is not set up to accept real payments. Please do not enter any personal credit/debit card numbers while using the site. 
+
+To test the Stripe payment function when making purchases, use the following details: 
+- Card Number: 4242 4242 4242 4242
+- Date: Any future date
+- CVV: Any number
+
+<br>
+
+# Overview
+
+- [User experience](#user-experience)
+  * [User Stories](#user-stories)
+  * [WireFrames](#wireframes)
+  * [Design](#design)
+    + [Colour scheme](#colour-scheme)
+    + [Typography](#typography)
+    + [Images](#images)
+    + [Icons](#icons)
+- [Features](#features)
+  * [Current Features](#current-features)
+  * [Future Prospects](#future-prospects)
+- [Database](#database)
+- [Technologies Used](#technologies-used)
+  * [Languages](#languages-used)
+  * [Libraries & Integrations](#frameworks-libraries-and-programs)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  * [Set up project locally](#set-up-project-locally)
+  * [Deploy to Heroku](#deploy-to-heroku)
+  * [AWS Static files storage](#aws-static-files-storage)
+  * [Connect Stripe to Heroku](#connect-stripe-to-heroku)
+- [Credits](#credits)
+  * [Code](#code)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgements](#acknowledgements)
+
 # User experience
 
 ## User Stories
 
 #### As a Customer:
 
-  - Website experience:
+- Website experience:
+
     1. I want to see what products are being sold on the website.
     2. I want to be able to navigate the website intuitively.
     3. I want to be able to contact the seller.
     4. I want to stay up to date with the latest developments in the sector.
     5. I want to be able to read and add comments on blog posts.
-  
-  - Searching for products:
+
+    <br>
+
+- Searching for products:
+
     6. I want to see all the products the website offers.
     7. I want to be able to search by category.
     8. I want to be able to seatch by brand.
     9. I want to be able to search with a search bar.
     10. I want to be able to sort products by price, name, brand and category.
 
-  - Shopping experience:
+    <br> 
+
+- Shopping experience:
+
     11. I want to see the products' price and description.
     12. I want to see other users' reviews and ratings on the products.
     13. I want to be able to add my review on products.
@@ -28,9 +89,14 @@
     17. I want to be able to checkout easily.
     18. I want to receive confirmation of my order.
 
-  - Account:
+    <br>
+
+- Account:
+
     19. I want to save my details to a user profile.
     20. I want to be able to see my previous order details.
+
+    <br>
 
 #### As the owner of the Website:
 
@@ -42,8 +108,47 @@
   6. I want to be able to delete inappropriate blog comments.
   7. I want to be able to check contact messages that have been sent site users and mark them as read once they have been taken care of. 
 
+  <br>
 
-## Features
+## Wireframes <-------------------------->
+
+## Design
+
+#### Colour Scheme
+
+- To give the website a clean and easy-to-read look, different shades of dark grey were chosen as the main color scheme for the application's backgrounds. 
+
+- White and light grey are the main colors used for the text throught the website, except for:
+    - 'delete' links: ![#FF5252'](https://via.placeholder.com/15/FF5252'/000000?text=+) `#FF5252`
+    - 'edit' links: ![#1976D2](https://via.placeholder.com/15/1976D2/000000?text=+) `#1976D2`
+    - Anchor tags (excluding navbar links and footer links): ![#2196F3](https://via.placeholder.com/15/2196F3/000000?text=+) `#2196F3`
+
+![Colour Scheme](readme-images/main/color-scheme.png)
+
+#### Typography
+
+- I used 'Mrs Saint Delafield' as the font for the logo, as a result of its elegance and resemblance to the shape of a flame.
+- For the rest of the text on the website, I have used Rotobo, which is easy to read and gives the website a clean and modern appearance. 
+
+#### Imagery
+
+- The products sold on this webiste are based on real products sold by various retailers. For the most part product images have come from [Edilkamin](https://www.edilkamin.com/en/pellet-burning-stove) and other online retailers (credited in the credits section).
+
+- The hero image on the home page has been chosen to the give the site a cozy and comforting appearance. Product category images have been used for the products section in the home page to provide an example of what a product from a specific cateogry may look like.
+
+- Image credits can be found in the credit section of the document.
+
+#### Icons
+
+- I've made use of icons provided by FontAwesome in various sections on the site. They have been used for:
+    - Navigation, 
+    - Social media links
+    - Category and Brand tags
+    - Review stars
+    - Buttons (i.e. keep shopping, add blog post, etc. )
+
+
+# Features
 
 - #### All apps 
 
@@ -58,7 +163,12 @@
             - Sign in and sign up links (for unsigned users)
             - Product management, to add new products to the website (for superuser).
           - Link to the shopping cart
-          - <p align="center"><img src="readme-images/features/navigation.png" alt="Image of navigation menu" height="250px" width="300px"/></p>
+
+          <br>
+
+          <p align="center"><img style="max-width: 60vw" src="readme-images/features/navbar.png" alt="Image of navigation menu"></p>
+          <p align="center"><img style="max-width: 60vw" src="readme-images/features/sidenav.png" alt="Image of side navigation menu"/></p>
+    
     
     - Footer features:
         - The footer is split into different sections:
@@ -67,6 +177,10 @@
             - Account: provides links to access blog, profile and signout links (for signed in users) or sign in and sign up links (for unsigned users).
             - Socials: provides links to social medias. 
 
+            <br>
+
+            <p align="center"><img style="max-width: 60vw" src="readme-images/features/footer.png" alt="Image of footer"></p>
+
     - Toast Messages:
         - Toast message pop-ups are used throughout the site to display feedback to the users as a result of interacting with the site. These messages have a title and a specific color attached to signify different message types:
 
@@ -74,33 +188,56 @@
             - Yellow: Warning
             - Blue: Info
             - Red: Errors
+        
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/toast.png" alt="Image of toast message"></p>
     
     - If the user selects to delete a product, comment or review, a modal will show to ask for confirmation to prevent accidental deletion.
-        -  <p align="center"><img src="readme-images/features/item-delete.png" alt="Image of item page delete modal" height="180px" width="350px"/></p>
+        
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/delete-modal.png" alt="Image of modal to confirm action"></p>
 
 - #### Home App
 
     - Hero-image section features:
         - Upon opening the site the user is greeted with the main hero section that illustrate the purpuse of the website.
-            - <p align="center"><img src="readme-images/features/hero-section.png" alt="Image of hero section" height="180px" width="320px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/hero.png" alt="Image of hero section"/></p>
         
     - Product Categories section features:
         - The product categories sections with three links to access the product page filtering products by specific category.
-            - <p align="center"><img src="readme-images/features/home-categories.png" alt="Image of new items slider" height="200px" width="400px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/home-categories.png" alt="Image of links to product categories in homepage"/></p>
         
     - Blog section features:
         - Slideshow with all blog posts that users can browse through by scrolling sideways or by clicking on the right/left chevron icons.
         - The user can click on the 'Flame' logo to be led to the blog page and click on the post titles to be led to the specific blog post page.
-            - <p align="center"><img src="readme-images/features/blog-landing.png" alt="Image of newsletter section" height="200px" width="450px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/home-blog.png" alt="Image of blog section in homepage" /></p>
 
 - #### Products App
 
     - All Products page features:
         - Shows all the products available in the store 
         - The user can filter the product displayed by clicking the respective links in the navigration bar or by searching for product: name, brand, category or description though the search bar.
-            - <p align="center"><img src="readme-images/features/all-items.png" alt="Image of all items view" height="220px" width="400px"/></p>
+
+        <br>
+        
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/products.png" alt="Image of links to product categories"/></p>
+
         - Select-input in the top right corner of the page that allows users to sort through products.
-            - <p align="center"><img src="readme-images/features/sort-items.png" alt="Image of items selector" height="200px" width="400px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/sort-products.png" alt="Image of products sorter"/></p>
 
     - Product detail page features:
         - Product image 
@@ -113,22 +250,41 @@
           - Button to add a review (for signed in users) or link to sign in/ sign up for unsigned Users
           - List of reviews and ratings by users
           - Button only visible on a user's own reviews to delete them
-            -  <p align="center"><img src="readme-images/features/item-page.png" alt="Image of item page" height="200px" width="350px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/product-detail.png" alt="Image of product detail page"></p>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/product-review.png" alt="Image of product reivew section"></p>
+
         - Related products section that allows the user to browse through the related products' slideshow (in the same category of the selected product) by scrolling through or clicking on the left/right chevron arrows.
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/related-products.png" alt="Image of related products section"></p>
     
     - Adding products to the Cart:
         - The user has the option to add items to the cart from the products page by clicking on the respective button.
         - The user will then be shown a toast message showing that the product has been placed in the cart with a list of all items already present in the cart and a link to redirect to the cart page.
-        -  <p align="center"><img src="readme-images/features/add-to-cart.png" alt="Image of add to cart message" height="280px" width="420px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/toast-cart.png" alt="Image of add to cart message"/></p>
 
     - Restricted to superuser:
         - The 'all products' and 'product detail' page provides links to the edit page or to delete a product.
-            -  <p align="center"><img src="readme-images/features/superuser-item-links.png" alt="Image of item page superuser links" height="220px" width="350px"/></p>
         
         - The review section in the 'product detail' page provides buttons to delete any review 
 
-        - Via link in the 'my account' section on the navbar, the user has access to the product administration page to add items directly from the website.
-            -  <p align="center"><img src="readme-images/features/stock-control.png" alt="Image of stock control page" height="300px" width="350px"/></p>
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/superuser-products-link.png" alt="Image of product page superuser links"/></p>
+
+        - Via link in the 'my account' section on the navbar, the user has access to the product management page to add items directly from the website.
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/product-mgmt.png" alt="Image of stock control page"/></p>
 
 - #### Cart App
 
@@ -137,7 +293,10 @@
             - The user can adjust the quantity of each product, or remove it from the cart.
         - Total, delivery price, and grand total.
         - Buttons that link to checkout page (1) and back to the product page to continue shopping (2).
-            -  <p align="center"><img src="readme-images/features/cart.png" alt="Image of cart page" height="220px" width="500px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/cart.png" alt="Image of cart page"/></p>
 
 - #### Checkout app
 
@@ -150,43 +309,186 @@
             - Quantity
             - Subtotal
         - Buttons to complete checkout (1) and return to shopping cart (2)
-            -  <p align="center"><img src="readme-images/features/checkout.png" alt="Image of checkout page" height="220px" width="500px"/></p>
+
+        <br>
+        
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/checkout.png" alt="Image of checkout page"/></p>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/checkout-2.png" alt="Image of checkout page - part 2"/></p>
     
     - Order confirmation page features:
         - Once the order has been confirmed the user is directed to the order confirmation page that will display the order details and order number.
         - An email of confirmation will be sent to the user.
-            -  <p align="center"><img src="readme-images/features/order-confirmation.png" alt="Image of order confirmation" height="220px" width="500px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/order-confirmation.png" alt="Image of order confirmation" /></p>
 
 - #### Profiles app
     - Profile page features:
         - Users' shipping details to pre-fill checkout forms.
         - List with past orders. 
-            -  <p align="center"><img src="readme-images/features/previous-ref.png" alt="Image of previous order numbers" height="150px" width="500px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/previous-ref.png" alt="Image of previous order numbers"/></p>
+
         - When the users click on an order number from the profile page, they are directed to the order's detail page (same as the one created after a successful checkout).
-            -  <p align="center"><img src="readme-images/features/previous-order.png" alt="Image of review form" height="280px" width="550px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/previous-order.png" alt="Image of review form"/></p>
 
 - #### Blog app
 
     - Blog page features: 
         - The main blog page shows all the blog posts created with a link to each specific blog post.
-            - <p align="center"><img src="readme-images/features/all-posts.png" alt="Image of all blog posts"  height="320px" width="550px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/blog.png" alt="Image of all blog posts"/></p>
 
     - Blog post page features: 
         - Post with description and link to be redirected to the main blog page 
         - Comment section to which signed in users can add comments.
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/post-comments.png" alt="Image of post comment section"/></p>
     
     - Restricted to superuser:
         - The blog page provides the user with a link (a plus icon) that redirects to the form page where the superuser can add a new post.
         - The blog post page provides buttons to edit (1) and delete (2) the post. 
-            - <p align="center"><img src="readme-images/features/add-post.png" alt="Image of add post page"  height="320px" width="550px"/></p>
+
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/add-post.png" alt="Image of add post icon"/></p>
 
 - #### Contact App
 
     - Contact page features:
         - Contact form that allows users to send a message to the store owner directly from the website (with email field pre-filled for signed in users).
 
+        <br>
+
+        <p align="center"><img style="max-width: 60vw" src="readme-images/features/contact.png" alt="Image of contact message form"/></p>
+
 - ### Allauth features
     - The sign in, sign up, sign out, password reset, email confirmation and other authentication related features, have been provided by Django allauth and edited to fit with the style and functionality of the website.
+
+
+## Future Prospects 
+
+- Functionality to sort products by rating. 
+- Log in and registration via social media account. 
+- Functionality to 'save' products to a wishlist. 
+- Allow users to delete their account.
+- Allow users to subscribe to a newsletter. 
+
+
+
+# Database
+
+- The SQLite relational DBMS has been used in development to store the data for the project. 
+- PostgreSQL relational DBMS has been used in production. 
+
+## Models
+
+- Users
+  - User
+    - From Django Allauth containing the username, email, and password.
+  - UserProfile
+    - Model containing the user's details for future orders.
+
+- Products 
+  - Product
+    - Contains the information for each product item.
+  - Category
+    - The categories for the Products.
+  - Brand 
+    - The brands for the Products.
+  - Review
+    - Contains rating and text for product reviews.
+
+- Contacts
+  - Message
+    - Contains the details of the messages from the contact form.
+
+- Shopping
+  - Order
+    - Contains details of the customer's orders, delivery info and the products they've ordered.
+  - OrderlineItem
+    - Porducts in the customer's order with quantity and total.
+
+- Blog
+  - BlogPost
+    - Contains the blog post and details of its author and title.
+  - Comments
+    - Contains the comments for each post.
+
+
+## Database Schema
+
+  - The database diagram shows the fileds contained in the models and relationships between each object.
+
+    ![Database Schema](readme-images/main/database-schema.png)
+
+# Technologies Used
+
+## Languages 
+
+- [HTML](https://en.wikipedia.org/wiki/HTML5)
+- [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) 
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](https://www.python.org/)
+
+## Libraries & Integrations
+- [Django](https://www.djangoproject.com/)
+    - Used as the primary framework to build the project.
+- [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+    - Used to render the forms on the site.
+- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
+    - Used for user authentication on the site.
+- [Django Countries](https://pypi.org/project/django-countries/)
+    - Used to populate the countries select field on the order form and profile form.
+- [Coverage](https://pypi.org/project/coverage/)
+    - Used to produce a testing report.
+- [Stripe](https://stripe.com/gb)
+    - Used to handle payments.
+- [Bootstrap](https://getbootstrap.com/)
+    - Used as a framework for styling and to make the site responsive via grid system.
+- [Amazon Web Services](https://aws.amazon.com/)
+    - Used to store static files and images.
+- [SQLite](https://www.sqlite.org/index.html)
+    - Database used in development.
+- [PostgreSQL](https://www.postgresql.org/)
+    - Database used in production.
+- [Heroku](https://id.heroku.com/login)
+    - Online Cloud Platform used to deploy the live site.
+- [Gunicorn](https://gunicorn.org/)
+    - Used for deploying the project to Heroku.
+- [Fontawesome](https://fontawesome.com/)
+    - Used for icons across the website. 
+- [Google Fonts](https://fonts.google.com/)
+    - Used to import "Roboto" & "Mrs Saint Delafield" fonts used across the website. 
+- [jQuery](https://jquery.com/)
+    - Used to simplify JavaScript code. 
+- [Balsamiq](https://balsamiq.com/)
+    - Used to create the wireframes for the project. 
+- [Lucidchart](https://www.lucidchart.com) 
+    - Used to create the database schema illustration.
+- [Github](https://github.com/)
+    - Used to store the project code after being pushed from Git.
+- [Git](https://git-scm.com/) 
+    - Used for version control to commit to Git and Push to GitHub.
+- [Glider.js](https://nickpiscitelli.github.io/Glider.js/)
+    - Used to create slider to display and browse through blog posts and recommended products.
+
+
+# Testing
+
+- The testing section for this site is located at the following link.
+    - [Testing file](TESTING.md)
 
 
 # Deployment
@@ -357,7 +659,7 @@ To clone the project up locally you can follow the following steps:
         DEBUG = 'DEVELOPMENT' in os.environ
         ```
 
-## AWS - Static files storage
+## AWS Static files storage
 
 ### Create a New Bucket
 
@@ -506,3 +808,52 @@ To clone the project up locally you can follow the following steps:
     - STRIPE_WH_SECRET = Secret webhook ket from Stripe 
 
 
+# Credits
+
+## Code
+
+- [Code Institute: Boutique Ado](https://codeinstitute.net/): Code institutes Boutique Ado app provided the building blocks for the project and was used as a primary resource.
+
+- [Code Artisan Lab: Django Products Reviews](https://www.youtube.com/watch?v=7tyMyLCjKVg&t=1267s&ab_channel=CodeArtisanLab): This youtube walkthrough help me to set up the product reviews and blog comments functionalities using jquery ajax.
+
+- [Code Artisan Lab: Django Products Reviews #2](https://www.youtube.com/watch?v=7tyMyLCjKVg&t=1267s&ab_channel=CodeArtisanLab): This youtube walkthrough help me to set up the product reviews and blog comments functionalities using jquery ajax.
+
+- [frontendfunn: Side Navbar](https://github.com/frontendfunn/bootstrap-4-sidebar): The code from this repository helped me to create a side navbar for small screen sizes using boostrap 4. 
+
+- [Newbedev: Dropdown Slide](https://newbedev.com/adding-a-slide-effect-to-bootstrap-dropdown): I used code from this source to add a sliding animation to dropdown menus.
+
+- [BrianWhelanDublin: milestone-project-4](https://github.com/BrianWhelanDublin/milestone-project-4): The code from this repository has been used as a point of refenrece to perfom Django automated testing. 
+
+
+## Content
+
+- Products Info:
+    - [Edilkamin](https://www.edilkamin.com/en/pellet-burning-stove)
+    - [Piazzetta](https://www.piazzetta.com/en/)
+    - [Italia Camini](https://www.italianacamini.it/)
+    - [Invicta](https://www.invicta.fr/en/)
+
+- Blog Posts:
+    - [Fire Place Universe](https://fireplaceuniverse.com/pellet-stoves-environmentally-friendly/)
+    - [Iberdrola](https://www.iberdrola.com/sustainability/what-is-reforestation)
+    - [Palazzetti](https://palazzettigroup.com/company/italian-design/)
+
+## Media
+
+- Products Images:
+    - [Edilkamin](https://www.edilkamin.com/en/pellet-burning-stove)
+    - [Piazzetta](https://www.piazzetta.com/en/)
+    - [Italia Camini](https://www.italianacamini.it/)
+    - [Invicta](https://www.invicta.fr/en/)
+
+- Hero Image:
+    - [Sintef](https://blog.sintef.com/sintefenergy/these-simple-tips-will-help-you-reduce-your-wood-burning-stoves-environmental-footprint-with-video/)
+
+- Blog images:
+    - [Unisplash](https://unsplash.com/)
+
+## Acknowledgements
+
+- My Mentor Antonio Rodriguez for his help and support with this project.
+- Slack community for trubleshooting and FAQ.
+- The entire Code Institute staff for this incredible journey.
