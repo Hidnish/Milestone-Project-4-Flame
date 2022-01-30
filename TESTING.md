@@ -3,6 +3,7 @@
 ## Table of contents.
 
 - [Testing User Stories](#testing-user-stories)
+- [Unit Testing](#unit-testing)
 - [Manual Testing](#manual-testing)
 - [Security and Defensive Programming](#security-and-defensive-programming)
 - [Code Validation](#code-validation)
@@ -303,6 +304,21 @@
 
 <br>
 
+# Unit Testing
+
+- Models, Forms and View files throughout the website have been tested using the Django Testing framework.
+
+- Here is a final report which shows the degree of coverage from the automated testing (total: 89%):
+
+![Coverage-1](readme-images/unit-test/cov-1.png)
+![Coverage-2](readme-images/unit-test/cov-2.png)
+![Coverage-3](readme-images/unit-test/cov-3.png)
+![Coverage-4](readme-images/unit-test/cov-4.png)
+![Coverage-5](readme-images/unit-test/cov-5.png)
+![Coverage-6](readme-images/unit-test/cov-6.png)
+![Coverage-7](readme-images/unit-test/cov-7.png)
+
+<br>
 
 # Manual Testing
 
