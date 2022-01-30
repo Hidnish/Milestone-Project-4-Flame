@@ -16,7 +16,7 @@ class BlogPostForm(forms.ModelForm):
 
     image = forms.ImageField(
         label="Image",
-        required=True,
+        required=False,
         widget=CustomClearableFileInput,
     )
 
