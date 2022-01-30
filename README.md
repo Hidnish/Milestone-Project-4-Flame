@@ -35,6 +35,7 @@ To test the Stripe payment function when making purchases, use the following det
     + [Icons](#icons)
 - [Features](#features)
   * [Current Features](#current-features)
+  * [Signed In Users](#signed-in-users)
   * [Future Prospects](#future-prospects)
 - [Database](#database)
 - [Technologies Used](#technologies-used)
@@ -110,7 +111,16 @@ To test the Stripe payment function when making purchases, use the following det
 
   <br>
 
-## Wireframes <-------------------------->
+## Wireframes
+
+- The wireframes for the website have been created using Balsamiq. Check the link below to see the wireframes in .png format:
+
+  - Mobile
+    - [Wireframes: Mobile](readme-images/wireframes/flame-mobile.png)
+  - Tablet
+    - [Wireframes: Tablet](readme-images/wireframes/flame-tablet.png)
+  - Desktop
+    - [Wireframes: Desktops](readme-images/wireframes/flame-desktop.png)
 
 ## Design
 
@@ -377,6 +387,25 @@ To test the Stripe payment function when making purchases, use the following det
     - The sign in, sign up, sign out, password reset, email confirmation and other authentication related features, have been provided by Django allauth and edited to fit with the style and functionality of the website.
 
 
+## Signed In Users
+
+- This is a summary of the features available only to signed in users and/or superusers:
+
+    - Signed In users:
+        - Sign out
+        - Add and remove (only you own) product reviews 
+        - Add and remove (only you own) comments on blog posts
+        - Save shipping info on your profile
+        - Access order history 
+
+    - Superusers (in addition to the priviledges for signed in users): 
+        - Add and remove any product review
+        - Add and remove any comments on a blog posts
+        - Add, edit and delete products
+        - Add, edit and delete blog posts
+        - Access Django admin page: (which involves access to every database and allows to answer costumer messages)
+
+
 ## Future Prospects 
 
 - Functionality to sort products by rating. 
@@ -385,7 +414,7 @@ To test the Stripe payment function when making purchases, use the following det
 - Allow users to delete their account.
 - Allow users to subscribe to a newsletter. 
 
-
+<br>
 
 # Database
 
@@ -426,6 +455,7 @@ To test the Stripe payment function when making purchases, use the following det
   - Comments
     - Contains the comments for each post.
 
+<br>
 
 ## Database Schema
 
@@ -484,12 +514,14 @@ To test the Stripe payment function when making purchases, use the following det
 - [Glider.js](https://nickpiscitelli.github.io/Glider.js/)
     - Used to create slider to display and browse through blog posts and recommended products.
 
+<br>
 
 # Testing
 
 - The testing section for this site is located at the following link:
     - [Testing file](TESTING.md)
 
+<br>
 
 # Deployment
 
@@ -644,7 +676,7 @@ To clone the project up locally you can follow the following steps:
 15. Deploy to Heroku by typing the following commands into the terminal: 
     - ```
         heroku git:remote -a "heroku_app_name"
-        git push heroku master
+        git push heroku main
         ```
 16. To set up automatic deployments in Heroku when pushing code to github:
     - On the deploy tab, connect to github by searching for the repository name and clicking 'Connect'.
