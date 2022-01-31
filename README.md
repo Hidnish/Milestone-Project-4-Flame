@@ -73,7 +73,7 @@ To test the Stripe payment function when making purchases, use the following det
 
     6. I want to see all the products the website offers.
     7. I want to be able to search by category.
-    8. I want to be able to seatch by brand.
+    8. I want to be able to search by brand.
     9. I want to be able to search with a search bar.
     10. I want to be able to sort products by price, name, brand and category.
 
@@ -128,7 +128,7 @@ To test the Stripe payment function when making purchases, use the following det
 
 - To give the website a clean and easy-to-read look, different shades of dark grey were chosen as the main color scheme for the application's backgrounds. 
 
-- White and light grey are the main colors used for the text throught the website, except for:
+- White and light grey are the main colors used for the text through the website, except for:
     - 'delete' links: ![#FF5252'](https://via.placeholder.com/15/FF5252'/000000?text=+) `#FF5252`
     - 'edit' links: ![#1976D2](https://via.placeholder.com/15/1976D2/000000?text=+) `#1976D2`
     - Anchor tags (excluding navbar links and footer links): ![#2196F3](https://via.placeholder.com/15/2196F3/000000?text=+) `#2196F3`
@@ -142,7 +142,7 @@ To test the Stripe payment function when making purchases, use the following det
 
 #### Imagery
 
-- The products sold on this webiste are based on real products sold by various retailers. For the most part product images have come from [Edilkamin](https://www.edilkamin.com/en/pellet-burning-stove) and other online retailers (credited in the credits section).
+- The products sold on this website are based on real products sold by various retailers. For the most part product images have come from [Edilkamin](https://www.edilkamin.com/en/pellet-burning-stove) and other online retailers (credited in the credits section).
 
 - The hero image on the home page has been chosen to the give the site a cozy and comforting appearance. Product category images have been used for the products section in the home page to provide an example of what a product from a specific cateogry may look like.
 
@@ -165,7 +165,7 @@ To test the Stripe payment function when making purchases, use the following det
     - Interactive Navbar features:
         - The site contains the navigation section that is collapsed on smaller size screens in the form of a side navbar accessed by clicking on the hamburger icon.
         - The navbar contains:
-          - Webiste logo (which directs to the homepage) on large screen sizes and a 'home' link in the side navbar in smaller screen sizes.
+          - Website logo (which directs to the homepage) on large screen sizes and a 'home' link in the side navbar in smaller screen sizes.
           - Search bar to insert queries and look for specific products
           - Links to the products page (filtering by: category and brand), blog and contact pages
           - Links for account management including: 
@@ -237,7 +237,7 @@ To test the Stripe payment function when making purchases, use the following det
 
     - All Products page features:
         - Shows all the products available in the store 
-        - The user can filter the product displayed by clicking the respective links in the navigration bar or by searching for product: name, brand, category or description though the search bar.
+        - The user can filter the product displayed by clicking the respective links in the navigation bar or by searching for product: name, brand, category or description though the search bar.
 
         <br>
         
@@ -398,7 +398,7 @@ To test the Stripe payment function when making purchases, use the following det
         - Save shipping info on your profile
         - Access order history 
 
-    - Superusers (in addition to the priviledges for signed in users): 
+    - Superusers (in addition to the privileges for signed in users): 
         - Add and remove any product review
         - Add and remove any comments on a blog posts
         - Add, edit and delete products
@@ -447,7 +447,7 @@ To test the Stripe payment function when making purchases, use the following det
   - Order
     - Contains details of the customer's orders, delivery info and the products they've ordered.
   - OrderlineItem
-    - Porducts in the customer's order with quantity and total.
+    - Products in the customer's order with quantity and total.
 
 - Blog
   - BlogPost
@@ -459,7 +459,7 @@ To test the Stripe payment function when making purchases, use the following det
 
 ## Database Schema
 
-  - The database diagram shows the fileds contained in the models and relationships between each object.
+  - The database diagram shows the fields contained in the models and relationships between each object.
 
     ![Database Schema](readme-images/main/database-schema.png)
 
@@ -548,7 +548,7 @@ To clone the project up locally you can follow the following steps:
         pip3 install -r requirements.txt
         ```
 
-5. Create a Stripe account,if you do not have one yet, to allow online purchases in your website. 
+5. Create a Stripe account, if you do not have one yet, to allow online purchases in your website. 
 
 6. Set up the environment variables: 
     - Create an env.py file (make sure to add the file to .gitignore to avoid exposure of sensitive data) by typing the following command into the terminal:
@@ -887,5 +887,5 @@ To clone the project up locally you can follow the following steps:
 ## Acknowledgements
 
 - My Mentor Antonio Rodriguez for his help and support with this project.
-- Slack community for trubleshooting and FAQ.
+- Slack community for troubleshooting and FAQ.
 - The entire Code Institute staff for this incredible journey.
