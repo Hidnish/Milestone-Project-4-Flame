@@ -2,8 +2,6 @@
 
 ![Mock-Up](readme-images/main/mockup.png)
 
-View the repository on GitHub [here](https://github.com/Hidnish/Milestone-Project-4-Flame)
-
 View the live site [here](https://milestone-project-4-flame.herokuapp.com/)
 
 # Overview
