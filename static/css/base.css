@@ -119,6 +119,19 @@ a:hover {
     border-top: 1px solid rgb(43,43,43);
 }
 
+.b-mute {
+    border-style: solid !important;
+    border-color: rgb(100,100,100)!important;
+}
+
+.bw-1 {
+    border-width: 1px!important;
+}
+
+.bw-nol-1 {
+    border-width: 1px 1px 1px 0!important;
+}
+
 .no-underline:hover {
     text-decoration: none;
 }
@@ -210,24 +223,22 @@ a:hover {
     text-decoration: underline;
 }
 
-.box-account {
-    box-shadow: 0 0 5px black;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px !important;
+.box-account p{
+    font-size: 13px;
 }
 
 .box-account .nav-link {
     padding: 0.15rem 0.5rem !important;
 }
 
-.navbar-bg {
+/* .navbar-bg {
     background: linear-gradient(to top, transparent, #000000);
     background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000));
     background: -o-linear-gradient(bottom, transparent, #000000);
     -webkit-transition: background-color 300ms linear;
     -ms-transition: background-color 300ms linear;
     transition: background-color 300ms linear;
-}
+} */
 
 .navbar.scrolled {
     background-color: rgba(17, 16, 16, 0.97) !important;
@@ -517,6 +528,7 @@ input[name='q'] {
 
     .box-account {
         background-color: transparent!important;
+        box-shadow: none;
     }
 }
 
