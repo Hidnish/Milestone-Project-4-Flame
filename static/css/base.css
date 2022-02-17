@@ -231,14 +231,12 @@ a:hover {
     padding: 0.15rem 0.5rem !important;
 }
 
-/* .navbar-bg {
-    background: linear-gradient(to top, transparent, #000000);
-    background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#000000));
-    background: -o-linear-gradient(bottom, transparent, #000000);
+.navbar-bg {
+    background-color: transparent !important;
     -webkit-transition: background-color 300ms linear;
     -ms-transition: background-color 300ms linear;
     transition: background-color 300ms linear;
-} */
+} 
 
 .navbar.scrolled {
     background-color: rgba(17, 16, 16, 0.97) !important;
