@@ -124,11 +124,12 @@ a:hover {
     border-color: rgb(100,100,100)!important;
 }
 
-.bw-1 {
+.bw-1{
     border-width: 1px!important;
 }
 
-.bw-nol-1 {
+.bw-nol-1,
+.bw-nol-1:focus {
     border-width: 1px 1px 1px 0!important;
 }
 
