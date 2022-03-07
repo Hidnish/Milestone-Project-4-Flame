@@ -63,7 +63,7 @@
     text-shadow: 1px 2px black;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
     .bg-category-name {
         width: auto;
         display: flex;
@@ -81,9 +81,9 @@
     }
 }
 
-@media (max-width: 575px) {
+/* @media (max-width: 575px) {
     .blog-image-container{
         height: 80vw;
         width: 80vw;
     }
-}
+} */

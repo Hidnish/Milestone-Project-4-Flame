@@ -39,7 +39,7 @@ Home Page
 <!-- Products by category links -->
 <div class="container-fluid py-2">
     <div class="row h-100 d-flex justify-content-around vh-65">
-        <div class="col-12 col-lg-4 d-flex justify-content-center p-2">
+        <div class="col-12 col-md-4 d-flex justify-content-center p-2">
             <a class="bg-pellet radius-10 mb-3 h-100 w-100 d-flex justify-content-center align-items-center text-decoration-none"
                 href="{% url 'products' %}?category=pellet_stoves">
                 <div class="bg-category-name blur-6">
@@ -47,7 +47,7 @@ Home Page
                 </div>
             </a>
         </div>
-        <div class="col-12 col-lg-4 d-flex justify-content-center p-2">
+        <div class="col-12 col-md-4 d-flex justify-content-center p-2">
             <a class="bg-wood radius-10 mb-3 h-100 w-100 d-flex justify-content-center align-items-center text-decoration-none"
                 href="{% url 'products' %}?category=wood_stoves">
                 <div class="bg-category-name blur-6">
@@ -55,7 +55,7 @@ Home Page
                 </div>
             </a>
         </div>
-        <div class="col-12 col-lg-4 d-flex justify-content-center p-2">
+        <div class="col-12 col-md-4 d-flex justify-content-center p-2">
             <a class="bg-gas radius-10 mb-3 h-100 w-100 d-flex justify-content-center align-items-center text-decoration-none"
                 href="{% url 'products' %}?category=gas_stoves">
                 <div class="bg-category-name blur-6">
@@ -68,16 +68,16 @@ Home Page
 
 <!-- Blog -->
 <div class="container-fluid p-0">
-    <h3 class="text-center text-white font-weight-normal mt-5 px-5">
+    <h4 class="text-center text-white font-weight-normal mt-5 px-5 pt-5">
         Check the latest posts from the &nbsp;
         <a href="{% url 'view_blog' %}" class="logo-font text-white display-4 no-underline shadow-hov">Flame</a>
         &nbsp; Blog
-    </h3>
+    </h4>
     <div class="row m-1">
         <div class="glider-contain">
             <div class="glider">
                 {% for post in blog_posts %}
-                <div class="col-12 col-sm-6 col-lg-4">
+                <div class="col-6 col-md-4">
                     <div class="blog-image-container mx-auto">
                         {% if post.image %}
                         <img src="{{ post.image.url }}" alt="{{ post.title }}">
