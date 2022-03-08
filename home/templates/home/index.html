@@ -68,7 +68,7 @@ Home Page
 
 <!-- Blog -->
 <div class="container-fluid p-0">
-    <h4 class="text-center text-white font-weight-normal mt-5 px-5 pt-5">
+    <h4 class="text-center text-white font-weight-normal mt-5 px-5 pt-4">
         Check the latest posts from the &nbsp;
         <a href="{% url 'view_blog' %}" class="logo-font text-white display-4 no-underline shadow-hov">Flame</a>
         &nbsp; Blog
@@ -77,7 +77,7 @@ Home Page
         <div class="glider-contain">
             <div class="glider">
                 {% for post in blog_posts %}
-                <div class="col-6 col-md-4">
+                <div class="col-6 col-md-4 px-0">
                     <div class="blog-image-container mx-auto">
                         {% if post.image %}
                         <img src="{{ post.image.url }}" alt="{{ post.title }}">

@@ -1,7 +1,7 @@
 // Blog posts glider 
 $(document).ready(function () {
     new Glider(document.querySelector('.glider'), {
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
         draggable: true,
         dots: '.dots',
@@ -13,13 +13,13 @@ $(document).ready(function () {
             breakpoint: 576,
             settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
             }
         }, {
             breakpoint: 768,
             settings: {
                 slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToScroll: 1,
             }
         }]
     });
