@@ -1,1 +1,0 @@
-web: gunicorn flame.wsgi:application
