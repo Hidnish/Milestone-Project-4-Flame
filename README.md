@@ -593,7 +593,7 @@ To clone the project up locally you can follow the following steps:
         ```
 
 
-## Deploy to Heroku
+## Deploy to Heroku (Migrated to Render.com)
 
 1. Create a Heroku app: 
     - Go to [Heroku](https://www.heroku.com/) and create an account if you do not have one yet. 
